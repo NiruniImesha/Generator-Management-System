@@ -192,8 +192,6 @@ namespace GeneratorManagementSyestem.Controller
             {
                 sqlconn.Open();
             }
-            try
-            {
                 string url = "select totalDuration from generator where genNo = '"+genMod.GenNo+"'";
                 SqlCommand cmd = new SqlCommand(url, sqlconn);
                 SqlDataReader result = cmd.ExecuteReader();
@@ -204,17 +202,7 @@ namespace GeneratorManagementSyestem.Controller
                     currentDuration += DateTime.Parse(duration);
                     genMod.TotalDuration = Convert.ToString(currentDuration);
                 }
-                result.Close();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-            finally
-            {
-                sqlconn.Close();
-            }
-            
+                result.Close();                        
         }
 
         // update the table to insert the stop data
