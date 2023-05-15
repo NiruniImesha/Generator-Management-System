@@ -184,6 +184,35 @@ namespace GeneratorManagementSyestem.Controller
 
         }
 
+        // calculate total duration by generator
+        public string calTotDuration(string duration, generatorModel genMod)
+        {
+            string totDue="";
+            TimeSpan totalDuration = new TimeSpan();
+            if (sqlconn.State.ToString() != "Open")
+            {
+                sqlconn.Open();
+            }
+            try
+            {
+                string url = "select totalDuration from generator where genNo = '"+genMod.GenNo+"'";
+                SqlCommand cmd = new SqlCommand(url, sqlconn);
+                SqlDataReader result = cmd.ExecuteReader();
+
+                if (result.Read())
+                {
+                    string currentDuration = result["totalDuration"].ToString();
+                    currentDuration += DateTime.Parse(duration);
+                    totDue = Convert.ToString(currentDuration);
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            return totDue;
+        }
+
         // update the table to insert stop data
         public bool updateDailyOperator(dailyServiceDataModel dmod, generatorModel genMod)
         {
