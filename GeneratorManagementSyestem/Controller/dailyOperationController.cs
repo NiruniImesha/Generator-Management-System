@@ -204,11 +204,17 @@ namespace GeneratorManagementSyestem.Controller
                     currentDuration += DateTime.Parse(duration);
                     genMod.TotalDuration = Convert.ToString(currentDuration);
                 }
+                result.Close();
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
             }
+            finally
+            {
+                sqlconn.Close();
+            }
+            
         }
 
         // update the table to insert the stop data

@@ -244,7 +244,7 @@ namespace GeneratorManagementSyestem.Controller
                     genMod.Model = result["model"].ToString();
                     genMod.TankSize = Convert.ToInt32(result["tankSize"].ToString());
                     genMod.Frequency = Convert.ToInt32(result["frequency"].ToString());
-                    genMod.TotalDuration = Convert.ToInt32(result["totalDuration"].ToString());
+                    genMod.TotalDuration = result["totalDuration"].ToString();
                 }
                 result.Close();
             }
@@ -253,6 +253,36 @@ namespace GeneratorManagementSyestem.Controller
                 MessageBox.Show(e.ToString());             
             }
             sqlconn.Close();
+        }
+
+        // update the total duration
+        public void changeTotDuration(generatorModel genMod)
+        {
+            if (sqlconn.State.ToString() != "Open")
+            {
+                sqlconn.Open();
+            }
+            try
+            {
+                string url = "update generator set totalDuration = '" + genMod.TotalDuration + "' where name= '" + genMod.Name + "'";
+                SqlCommand cmd = new SqlCommand(url, sqlconn); if (cmd.ExecuteNonQuery() == 0)
+                {
+                    MessageBox.Show("Generator data didn't stored!");
+                }
+                else
+                {
+                    MessageBox.Show("Generator details successfullyadded!");
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                sqlconn.Close();
+            }
+            
         }
     }
 }
