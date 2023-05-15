@@ -150,7 +150,7 @@ namespace GeneratorManagementSyestem.Controller
         }
 
         // calculate duration
-        public string calDuration(dailyServiceDataModel dMod)
+        public string calDuration(dailyServiceDataModel dMod, generatorModel genMod)
         {
             string due = "";
             TimeSpan duration = new TimeSpan();
@@ -177,6 +177,7 @@ namespace GeneratorManagementSyestem.Controller
 
                 duration = DateTime.Parse(stop_full).Subtract(DateTime.Parse(start_full));
                 due = Convert.ToString(duration);
+                calTotDuration(due, genMod);
             }
 
             result.Close();
@@ -225,7 +226,7 @@ namespace GeneratorManagementSyestem.Controller
             try
             {
                 dmod.ServiceNo = genMod.GenNo;
-                dmod.Duration1 = calDuration(dmod);
+                dmod.Duration1 = calDuration(dmod,genMod);
                 string url = "update daily_generator_usage set stopTime='" + dmod.StopTime + "', stopDate='" + dmod.StopDate + "', stopUser='" + dmod.StopUser + "', state='0',Duration='" + dmod.Duration1 + "' where serviceNo like '" + genMod.GenNo + "%' and state='1'";
 
                 SqlCommand cmd = new SqlCommand(url, sqlconn);

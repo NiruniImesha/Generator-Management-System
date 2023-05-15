@@ -141,23 +141,6 @@ namespace GeneratorManagementSyestem.Controller
             }
         }
 
-        //calculate the total duration by generator
-        public void getTotalDuration(serviceHistoryModel hMod)
-        {
-            if (sqlconn.State.ToString() != "Open")
-            {
-                sqlconn.Open();
-            }
-            try
-            {
-                string url = "select sum(totalDuration) as duration from generator where name ='" + hMod.GeneratorID + "'";
-                SqlCommand cmd = new SqlCommand(url, sqlconn);
-                SqlDataReader result = cmd.ExecuteReader();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.ToString());
-            }
-        }
+        
     }
 }
