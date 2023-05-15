@@ -114,3 +114,6 @@ D:\Niruni\Generator-Management-System\GeneratorManagementSyestem\obj\Debug\Gener
 D:\Niruni\Generator-Management-System\GeneratorManagementSyestem\obj\Debug\GeneratorManagementSyestem.Properties.Resources.resources
 D:\Niruni\Generator-Management-System\GeneratorManagementSyestem\obj\Debug\GeneratorManagementSyestem.View.ViewGenerators.resources
 D:\Niruni\Generator-Management-System\GeneratorManagementSyestem\obj\Debug\GeneratorManagementSyestem.csproj.GenerateResource.Cache
+D:\G3tec\Generator-Management-System\GeneratorManagementSyestem\bin\Debug\GeneratorManagementSyestem.exe.config
+D:\G3tec\Generator-Management-System\GeneratorManagementSyestem\obj\Debug\GeneratorManagementSyestem.exe
+D:\G3tec\Generator-Management-System\GeneratorManagementSyestem\obj\Debug\GeneratorManagementSyestem.pdb
