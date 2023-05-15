@@ -144,7 +144,7 @@
             this.gb_generator.Controls.Add(this.label22);
             this.gb_generator.Controls.Add(this.label23);
             this.gb_generator.Font = new System.Drawing.Font("Calisto MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gb_generator.Location = new System.Drawing.Point(383, 132);
+            this.gb_generator.Location = new System.Drawing.Point(405, 156);
             this.gb_generator.Name = "gb_generator";
             this.gb_generator.Size = new System.Drawing.Size(457, 340);
             this.gb_generator.TabIndex = 13;
