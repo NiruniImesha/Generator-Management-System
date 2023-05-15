@@ -186,10 +186,8 @@ namespace GeneratorManagementSyestem.Controller
         }
 
         // calculate total duration by generator
-        public string calTotDuration(string duration, generatorModel genMod)
+        public void calTotDuration(string duration, generatorModel genMod)
         {
-            string totDue="";
-            TimeSpan totalDuration = new TimeSpan();
             if (sqlconn.State.ToString() != "Open")
             {
                 sqlconn.Open();
@@ -204,17 +202,16 @@ namespace GeneratorManagementSyestem.Controller
                 {
                     string currentDuration = result["totalDuration"].ToString();
                     currentDuration += DateTime.Parse(duration);
-                    totDue = Convert.ToString(currentDuration);
+                    genMod.TotalDuration = Convert.ToString(currentDuration);
                 }
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
             }
-            return totDue;
         }
 
-        // update the table to insert stop data
+        // update the table to insert the stop data
         public bool updateDailyOperator(dailyServiceDataModel dmod, generatorModel genMod)
         {
             bool status = false;
