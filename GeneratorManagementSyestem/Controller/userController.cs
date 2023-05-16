@@ -1,6 +1,7 @@
 ﻿using GeneratorManagementSyestem.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -191,5 +192,55 @@ namespace GeneratorManagementSyestem.Controller
             }
             sqlconn.Close();
         }
+
+        /******************************************************************************************************************/
+        public DataSet PasswordbyUserName( string password)
+        {
+            if (sqlconn.State.ToString() == "Closed")
+            {
+                sqlconn.Open();
+            }
+
+            SqlCommand newCmd = sqlconn.CreateCommand();
+            newCmd.Connection = sqlconn;
+            newCmd.CommandType = CommandType.Text;
+            newCmd.CommandText = "Select * from employee where password='" + password + "';";
+            SqlDataAdapter da = new SqlDataAdapter(newCmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds, "employee");
+
+            sqlconn.Close();
+
+            return ds;
+        }
+
+        public Boolean findUser(userModel uMod)
+        {
+            Boolean status = false;
+            if (sqlconn.State.ToString() != "Open")
+            {
+                sqlconn.Open();
+            }
+            try
+            {
+                string query = "Select * from employee where password='" + uMod.Password + "';";
+
+                SqlCommand queryCommand = new SqlCommand(query, sqlconn);
+                SqlDataReader dr = queryCommand.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    status = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+            sqlconn.Close();
+            return status;
+        }
+        /******************************************************************************************************************/
     }
 }
