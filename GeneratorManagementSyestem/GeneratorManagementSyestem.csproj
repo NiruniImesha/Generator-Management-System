@@ -63,6 +63,7 @@
     <Compile Include="Model\generatorModel.cs" />
     <Compile Include="Model\serviceHistoryModel.cs" />
     <Compile Include="Model\serviceModel.cs" />
+    <Compile Include="Model\serviceModel01.cs" />
     <Compile Include="Model\userModel.cs" />
     <Compile Include="Report\CrystalReport1.cs">
       <AutoGen>True</AutoGen>

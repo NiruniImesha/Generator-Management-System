@@ -232,7 +232,10 @@ namespace GeneratorManagementSyestem.Controller
             }
             try
             {
-                string url = "select genNo, model, frequency, tankSize, totalDuration, name from generator where genNo = '" + genMod.GenNo + "'";
+                string url = "select genNo, model, frequency, tankSize, totalDuration, name ,firstServiceMonth ,firstServiceHours from generator where genNo = '" + genMod.GenNo + "'";
+
+
+               
 
                 SqlCommand cmd = new SqlCommand(url, sqlconn);
                 SqlDataReader result = cmd.ExecuteReader();
@@ -242,15 +245,41 @@ namespace GeneratorManagementSyestem.Controller
                     genMod.GenNo = result["genNo"].ToString();
                     genMod.Name = result["name"].ToString();
                     genMod.Model = result["model"].ToString();
-                    genMod.TankSize = Convert.ToInt32(result["tankSize"].ToString());
-                    genMod.Frequency = Convert.ToInt32(result["frequency"].ToString());
-                    genMod.TotalDuration = Convert.ToInt32(result["totalDuration"].ToString());
+                    genMod.Frequency01 = result["frequency"].ToString();
+                    genMod.TankSize01 = result["tankSize"].ToString();
+                    genMod.TotalDuration01 = result["totalDuration"].ToString();
+                    genMod.FirstServiceMonth01 = result["firstServiceMonth"].ToString();
+                    genMod.FirstServiceHours01 = result["firstServiceHours"].ToString();
+                    // genMod.TankSize = Convert.ToInt32(result["tankSize"].ToString());
+                    //genMod.Frequency = Convert.ToInt32(result["frequency"].ToString());
+                    // genMod.TotalDuration = Convert.ToInt32(result["totalDuration"].ToString());
                 }
                 result.Close();
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());             
+            }
+            sqlconn.Close();
+        }
+
+        public void updateGenarator(generatorModel genMod)
+        {
+            string query = " Update generator SET model = '" + genMod.Model + "', frequency = '" + genMod.Frequency + "', tankSize = '" + genMod.TankSize + "', totalDuration = '" + genMod.TotalDuration01 + "', firstServiceMonth = '" + genMod.FirstServiceMonth1 + "', firstServiceHours = '" + genMod.FirstServiceHours + "' where genNo = '" + genMod.GenNo + "'";
+
+            if (sqlconn.State.ToString() != "Open")
+            {
+                sqlconn.Open();
+            }
+            SqlCommand cmd = new SqlCommand(query, sqlconn);
+            int result = cmd.ExecuteNonQuery();
+            if (result == 1)
+            {
+               // MessageBox.Show("Successfully Updated");
+            }
+            else
+            {
+                MessageBox.Show("Error Occured (updateGenarator)");
             }
             sqlconn.Close();
         }
