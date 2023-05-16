@@ -14,6 +14,9 @@ namespace GeneratorManagementSyestem.Model
         private string serviceDate;
         private string serviceType;
 
+        
+
+
         public int ServiceTurn
         {
             get
