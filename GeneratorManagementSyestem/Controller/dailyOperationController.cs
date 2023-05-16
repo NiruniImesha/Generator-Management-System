@@ -150,7 +150,7 @@ namespace GeneratorManagementSyestem.Controller
         }
 
         // calculate duration
-        public string calDuration(dailyServiceDataModel dMod, generatorModel genMod)
+        public string calDuration(dailyServiceDataModel dMod)
         {
             string due = "";
             TimeSpan duration = new TimeSpan();
@@ -177,7 +177,6 @@ namespace GeneratorManagementSyestem.Controller
 
                 duration = DateTime.Parse(stop_full).Subtract(DateTime.Parse(start_full));
                 due = Convert.ToString(duration);
-                calTotDuration(due, genMod);
             }
 
             result.Close();
@@ -185,27 +184,7 @@ namespace GeneratorManagementSyestem.Controller
 
         }
 
-        // calculate total duration by generator
-        public void calTotDuration(string duration, generatorModel genMod)
-        {
-            if (sqlconn.State.ToString() != "Open")
-            {
-                sqlconn.Open();
-            }
-                string url = "select totalDuration from generator where genNo = '"+genMod.GenNo+"'";
-                SqlCommand cmd = new SqlCommand(url, sqlconn);
-                SqlDataReader result = cmd.ExecuteReader();
-
-                if (result.Read())
-                {
-                    string currentDuration = result["totalDuration"].ToString();
-                    currentDuration += DateTime.Parse(duration);
-                    genMod.TotalDuration = Convert.ToString(currentDuration);
-                }
-                result.Close();                        
-        }
-
-        // update the table to insert the stop data
+        // update the table to insert stop data
         public bool updateDailyOperator(dailyServiceDataModel dmod, generatorModel genMod)
         {
             bool status = false;
@@ -217,7 +196,7 @@ namespace GeneratorManagementSyestem.Controller
             try
             {
                 dmod.ServiceNo = genMod.GenNo;
-                dmod.Duration1 = calDuration(dmod,genMod);
+                dmod.Duration1 = calDuration(dmod);
                 string url = "update daily_generator_usage set stopTime='" + dmod.StopTime + "', stopDate='" + dmod.StopDate + "', stopUser='" + dmod.StopUser + "', state='0',Duration='" + dmod.Duration1 + "' where serviceNo like '" + genMod.GenNo + "%' and state='1'";
 
                 SqlCommand cmd = new SqlCommand(url, sqlconn);
