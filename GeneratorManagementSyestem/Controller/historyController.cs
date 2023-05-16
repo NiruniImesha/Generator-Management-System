@@ -57,7 +57,7 @@ namespace GeneratorManagementSyestem.Controller
         //get all service history
         public void getServiceHistory(generatorModel genMod, DataGridView dgvName)
         {
-            string query = "select serviceTurn as service_turn, currentTotDuration as duration, generatorID as generator, serviceDate as date, serviceType as service from service_history where generatorID ='" + genMod.Name + "'";
+            string query = "select serviceTurn as service_turn, currentTotDuration as duration, generatorID as generator, serviceDate as date, serviceType as service from service_history where generatorID ='" + genMod.Name + "';";
 
             AddHistoryDetails(dgvName, query);
         }
@@ -141,5 +141,37 @@ namespace GeneratorManagementSyestem.Controller
                 sqlconn.Close();
             }
         }
+
+        /***********************************************************************************************************************/
+        public void getServiceHistory01(generatorModel genMod, DataGridView dgvName)
+        {
+            string query = "select serviceTurn as service_turn, currentTotDuration as duration, generatorID as generator, serviceDate as date, serviceType as service from service_history where generatorID ='" + genMod.Name + "' And serviceDate between '" + genMod.Start_date_range + "' and '" + genMod.End_date_range + "';";
+
+            AddHistoryDetails01(dgvName, query);
+        }
+
+        public void AddHistoryDetails01(DataGridView dgvName, string query)
+        {
+            if (sqlconn.State.ToString() != "Open")
+            {
+                sqlconn.Open();
+            }
+
+            SqlCommand cmd = new SqlCommand(query, sqlconn);
+            SqlDataReader result = cmd.ExecuteReader();
+            dgvName.Rows.Clear();
+
+            while (result.Read())
+            {
+                int n = dgvName.Rows.Add();
+                dgvName.Rows[n].Cells[0].Value = result["service_turn"].ToString();
+                dgvName.Rows[n].Cells[1].Value = result["duration"].ToString();
+                dgvName.Rows[n].Cells[2].Value = result["generator"].ToString();
+                dgvName.Rows[n].Cells[3].Value = result["date"].ToString();
+                dgvName.Rows[n].Cells[4].Value = result["service"].ToString();
+            }
+            sqlconn.Close();
+        }
+        /*****************************************************************************************************************************/
     }
 }
