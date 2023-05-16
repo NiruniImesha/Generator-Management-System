@@ -16,6 +16,11 @@ namespace GeneratorManagementSyestem.View
     {
         generatorModel genMod = new generatorModel();
         GeneratorController genCon = new GeneratorController();
+
+        ServiceController serveCon = new ServiceController();
+        serviceModel01 serveMod01 = new serviceModel01();
+
+
         public ViewGenerators()
         {
             InitializeComponent();
@@ -34,15 +39,58 @@ namespace GeneratorManagementSyestem.View
             string GeneratorName = dgvGenerator.Rows[rowIndex].Cells[1].Value.ToString();
             string GeneratorModel = dgvGenerator.Rows[rowIndex].Cells[2].Value.ToString();
 
-            Genarator_Name.Text = GeneratorName;
-            Genarator_Model.Text = GeneratorModel;
-            gb_generator.Text = GeneratorID;
-
-
             AddGenerator newChild = new AddGenerator(GeneratorID, GeneratorName, GeneratorModel);
             newChild.MdiParent = Dashboard.ActiveForm;
             newChild.Show();
             this.Dispose();
+
+        }
+
+        private void dgvGenerator_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+            SingleclickGridView(rowIndex);
+        }
+
+        public void SingleclickGridView(int rowIndex)
+        {
+            string GeneratorID = dgvGenerator.Rows[rowIndex].Cells[0].Value.ToString();
+            string GeneratorName = dgvGenerator.Rows[rowIndex].Cells[1].Value.ToString();
+            string GeneratorModel = dgvGenerator.Rows[rowIndex].Cells[2].Value.ToString();
+
+            serveMod01.GeneratorID = GeneratorID;
+
+            serveCon.findServiceByID(serveMod01);
+            ehours.Text = serveMod01.EngineserviceDurationHours01;
+            emonths.Text = serveMod01.EngineserviceDurationMonths01;
+            ahours.Text = serveMod01.AirserviceDurationHours01;
+            amonths.Text = serveMod01.AirserviceDurationMonths01;
+            shours.Text = serveMod01.SedimentserviceDurationHours01;
+            smonths.Text = serveMod01.SedimentserviceDurationMonths01;
+            vhours.Text = serveMod01.ValveserviceDurationHours01;
+            vmonths.Text = serveMod01.ValveserviceDurationMonths01;
+            sphours.Text = serveMod01.SparkserviceDurationHours01;
+            spmonths.Text = serveMod01.SparkserviceDurationMonths01;
+            fuhours.Text = serveMod01.FuelserviceDurationHours01;
+            fumonths.Text = serveMod01.FuelserviceDurationMonths01;
+            fuyears.Text = serveMod01.FuelSeviceDurationYears01;
+
+            ehours.ReadOnly = true;
+            emonths.ReadOnly = true;
+            ahours.ReadOnly = true;
+            amonths.ReadOnly = true;
+            shours.ReadOnly = true;
+            smonths.ReadOnly = true;
+            vhours.ReadOnly = true;
+            vmonths.ReadOnly = true;
+            sphours.ReadOnly = true;
+            spmonths.ReadOnly = true;
+            fuhours.ReadOnly = true;
+            fumonths.ReadOnly = true;
+            fuyears.ReadOnly = true;
+
+
+
 
         }
     }
