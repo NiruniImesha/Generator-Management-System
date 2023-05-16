@@ -16,7 +16,7 @@ namespace GeneratorManagementSyestem.Model
         private int tankSize;
         private int FirstServiceMonth;
         private int firstServiceHours;
-        private int totalDuration;
+        private string totalDuration;
 
         private string frequency01;
         private string tankSize01;
@@ -162,7 +162,7 @@ namespace GeneratorManagementSyestem.Model
             }
         }
 
-        public int TotalDuration
+        public string TotalDuration
         {
             get
             {

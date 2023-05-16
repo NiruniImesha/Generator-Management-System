@@ -282,6 +282,37 @@ namespace GeneratorManagementSyestem.Controller
                 MessageBox.Show("Error Occured (updateGenarator)");
             }
             sqlconn.Close();
+        }        
+
+        // update the total duration
+        public void changeTotDuration(generatorModel genMod)
+        {
+            if (sqlconn.State.ToString() != "Open")
+            {
+                sqlconn.Open();
+            }
+            try
+            {
+                string url = "update generator set totalDuration = '" + genMod.TotalDuration + "' where name= '" + genMod.Name + "'";
+                SqlCommand cmd = new SqlCommand(url, sqlconn); if (cmd.ExecuteNonQuery() == 0)
+                {
+                    MessageBox.Show("Generator data didn't stored!");
+                }
+                else
+                {
+                    MessageBox.Show("Generator details successfullyadded!");
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                sqlconn.Close();
+            }
+
         }
+
     }
 }

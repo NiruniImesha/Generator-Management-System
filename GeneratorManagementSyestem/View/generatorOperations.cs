@@ -96,6 +96,7 @@ namespace GeneratorManagementSyestem
 
             if (opCon.updateDailyOperator(opMod, genMod))
             {
+                genCon.changeTotDuration(genMod);
                 this.Dispose();
                 this.Close();
             }
