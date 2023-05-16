@@ -263,6 +263,7 @@ namespace GeneratorManagementSyestem.Controller
             sqlconn.Close();
         }
 
+        // update all generator details
         public void updateGenarator(generatorModel genMod)
         {
             string query = " Update generator SET model = '" + genMod.Model + "', frequency = '" + genMod.Frequency + "', tankSize = '" + genMod.TankSize + "', totalDuration = '" + genMod.TotalDuration01 + "', firstServiceMonth = '" + genMod.FirstServiceMonth1 + "', firstServiceHours = '" + genMod.FirstServiceHours + "' where genNo = '" + genMod.GenNo + "'";
@@ -295,12 +296,13 @@ namespace GeneratorManagementSyestem.Controller
             {
                 string url = "update generator set totalDuration = '" + genMod.TotalDuration + "' where name= '" + genMod.Name + "'";
                 SqlCommand cmd = new SqlCommand(url, sqlconn); if (cmd.ExecuteNonQuery() == 0)
-                {
-                    MessageBox.Show("Generator data didn't stored!");
+
+                    if (cmd.ExecuteNonQuery() == 0) {
+                    MessageBox.Show("Total duration didn't update!");
                 }
                 else
                 {
-                    MessageBox.Show("Generator details successfullyadded!");
+                    MessageBox.Show("Total duration successfully updated!");
                 }
             }
             catch (Exception e)
