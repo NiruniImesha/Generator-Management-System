@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvGenerator = new System.Windows.Forms.DataGridView();
             this.GenNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,10 +42,10 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.txt_uid = new System.Windows.Forms.TextBox();
+            this.Genarator_Name = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.txt_password = new System.Windows.Forms.TextBox();
-            this.txt_user_name = new System.Windows.Forms.TextBox();
+            this.Genarator_Model = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -59,14 +59,14 @@
             this.dgvGenerator.AllowUserToAddRows = false;
             this.dgvGenerator.AllowUserToDeleteRows = false;
             this.dgvGenerator.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGenerator.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGenerator.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvGenerator.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGenerator.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GenNo,
@@ -75,18 +75,18 @@
             this.dgvGenerator.Location = new System.Drawing.Point(25, 174);
             this.dgvGenerator.Name = "dgvGenerator";
             this.dgvGenerator.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGenerator.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGenerator.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvGenerator.RowHeadersVisible = false;
             this.dgvGenerator.Size = new System.Drawing.Size(332, 245);
             this.dgvGenerator.TabIndex = 0;
-            this.dgvGenerator.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGenerator_CellContentDoubleClick);
+            this.dgvGenerator.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvGenerator_CellMouseDoubleClick);
             // 
             // GenNo
             // 
@@ -136,10 +136,10 @@
             this.gb_generator.Controls.Add(this.textBox1);
             this.gb_generator.Controls.Add(this.btnCancel);
             this.gb_generator.Controls.Add(this.btnUpdate);
-            this.gb_generator.Controls.Add(this.txt_uid);
+            this.gb_generator.Controls.Add(this.Genarator_Name);
             this.gb_generator.Controls.Add(this.label20);
             this.gb_generator.Controls.Add(this.txt_password);
-            this.gb_generator.Controls.Add(this.txt_user_name);
+            this.gb_generator.Controls.Add(this.Genarator_Model);
             this.gb_generator.Controls.Add(this.label21);
             this.gb_generator.Controls.Add(this.label22);
             this.gb_generator.Controls.Add(this.label23);
@@ -197,14 +197,14 @@
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = false;
             // 
-            // txt_uid
+            // Genarator_Name
             // 
-            this.txt_uid.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_uid.Location = new System.Drawing.Point(246, 57);
-            this.txt_uid.Name = "txt_uid";
-            this.txt_uid.ReadOnly = true;
-            this.txt_uid.Size = new System.Drawing.Size(82, 26);
-            this.txt_uid.TabIndex = 24;
+            this.Genarator_Name.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Genarator_Name.Location = new System.Drawing.Point(246, 57);
+            this.Genarator_Name.Name = "Genarator_Name";
+            this.Genarator_Name.ReadOnly = true;
+            this.Genarator_Name.Size = new System.Drawing.Size(82, 26);
+            this.Genarator_Name.TabIndex = 24;
             // 
             // label20
             // 
@@ -224,13 +224,13 @@
             this.txt_password.Size = new System.Drawing.Size(82, 26);
             this.txt_password.TabIndex = 21;
             // 
-            // txt_user_name
+            // Genarator_Model
             // 
-            this.txt_user_name.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_user_name.Location = new System.Drawing.Point(246, 92);
-            this.txt_user_name.Name = "txt_user_name";
-            this.txt_user_name.Size = new System.Drawing.Size(82, 26);
-            this.txt_user_name.TabIndex = 20;
+            this.Genarator_Model.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Genarator_Model.Location = new System.Drawing.Point(246, 92);
+            this.Genarator_Model.Name = "Genarator_Model";
+            this.Genarator_Model.Size = new System.Drawing.Size(82, 26);
+            this.Genarator_Model.TabIndex = 20;
             // 
             // label21
             // 
@@ -294,10 +294,10 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.TextBox txt_uid;
+        private System.Windows.Forms.TextBox Genarator_Name;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox txt_password;
-        private System.Windows.Forms.TextBox txt_user_name;
+        private System.Windows.Forms.TextBox Genarator_Model;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;

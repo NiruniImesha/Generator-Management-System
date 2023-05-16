@@ -75,9 +75,42 @@ E:\c# projects\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\C
 E:\c# projects\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\stdole.dll
 E:\c# projects\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\G3 Developer\Desktop\Anushka\GeneratorManagementSyestem\GeneratorManagementSyestem\obj\Debug\GeneratorManagementSyestem.View.addUser.resources
-D:\niruni\New folder (2)\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\GeneratorManagementSyestem.exe.config
-D:\niruni\New folder (2)\GeneratorManagementSyestem\GeneratorManagementSyestem\obj\Debug\GeneratorManagementSyestem.exe
-D:\niruni\New folder (2)\GeneratorManagementSyestem\GeneratorManagementSyestem\obj\Debug\GeneratorManagementSyestem.pdb
-D:\G3tec\test\New folder (3)\New folder (2)\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\GeneratorManagementSyestem.exe.config
-D:\G3tec\test\New folder (3)\New folder (2)\GeneratorManagementSyestem\GeneratorManagementSyestem\obj\Debug\GeneratorManagementSyestem.exe
-D:\G3tec\test\New folder (3)\New folder (2)\GeneratorManagementSyestem\GeneratorManagementSyestem\obj\Debug\GeneratorManagementSyestem.pdb
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\GeneratorManagementSyestem.exe.config
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\obj\Debug\GeneratorManagementSyestem.exe
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\obj\Debug\GeneratorManagementSyestem.pdb
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\Report\CrystalReport1.rpt
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\Report\CrystalReport1.cs
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\GeneratorManagementSyestem.exe
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\GeneratorManagementSyestem.pdb
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\AxShockwaveFlashObjects.dll
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\CrystalDecisions.ReportSource.dll
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\CrystalDecisions.Shared.dll
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\CrystalDecisions.Windows.Forms.dll
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\ShockwaveFlashObjects.dll
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\stdole.dll
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\obj\Debug\GeneratorManagementSyestem.csprojResolveAssemblyReference.cache
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\obj\Debug\GeneratorManagementSyestem.Report.CrystalReport1.resources
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\obj\Debug\GeneratorManagementSyestem.View.addUser.resources
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\obj\Debug\GeneratorManagementSyestem.Dashboard.resources
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\obj\Debug\GeneratorManagementSyestem.AddGenerator.resources
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\obj\Debug\GeneratorManagementSyestem.View.InsertServiceHistory.resources
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\obj\Debug\GeneratorManagementSyestem.serviceHistory.resources
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\obj\Debug\GeneratorManagementSyestem.generatorOperations.resources
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\obj\Debug\GeneratorManagementSyestem.login.resources
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\obj\Debug\GeneratorManagementSyestem.DailyGeneratorUsage.resources
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\obj\Debug\GeneratorManagementSyestem.Properties.Resources.resources
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\obj\Debug\GeneratorManagementSyestem.View.ViewGenerators.resources
+D:\niruni\GeneratorManagementSyestem\GeneratorManagementSyestem\obj\Debug\GeneratorManagementSyestem.csproj.GenerateResource.Cache
