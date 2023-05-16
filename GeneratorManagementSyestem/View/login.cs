@@ -38,5 +38,7 @@ namespace GeneratorManagementSyestem
                 textBox1.Clear();
             }
         }
+
+       
     }
 }

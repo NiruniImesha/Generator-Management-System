@@ -59,7 +59,7 @@
             this.button1.BackColor = System.Drawing.Color.Goldenrod;
             this.button1.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(274, 196);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(103, 28);
             this.button1.TabIndex = 5;
@@ -77,6 +77,7 @@
             this.textBox2.Size = new System.Drawing.Size(138, 23);
             this.textBox2.TabIndex = 3;
             this.textBox2.UseSystemPasswordChar = true;
+
             // 
             // textBox1
             // 
@@ -122,7 +123,7 @@
             // 
             this.pictureBox1.Image = global::GeneratorManagementSyestem.Properties.Resources.undraw_secure_login_pdn4;
             this.pictureBox1.Location = new System.Drawing.Point(147, -2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(292, 236);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

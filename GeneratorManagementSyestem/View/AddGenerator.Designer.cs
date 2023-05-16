@@ -125,7 +125,6 @@
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "General Details";
-  
             // 
             // Total_run_duration
             // 
@@ -379,7 +378,6 @@
             this.vmonths.Name = "vmonths";
             this.vmonths.Size = new System.Drawing.Size(81, 26);
             this.vmonths.TabIndex = 46;
-  
             // 
             // vhours
             // 
@@ -557,9 +555,9 @@
             this.crystalReportViewer1.ActiveViewIndex = -1;
             this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(778, 3);
+            this.crystalReportViewer1.Location = new System.Drawing.Point(785, 12);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(350, 144);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(255, 466);
             this.crystalReportViewer1.TabIndex = 16;
             this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             this.crystalReportViewer1.Visible = false;
