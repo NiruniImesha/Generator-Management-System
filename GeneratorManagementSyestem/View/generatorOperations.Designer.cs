@@ -79,7 +79,7 @@
             this.button_start.Enabled = false;
             this.button_start.Font = new System.Drawing.Font("Cooper Black", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_start.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button_start.Location = new System.Drawing.Point(316, 318);
+            this.button_start.Location = new System.Drawing.Point(189, 318);
             this.button_start.Name = "button_start";
             this.button_start.Size = new System.Drawing.Size(204, 81);
             this.button_start.TabIndex = 4;
