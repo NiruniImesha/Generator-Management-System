@@ -315,8 +315,7 @@ namespace GeneratorManagementSyestem.Controller
         }
 
         // calculate the duration for the notifications
-
-        public void notification(serviceHistoryModel sMod)
+        public void notification(serviceHistoryModel sMod, generatorModel genMod)
         {
             string hours;
             TimeSpan toHours = new TimeSpan();
@@ -326,13 +325,14 @@ namespace GeneratorManagementSyestem.Controller
             }
             try
             {
+                sMod.GeneratorID = genMod.Name;
                 string url = "select s.currentTotDuration, g.totalDuration from service_history s,generator g where g.name = s.generatorID and s.generatorID = '" + sMod.GeneratorID + "' and s.serviceType = '" + sMod.ServiceType + "'; ";
 
                 SqlCommand cmd = new SqlCommand(url, sqlconn);
                 SqlDataReader result = cmd.ExecuteReader();
 
                 if (result.Read())
-                {
+                {                    
                     string totalDuration = result["totalDuration"].ToString();
                     string currentDuration = result["currentTotDuration"].ToString();
                     toHours = DateTime.Parse(totalDuration).Subtract(DateTime.Parse(currentDuration));
@@ -340,10 +340,9 @@ namespace GeneratorManagementSyestem.Controller
                 }
                 result.Close();
             }
-            catch (Exception)
+            catch (Exception e)
             {
-
-                throw;
+                MessageBox.Show(e.ToString());
             }            
         }
     }
