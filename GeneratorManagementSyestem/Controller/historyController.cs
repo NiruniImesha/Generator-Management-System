@@ -77,15 +77,16 @@ namespace GeneratorManagementSyestem.Controller
             {
                 int n = dgvName.Rows.Add();
                 dgvName.Rows[n].Cells[0].Value = result["service_turn"].ToString();
-                dgvName.Rows[n].Cells[4].Value = result["duration"].ToString();
+                dgvName.Rows[n].Cells[1].Value = result["duration"].ToString();
                 dgvName.Rows[n].Cells[2].Value = result["generator"].ToString();
                 dgvName.Rows[n].Cells[3].Value = result["date"].ToString();
-                dgvName.Rows[n].Cells[1].Value = result["service"].ToString();
+                dgvName.Rows[n].Cells[4].Value = result["service"].ToString();
             }
             sqlconn.Close();
         }
 
         // Get the current total duration of generator
+
         public string getCurrentDuration(serviceHistoryModel hMod)
         {
             string rs = "";
@@ -140,7 +141,5 @@ namespace GeneratorManagementSyestem.Controller
                 sqlconn.Close();
             }
         }
-
-        
     }
 }

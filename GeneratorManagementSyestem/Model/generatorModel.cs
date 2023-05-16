@@ -15,7 +15,7 @@ namespace GeneratorManagementSyestem.Model
         private int tankSize;
         private int FirstServiceMonth;
         private int firstServiceHours;
-        private string totalDuration;
+        private int totalDuration;
 
         public string GenNo
         {
@@ -95,7 +95,7 @@ namespace GeneratorManagementSyestem.Model
             }
         }
 
-        public string TotalDuration
+        public int TotalDuration
         {
             get
             {

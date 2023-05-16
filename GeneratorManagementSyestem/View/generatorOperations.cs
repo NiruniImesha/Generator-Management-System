@@ -93,10 +93,9 @@ namespace GeneratorManagementSyestem
             opMod.StopDate = Convert.ToString(DateTime.Now.ToString("yyyy-MM-dd"));
             opMod.StopTime = Convert.ToString(DateTime.Now.ToString("HH:mm:ss"));
             opMod.StopUser = txtuser.Text;
-            
-            if (opCon.updateDailyOperator(opMod, genMod))                
+
+            if (opCon.updateDailyOperator(opMod, genMod))
             {
-                genCon.changeTotDuration(genMod);
                 this.Dispose();
                 this.Close();
             }
