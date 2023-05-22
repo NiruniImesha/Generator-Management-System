@@ -88,13 +88,8 @@ namespace GeneratorManagementSyestem
             checkBox2.Enabled = false;
 
             button1.Visible = false;
-            button1.Enabled = false;
-
-            shMod.ServiceType = "Air cleaner";
-            genMod.Name = name.Text;
-            genCon.notification(shMod, genMod);
-
-
+            button1.Enabled = false;        
+            
             label1.Text = generatorName;
         }
         private void AddGenerator_Load(object sender, EventArgs e)

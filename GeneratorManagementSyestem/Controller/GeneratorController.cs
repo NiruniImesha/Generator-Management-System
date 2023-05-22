@@ -315,43 +315,38 @@ namespace GeneratorManagementSyestem.Controller
         }
 
         // calculate the duration for the notifications
-        public void notification(serviceHistoryModel sMod, generatorModel genMod)
+        public string notification(serviceHistoryModel sMod, generatorModel genMod)
         {
-            string hours;
+            string hours="";
             TimeSpan toHours = new TimeSpan();
             if (sqlconn.State.ToString() != "Open")
             {
                 sqlconn.Open();
             }
             try
-            {
-                sMod.GeneratorID = genMod.Name;
-                string url = "select TOP 1 s.currentTotDuration, g.totalDuration from service_history s,generator g where g.name = s.generatorID and s.generatorID = '" + sMod.GeneratorID + "' and s.serviceType = '" + sMod.ServiceType + "' order by s.serviceTurn desc;";
+            {              
+                    sMod.GeneratorID = genMod.Name;
 
-                SqlCommand cmd = new SqlCommand(url, sqlconn);
-                SqlDataReader result = cmd.ExecuteReader();
+                    string url = "select TOP 1 s.currentTotDuration, g.totalDuration from service_history s,generator g where g.name = s.generatorID and s.generatorID = '" + sMod.GeneratorID + "' and s.serviceType = '" + sMod.ServiceType + "' order by s.serviceTurn desc;";
 
-                if (result.Read())
-                {                    
-                    string totalDuration = result["totalDuration"].ToString();
-                    string currentDuration = result["currentTotDuration"].ToString();
-                    toHours = DateTime.Parse(totalDuration).Subtract(DateTime.Parse(currentDuration));
-                    hours = Convert.ToString(toHours);
-                }
-                result.Close();
+                    SqlCommand cmd = new SqlCommand(url, sqlconn);
+                    SqlDataReader result = cmd.ExecuteReader();
+
+                    if (result.Read())
+                    {
+                        string totalDuration = result["totalDuration"].ToString();
+                        string currentDuration = result["currentTotDuration"].ToString();
+                        toHours = DateTime.Parse(totalDuration).Subtract(DateTime.Parse(currentDuration));
+                        hours = Convert.ToString(toHours);
+                    }
+                    result.Close();            
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
-            }            
+            }
+            return hours;
         }
-
-        // display durations
-        public string display()
-        {
-            string[] services = { "Engine Oil", "Air Cleaner", "Sediment cup", "Valve clearance", "Spark Arrester", "Fuel tank & filter" };
-            string[] durations =new string[6];
-            return durations[6];
-        }
+        
     }
 }
