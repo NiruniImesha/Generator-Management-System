@@ -17,6 +17,7 @@ namespace GeneratorManagementSyestem
         serviceModel serveMod = new serviceModel();
         serviceModel01 serveMod01 = new serviceModel01();
 
+        serviceHistoryModel shMod = new serviceHistoryModel();
 
         private string generatorID;
         private string generatorName;
@@ -64,7 +65,6 @@ namespace GeneratorManagementSyestem
             Total_run_duration.Text = genMod.TotalDuration01;
             fhours.Text = genMod.FirstServiceHours01;
             fmonths.Text = genMod.FirstServiceMonth01;
-
             
             serveCon.findServiceByID(serveMod01);
             ehours.Text = serveMod01.EngineserviceDurationHours01;
@@ -89,8 +89,10 @@ namespace GeneratorManagementSyestem
 
             button1.Visible = false;
             button1.Enabled = false;
-            
 
+            shMod.ServiceType = "Air cleaner";
+            genMod.Name = name.Text;
+            genCon.notification(shMod, genMod);
 
 
             label1.Text = generatorName;
