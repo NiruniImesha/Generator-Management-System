@@ -406,7 +406,7 @@
             // amonths
             // 
             this.amonths.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.amonths.Location = new System.Drawing.Point(264, 118);
+            this.amonths.Location = new System.Drawing.Point(264, 116);
             this.amonths.Name = "amonths";
             this.amonths.Size = new System.Drawing.Size(81, 26);
             this.amonths.TabIndex = 42;
@@ -422,7 +422,7 @@
             // emonths
             // 
             this.emonths.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emonths.Location = new System.Drawing.Point(264, 84);
+            this.emonths.Location = new System.Drawing.Point(264, 80);
             this.emonths.Name = "emonths";
             this.emonths.Size = new System.Drawing.Size(81, 26);
             this.emonths.TabIndex = 40;
@@ -555,9 +555,9 @@
             this.crystalReportViewer1.ActiveViewIndex = -1;
             this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(785, 12);
+            this.crystalReportViewer1.Location = new System.Drawing.Point(931, 19);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(255, 466);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(197, 466);
             this.crystalReportViewer1.TabIndex = 16;
             this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             this.crystalReportViewer1.Visible = false;
