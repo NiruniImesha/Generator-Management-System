@@ -326,7 +326,7 @@ namespace GeneratorManagementSyestem.Controller
             try
             {
                 sMod.GeneratorID = genMod.Name;
-                string url = "select s.currentTotDuration, g.totalDuration from service_history s,generator g where g.name = s.generatorID and s.generatorID = '" + sMod.GeneratorID + "' and s.serviceType = '" + sMod.ServiceType + "'; ";
+                string url = "select TOP 1 s.currentTotDuration, g.totalDuration from service_history s,generator g where g.name = s.generatorID and s.generatorID = '" + sMod.GeneratorID + "' and s.serviceType = '" + sMod.ServiceType + "' order by s.serviceTurn desc;";
 
                 SqlCommand cmd = new SqlCommand(url, sqlconn);
                 SqlDataReader result = cmd.ExecuteReader();
@@ -344,6 +344,14 @@ namespace GeneratorManagementSyestem.Controller
             {
                 MessageBox.Show(e.ToString());
             }            
+        }
+
+        // display durations
+        public string display()
+        {
+            string[] services = { "Engine Oil", "Air Cleaner", "Sediment cup", "Valve clearance", "Spark Arrester", "Fuel tank & filter" };
+            string[] durations =new string[6];
+            return durations[6];
         }
     }
 }
