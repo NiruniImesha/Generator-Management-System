@@ -181,8 +181,9 @@ namespace GeneratorManagementSyestem.Controller
             while (result.Read())
             {
                 int n = dgvName.Rows.Add();
-                dgvName.Rows[n].Cells[0].Value = result["userName"].ToString();
-                dgvName.Rows[n].Cells[1].Value = result["userType"].ToString();
+                dgvName.Rows[n].Cells[0].Value = result["userID"].ToString();
+                dgvName.Rows[n].Cells[1].Value = result["userName"].ToString();
+                dgvName.Rows[n].Cells[2].Value = result["userType"].ToString();
                 //dgvName.Rows[n].Cells[2].Value = result["model"].ToString();
                 //dgvName.Rows[n].Cells[3].Value = result["frequency"].ToString();
                 //dgvName.Rows[n].Cells[4].Value = result["tank_size"].ToString();
@@ -270,6 +271,36 @@ namespace GeneratorManagementSyestem.Controller
                 sqlconn.Close();
             }
             return Userid;
+        }
+
+        /****************************************************************************************************************/
+        public void finduserByID(userModel uMod)
+        {
+            if (sqlconn.State.ToString() != "Open")
+            {
+                sqlconn.Open();
+            }
+            try
+            {
+                string url = "Select userName,password,userType from employee where userID='" + uMod.UserID_main + "';";
+
+                SqlCommand cmd = new SqlCommand(url, sqlconn);
+                SqlDataReader result = cmd.ExecuteReader();
+
+                while (result.Read())
+                {
+                    uMod.UserName = result["userName"].ToString();
+                    uMod.Password = result["password"].ToString();
+                    uMod.UserType = result["userType"].ToString();
+                   
+                }
+                result.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            sqlconn.Close();
         }
     }
 }

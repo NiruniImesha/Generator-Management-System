@@ -78,7 +78,7 @@ namespace GeneratorManagementSyestem
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            addUser newChild = new addUser();
+            addUser newChild = new addUser(uMod.UserID_main);
             newChild.MdiParent = this;
             newChild.Show();
         }

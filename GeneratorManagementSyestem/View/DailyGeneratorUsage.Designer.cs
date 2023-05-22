@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvDailyOperations = new System.Windows.Forms.DataGridView();
             this.start = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,8 +40,10 @@
             this.cmbGenerator = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btn_search = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDailyOperations)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -51,14 +53,14 @@
             this.dgvDailyOperations.AllowUserToAddRows = false;
             this.dgvDailyOperations.AllowUserToDeleteRows = false;
             this.dgvDailyOperations.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calisto MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDailyOperations.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Calisto MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDailyOperations.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvDailyOperations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDailyOperations.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.start,
@@ -150,25 +152,49 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Daily Generator Usage";
             // 
-            // textBox1
+            // label4
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(478, 127);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(246, 23);
-            this.textBox1.TabIndex = 6;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calisto MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(601, 159);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(72, 17);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Stop Date";
             // 
-            // btn_search
+            // label3
             // 
-            this.btn_search.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btn_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_search.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btn_search.Location = new System.Drawing.Point(740, 123);
-            this.btn_search.Name = "btn_search";
-            this.btn_search.Size = new System.Drawing.Size(90, 29);
-            this.btn_search.TabIndex = 7;
-            this.btn_search.Text = "Search";
-            this.btn_search.UseVisualStyleBackColor = false;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calisto MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(601, 133);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 17);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Start Date";
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Checked = false;
+            this.dateTimePicker2.CustomFormat = "yyyy-MM-dd";
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker2.Location = new System.Drawing.Point(695, 156);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(106, 20);
+            this.dateTimePicker2.TabIndex = 17;
+            this.dateTimePicker2.Value = new System.DateTime(2023, 5, 22, 0, 0, 0, 0);
+            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Checked = false;
+            this.dateTimePicker1.CustomFormat = "yyyy-MM-dd";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(695, 130);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(106, 20);
+            this.dateTimePicker1.TabIndex = 16;
+            this.dateTimePicker1.Value = new System.DateTime(2023, 1, 1, 0, 0, 0, 0);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // DailyGeneratorUsage
             // 
@@ -177,8 +203,10 @@
             this.BackgroundImage = global::GeneratorManagementSyestem.Properties.Resources.background_gf37d6d898_1920;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(897, 540);
-            this.Controls.Add(this.btn_search);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.dgvDailyOperations);
             this.Controls.Add(this.cmbGenerator);
             this.Controls.Add(this.panel1);
@@ -199,7 +227,6 @@
         private System.Windows.Forms.ComboBox cmbGenerator;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn start;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn startUser;
@@ -207,6 +234,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn stopUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn Duration;
-        private System.Windows.Forms.Button btn_search;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
