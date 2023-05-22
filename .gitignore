@@ -9,3 +9,6 @@ GeneratorManagementSyestem/obj/Debug/GeneratorManagementSyestem.exe
 GeneratorManagementSyestem/obj/Debug/GeneratorManagementSyestem.pdb
 GeneratorManagementSyestem/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 GeneratorManagementSyestem/obj/Debug/GeneratorManagementSyestem.csproj.FileListAbsolute.txt
+*.exe
+*.pdb
+.vs/GeneratorManagementSyestem/v14/.suo
