@@ -41,5 +41,21 @@ namespace GeneratorManagementSyestem
             genMod.Name = comboBox1.Text;
             hCon.getServiceHistory(genMod, dgvHistory);
         }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            genMod.Start_date_range = dateTimePicker1.Text;
+            genMod.End_date_range = dateTimePicker2.Text;
+            genMod.Name = comboBox1.Text;
+            hCon.getServiceHistory01(genMod, dgvHistory);
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            genMod.Start_date_range = dateTimePicker1.Text;
+            genMod.End_date_range = dateTimePicker2.Text;
+            genMod.Name = comboBox1.Text;
+            hCon.getServiceHistory01(genMod, dgvHistory);
+        }
     }
 }

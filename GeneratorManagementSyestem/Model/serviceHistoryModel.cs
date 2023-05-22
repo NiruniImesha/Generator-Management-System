@@ -13,6 +13,21 @@ namespace GeneratorManagementSyestem.Model
         private string generatorID;
         private string serviceDate;
         private string serviceType;
+        private string user_ID;
+
+
+        public string User_ID
+        {
+            get
+            {
+                return user_ID;
+            }
+
+            set
+            {
+                user_ID = value;
+            }
+        }
 
         public int ServiceTurn
         {

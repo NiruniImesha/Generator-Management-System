@@ -10,6 +10,7 @@ namespace GeneratorManagementSyestem.Model
     {
         private string serviceID;
         private string generatorID;
+        private string user_ID;
         private int EngineserviceDurationMonths;
         private int EngineserviceDurationHours;
         private int AirserviceDurationMonths;
@@ -24,6 +25,19 @@ namespace GeneratorManagementSyestem.Model
         private int FuelserviceDurationHours;
         private int FuelSeviceDurationYears;
 
+
+        public string User_ID
+        {
+            get
+            {
+                return user_ID;
+            }
+
+            set
+            {
+                user_ID = value;
+            }
+        }
         public string ServiceID
         {
             get
