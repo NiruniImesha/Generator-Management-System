@@ -19,6 +19,7 @@ namespace GeneratorManagementSyestem.View
 
         ServiceController serveCon = new ServiceController();
         serviceModel01 serveMod01 = new serviceModel01();
+        serviceHistoryModel sMod = new serviceHistoryModel();
 
 
         public ViewGenerators()
@@ -89,9 +90,22 @@ namespace GeneratorManagementSyestem.View
             fumonths.ReadOnly = true;
             fuyears.ReadOnly = true;
 
+            genMod.Name = GeneratorName;
+            string[] services = { "Engine Oil", "Air Cleaner", "Sediment cup", "Valve clearance", "Spark Arrester", "Fuel tank & filter" };
+            string[] due = new string[6];
 
+                for (int i = 0; i < 6; ++i)
+                {
+                    sMod.ServiceType = services[i];
+                    due[i] = genCon.notification(sMod, genMod);
+                }
 
-
+            textBox1.Text = due[0];
+            textBox2.Text = due[1];
+            textBox3.Text = due[2];
+            textBox4.Text = due[3];
+            textBox5.Text = due[4];
+            textBox6.Text = due[5];
         }
     }
 }
