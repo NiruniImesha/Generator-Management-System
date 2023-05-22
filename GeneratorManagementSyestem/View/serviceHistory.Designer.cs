@@ -32,15 +32,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dgvHistory = new System.Windows.Forms.DataGridView();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.userName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serviceTurn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.generatorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serviceType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serviceDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.currentTotDuration = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).BeginInit();
             this.SuspendLayout();
@@ -84,47 +85,18 @@
             this.dgvHistory.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvHistory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvHistory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.userName,
             this.serviceTurn,
             this.generatorID,
             this.serviceType,
             this.serviceDate,
             this.currentTotDuration});
-            this.dgvHistory.Location = new System.Drawing.Point(169, 272);
+            this.dgvHistory.Location = new System.Drawing.Point(121, 272);
             this.dgvHistory.Name = "dgvHistory";
             this.dgvHistory.ReadOnly = true;
             this.dgvHistory.RowHeadersVisible = false;
-            this.dgvHistory.Size = new System.Drawing.Size(504, 201);
+            this.dgvHistory.Size = new System.Drawing.Size(605, 201);
             this.dgvHistory.TabIndex = 2;
-            // 
-            // serviceTurn
-            // 
-            this.serviceTurn.HeaderText = "Service Turn";
-            this.serviceTurn.Name = "serviceTurn";
-            this.serviceTurn.ReadOnly = true;
-            // 
-            // generatorID
-            // 
-            this.generatorID.HeaderText = "Generator";
-            this.generatorID.Name = "generatorID";
-            this.generatorID.ReadOnly = true;
-            // 
-            // serviceType
-            // 
-            this.serviceType.HeaderText = "Sevice Type";
-            this.serviceType.Name = "serviceType";
-            this.serviceType.ReadOnly = true;
-            // 
-            // serviceDate
-            // 
-            this.serviceDate.HeaderText = "Date";
-            this.serviceDate.Name = "serviceDate";
-            this.serviceDate.ReadOnly = true;
-            // 
-            // currentTotDuration
-            // 
-            this.currentTotDuration.HeaderText = "Duration";
-            this.currentTotDuration.Name = "currentTotDuration";
-            this.currentTotDuration.ReadOnly = true;
             // 
             // dateTimePicker1
             // 
@@ -168,6 +140,43 @@
             this.label4.TabIndex = 15;
             this.label4.Text = "End Date";
             // 
+            // userName
+            // 
+            this.userName.DataPropertyName = "userName";
+            this.userName.HeaderText = "Employee";
+            this.userName.Name = "userName";
+            this.userName.ReadOnly = true;
+            // 
+            // serviceTurn
+            // 
+            this.serviceTurn.HeaderText = "Service Turn";
+            this.serviceTurn.Name = "serviceTurn";
+            this.serviceTurn.ReadOnly = true;
+            // 
+            // generatorID
+            // 
+            this.generatorID.HeaderText = "Generator";
+            this.generatorID.Name = "generatorID";
+            this.generatorID.ReadOnly = true;
+            // 
+            // serviceType
+            // 
+            this.serviceType.HeaderText = "Sevice Type";
+            this.serviceType.Name = "serviceType";
+            this.serviceType.ReadOnly = true;
+            // 
+            // serviceDate
+            // 
+            this.serviceDate.HeaderText = "Date";
+            this.serviceDate.Name = "serviceDate";
+            this.serviceDate.ReadOnly = true;
+            // 
+            // currentTotDuration
+            // 
+            this.currentTotDuration.HeaderText = "Duration";
+            this.currentTotDuration.Name = "currentTotDuration";
+            this.currentTotDuration.ReadOnly = true;
+            // 
             // serviceHistory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,14 +208,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataGridView dgvHistory;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userName;
         private System.Windows.Forms.DataGridViewTextBoxColumn serviceTurn;
         private System.Windows.Forms.DataGridViewTextBoxColumn generatorID;
         private System.Windows.Forms.DataGridViewTextBoxColumn serviceType;
         private System.Windows.Forms.DataGridViewTextBoxColumn serviceDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn currentTotDuration;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
     }
 }
