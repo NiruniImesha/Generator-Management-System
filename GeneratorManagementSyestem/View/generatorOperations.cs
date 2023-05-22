@@ -68,25 +68,28 @@ namespace GeneratorManagementSyestem
 
         private void cmbGenerator_SelectedIndexChanged(object sender, EventArgs e)
         {
-            genMod.Name = cmbGenerator.Text;
-            genMod.GenNo = opCon.getGeneratorID(genMod);
-
-            bool check = opCon.check(genMod);
-
-            if (check == true)
+            if(cmbGenerator.SelectedIndex > 0)
             {
-                btn_Stop.Visible = true;
-                btn_Stop.Enabled = true;
-                button_start.Visible = false;
-                button_start.Enabled = false;
-            }
-            else
-            {
-                button_start.Visible = true;
-                button_start.Enabled = true;
-                btn_Stop.Visible = false;
-                btn_Stop.Enabled = false;
-            }
+                genMod.Name = cmbGenerator.Text;
+                genMod.GenNo = opCon.getGeneratorID(genMod);
+
+                bool check = opCon.check(genMod);
+
+                if (check == true)
+                {
+                    btn_Stop.Visible = true;
+                    btn_Stop.Enabled = true;
+                    button_start.Visible = false;
+                    button_start.Enabled = false;
+                }
+                else
+                {
+                    button_start.Visible = true;
+                    button_start.Enabled = true;
+                    btn_Stop.Visible = false;
+                    btn_Stop.Enabled = false;
+                }
+            }           
         }
 
        
@@ -99,6 +102,7 @@ namespace GeneratorManagementSyestem
 
             if (opCon.updateDailyOperator(opMod, genMod))
             {
+                genCon.changeTotDuration(genMod);
                 this.Dispose();
                 this.Close();
             }

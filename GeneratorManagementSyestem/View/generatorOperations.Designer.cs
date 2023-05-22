@@ -46,7 +46,10 @@
             this.cmbGenerator.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGenerator.Enabled = false;
             this.cmbGenerator.FormattingEnabled = true;
-            this.cmbGenerator.Location = new System.Drawing.Point(311, 239);
+
+            this.cmbGenerator.Items.AddRange(new object[] {
+            "Select Generator"});
+            this.cmbGenerator.Location = new System.Drawing.Point(316, 223);
             this.cmbGenerator.Name = "cmbGenerator";
             this.cmbGenerator.Size = new System.Drawing.Size(214, 21);
             this.cmbGenerator.TabIndex = 3;

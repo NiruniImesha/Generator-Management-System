@@ -139,6 +139,7 @@ namespace GeneratorManagementSyestem.Controller
             return ds;
         }
 
+        // get generator by name
         public string getGeneratorByName(generatorModel genMod)
         {
             if (sqlconn.State.ToString() != "Open")
@@ -189,7 +190,6 @@ namespace GeneratorManagementSyestem.Controller
         }
 
         //View all generators
-
         public void findAllGenerators(generatorModel genMod, DataGridView dgvName)
         {
             string query = "select genNo as genNo, model as model, frequency as frequency, tankSize as tank_size, totalDuration as total_duration, firstServiceMonth as first_service_month, firstServiceHours as first_service_hours, name as name from generator";
@@ -197,6 +197,7 @@ namespace GeneratorManagementSyestem.Controller
             AddGeneratorDetails(dgvName, query);
         }
 
+        // pass the generator details to the data grid view
         public void AddGeneratorDetails(DataGridView dgvName, string query)
         {
             if (sqlconn.State.ToString() != "Open")
@@ -232,10 +233,7 @@ namespace GeneratorManagementSyestem.Controller
             }
             try
             {
-                string url = "select genNo, model, frequency, tankSize, totalDuration, name ,firstServiceMonth ,firstServiceHours from generator where genNo = '" + genMod.GenNo + "'";
-
-
-               
+                string url = "select genNo, model, frequency, tankSize, totalDuration, name ,firstServiceMonth ,firstServiceHours from generator where genNo = '" + genMod.GenNo + "'";               
 
                 SqlCommand cmd = new SqlCommand(url, sqlconn);
                 SqlDataReader result = cmd.ExecuteReader();
@@ -263,6 +261,7 @@ namespace GeneratorManagementSyestem.Controller
             sqlconn.Close();
         }
 
+        // update all generator details
         public void updateGenarator(generatorModel genMod)
         {
             string query = " Update generator SET model = '" + genMod.Model + "', frequency = '" + genMod.Frequency + "', tankSize = '" + genMod.TankSize + "', totalDuration = '" + genMod.TotalDuration01 + "', firstServiceMonth = '" + genMod.FirstServiceMonth1 + "', firstServiceHours = '" + genMod.FirstServiceHours + "' where genNo = '" + genMod.GenNo + "'";
@@ -282,6 +281,69 @@ namespace GeneratorManagementSyestem.Controller
                 MessageBox.Show("Error Occured (updateGenarator)");
             }
             sqlconn.Close();
+        }        
+
+        // update the total duration
+        public void changeTotDuration(generatorModel genMod)
+        {
+            if (sqlconn.State.ToString() != "Open")
+            {
+                sqlconn.Open();
+            }
+            try
+            {
+                string url = "update generator set totalDuration = '" + genMod.TotalDuration + "' where name= '" + genMod.Name + "'";
+                SqlCommand cmd = new SqlCommand(url, sqlconn); if (cmd.ExecuteNonQuery() == 0)
+
+                    if (cmd.ExecuteNonQuery() == 0) {
+                    MessageBox.Show("Total duration didn't update!");
+                }
+                else
+                {
+                    MessageBox.Show("Total duration successfully updated!");
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                sqlconn.Close();
+            }
+
+        }
+
+        // calculate the duration for the notifications
+        public void notification(serviceHistoryModel sMod, generatorModel genMod)
+        {
+            string hours;
+            TimeSpan toHours = new TimeSpan();
+            if (sqlconn.State.ToString() != "Open")
+            {
+                sqlconn.Open();
+            }
+            try
+            {
+                sMod.GeneratorID = genMod.Name;
+                string url = "select s.currentTotDuration, g.totalDuration from service_history s,generator g where g.name = s.generatorID and s.generatorID = '" + sMod.GeneratorID + "' and s.serviceType = '" + sMod.ServiceType + "'; ";
+
+                SqlCommand cmd = new SqlCommand(url, sqlconn);
+                SqlDataReader result = cmd.ExecuteReader();
+
+                if (result.Read())
+                {                    
+                    string totalDuration = result["totalDuration"].ToString();
+                    string currentDuration = result["currentTotDuration"].ToString();
+                    toHours = DateTime.Parse(totalDuration).Subtract(DateTime.Parse(currentDuration));
+                    hours = Convert.ToString(toHours);
+                }
+                result.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }            
         }
     }
 }
