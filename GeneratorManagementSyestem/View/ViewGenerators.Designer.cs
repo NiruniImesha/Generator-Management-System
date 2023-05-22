@@ -36,22 +36,38 @@
             this.model = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.gb_generator = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.fuyears = new System.Windows.Forms.TextBox();
+            this.fumonths = new System.Windows.Forms.TextBox();
+            this.fuhours = new System.Windows.Forms.TextBox();
+            this.spmonths = new System.Windows.Forms.TextBox();
+            this.sphours = new System.Windows.Forms.TextBox();
+            this.vmonths = new System.Windows.Forms.TextBox();
+            this.vhours = new System.Windows.Forms.TextBox();
+            this.smonths = new System.Windows.Forms.TextBox();
+            this.shours = new System.Windows.Forms.TextBox();
+            this.amonths = new System.Windows.Forms.TextBox();
+            this.ahours = new System.Windows.Forms.TextBox();
+            this.emonths = new System.Windows.Forms.TextBox();
+            this.ehours = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.Genarator_Name = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.txt_password = new System.Windows.Forms.TextBox();
-            this.Genarator_Model = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGenerator)).BeginInit();
             this.panel1.SuspendLayout();
-            this.gb_generator.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvGenerator
@@ -84,8 +100,9 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvGenerator.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvGenerator.RowHeadersVisible = false;
-            this.dgvGenerator.Size = new System.Drawing.Size(332, 245);
+            this.dgvGenerator.Size = new System.Drawing.Size(332, 311);
             this.dgvGenerator.TabIndex = 0;
+            this.dgvGenerator.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvGenerator_CellMouseClick);
             this.dgvGenerator.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvGenerator_CellMouseDoubleClick);
             // 
             // GenNo
@@ -128,146 +145,295 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "All Generators";
             // 
-            // gb_generator
+            // groupBox3
             // 
-            this.gb_generator.BackColor = System.Drawing.Color.Snow;
-            this.gb_generator.Controls.Add(this.textBox2);
-            this.gb_generator.Controls.Add(this.label2);
-            this.gb_generator.Controls.Add(this.textBox1);
-            this.gb_generator.Controls.Add(this.btnCancel);
-            this.gb_generator.Controls.Add(this.btnUpdate);
-            this.gb_generator.Controls.Add(this.Genarator_Name);
-            this.gb_generator.Controls.Add(this.label20);
-            this.gb_generator.Controls.Add(this.txt_password);
-            this.gb_generator.Controls.Add(this.Genarator_Model);
-            this.gb_generator.Controls.Add(this.label21);
-            this.gb_generator.Controls.Add(this.label22);
-            this.gb_generator.Controls.Add(this.label23);
-            this.gb_generator.Font = new System.Drawing.Font("Calisto MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gb_generator.Location = new System.Drawing.Point(405, 156);
-            this.gb_generator.Name = "gb_generator";
-            this.gb_generator.Size = new System.Drawing.Size(457, 340);
-            this.gb_generator.TabIndex = 13;
-            this.gb_generator.TabStop = false;
-            this.gb_generator.Visible = false;
+            this.groupBox3.BackColor = System.Drawing.Color.White;
+            this.groupBox3.Controls.Add(this.textBox6);
+            this.groupBox3.Controls.Add(this.textBox5);
+            this.groupBox3.Controls.Add(this.textBox4);
+            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.textBox2);
+            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.fuyears);
+            this.groupBox3.Controls.Add(this.fumonths);
+            this.groupBox3.Controls.Add(this.fuhours);
+            this.groupBox3.Controls.Add(this.spmonths);
+            this.groupBox3.Controls.Add(this.sphours);
+            this.groupBox3.Controls.Add(this.vmonths);
+            this.groupBox3.Controls.Add(this.vhours);
+            this.groupBox3.Controls.Add(this.smonths);
+            this.groupBox3.Controls.Add(this.shours);
+            this.groupBox3.Controls.Add(this.amonths);
+            this.groupBox3.Controls.Add(this.ahours);
+            this.groupBox3.Controls.Add(this.emonths);
+            this.groupBox3.Controls.Add(this.ehours);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.label24);
+            this.groupBox3.Controls.Add(this.label25);
+            this.groupBox3.Controls.Add(this.label26);
+            this.groupBox3.Font = new System.Drawing.Font("Calisto MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(407, 174);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(579, 311);
+            this.groupBox3.TabIndex = 14;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Service Details";
             // 
-            // textBox2
+            // fuyears
             // 
-            this.textBox2.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(246, 198);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(82, 26);
-            this.textBox2.TabIndex = 30;
+            this.fuyears.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fuyears.Location = new System.Drawing.Point(164, 274);
+            this.fuyears.Name = "fuyears";
+            this.fuyears.Size = new System.Drawing.Size(181, 26);
+            this.fuyears.TabIndex = 51;
             // 
-            // label2
+            // fumonths
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(73, 201);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(138, 19);
-            this.label2.TabIndex = 29;
-            this.label2.Text = "Total run duration";
+            this.fumonths.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fumonths.Location = new System.Drawing.Point(264, 244);
+            this.fumonths.Name = "fumonths";
+            this.fumonths.Size = new System.Drawing.Size(81, 26);
+            this.fumonths.TabIndex = 50;
+            // 
+            // fuhours
+            // 
+            this.fuhours.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fuhours.Location = new System.Drawing.Point(164, 242);
+            this.fuhours.Name = "fuhours";
+            this.fuhours.Size = new System.Drawing.Size(81, 26);
+            this.fuhours.TabIndex = 49;
+            // 
+            // spmonths
+            // 
+            this.spmonths.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.spmonths.Location = new System.Drawing.Point(264, 212);
+            this.spmonths.Name = "spmonths";
+            this.spmonths.Size = new System.Drawing.Size(81, 26);
+            this.spmonths.TabIndex = 48;
+            // 
+            // sphours
+            // 
+            this.sphours.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sphours.Location = new System.Drawing.Point(164, 210);
+            this.sphours.Name = "sphours";
+            this.sphours.Size = new System.Drawing.Size(81, 26);
+            this.sphours.TabIndex = 47;
+            // 
+            // vmonths
+            // 
+            this.vmonths.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vmonths.Location = new System.Drawing.Point(264, 181);
+            this.vmonths.Name = "vmonths";
+            this.vmonths.Size = new System.Drawing.Size(81, 26);
+            this.vmonths.TabIndex = 46;
+            // 
+            // vhours
+            // 
+            this.vhours.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.vhours.Location = new System.Drawing.Point(164, 179);
+            this.vhours.Name = "vhours";
+            this.vhours.Size = new System.Drawing.Size(81, 26);
+            this.vhours.TabIndex = 45;
+            // 
+            // smonths
+            // 
+            this.smonths.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.smonths.Location = new System.Drawing.Point(264, 149);
+            this.smonths.Name = "smonths";
+            this.smonths.Size = new System.Drawing.Size(81, 26);
+            this.smonths.TabIndex = 44;
+            // 
+            // shours
+            // 
+            this.shours.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.shours.Location = new System.Drawing.Point(164, 147);
+            this.shours.Name = "shours";
+            this.shours.Size = new System.Drawing.Size(81, 26);
+            this.shours.TabIndex = 43;
+            // 
+            // amonths
+            // 
+            this.amonths.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.amonths.Location = new System.Drawing.Point(264, 118);
+            this.amonths.Name = "amonths";
+            this.amonths.Size = new System.Drawing.Size(81, 26);
+            this.amonths.TabIndex = 42;
+            // 
+            // ahours
+            // 
+            this.ahours.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ahours.Location = new System.Drawing.Point(164, 116);
+            this.ahours.Name = "ahours";
+            this.ahours.Size = new System.Drawing.Size(81, 26);
+            this.ahours.TabIndex = 41;
+            // 
+            // emonths
+            // 
+            this.emonths.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emonths.Location = new System.Drawing.Point(264, 84);
+            this.emonths.Name = "emonths";
+            this.emonths.Size = new System.Drawing.Size(81, 26);
+            this.emonths.TabIndex = 40;
+            // 
+            // ehours
+            // 
+            this.ehours.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ehours.Location = new System.Drawing.Point(164, 82);
+            this.ehours.Name = "ehours";
+            this.ehours.Size = new System.Drawing.Size(81, 26);
+            this.ehours.TabIndex = 39;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(70, 273);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 19);
+            this.label4.TabIndex = 38;
+            this.label4.Text = "Fuel Line";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(32, 241);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(113, 19);
+            this.label6.TabIndex = 37;
+            this.label6.Text = "Fuel tank & filter";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(37, 209);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(108, 19);
+            this.label7.TabIndex = 36;
+            this.label7.Text = "Spark Arrester";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(31, 178);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(114, 19);
+            this.label8.TabIndex = 35;
+            this.label8.Text = "Valve clearance";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(42, 146);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(103, 19);
+            this.label9.TabIndex = 34;
+            this.label9.Text = "Sediment cup";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(56, 115);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(89, 19);
+            this.label19.TabIndex = 33;
+            this.label19.Text = "Air Cleaner";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(61, 83);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(84, 19);
+            this.label24.TabIndex = 32;
+            this.label24.Text = "Engine Oil";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Enabled = false;
+            this.label25.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.Black;
+            this.label25.Location = new System.Drawing.Point(282, 38);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(63, 19);
+            this.label25.TabIndex = 31;
+            this.label25.Text = "Months";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(160, 38);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(52, 19);
+            this.label26.TabIndex = 30;
+            this.label26.Text = "Hours";
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(246, 162);
+            this.textBox1.Location = new System.Drawing.Point(370, 82);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(82, 26);
-            this.textBox1.TabIndex = 28;
+            this.textBox1.Size = new System.Drawing.Size(181, 26);
+            this.textBox1.TabIndex = 52;
             // 
-            // btnCancel
+            // textBox2
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.Salmon;
-            this.btnCancel.Location = new System.Drawing.Point(235, 254);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(108, 36);
-            this.btnCancel.TabIndex = 27;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = false;
+            this.textBox2.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(370, 118);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(181, 26);
+            this.textBox2.TabIndex = 53;
             // 
-            // btnUpdate
+            // textBox3
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.SpringGreen;
-            this.btnUpdate.Location = new System.Drawing.Point(121, 254);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(108, 36);
-            this.btnUpdate.TabIndex = 26;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.textBox3.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(370, 149);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(181, 26);
+            this.textBox3.TabIndex = 54;
             // 
-            // Genarator_Name
+            // textBox4
             // 
-            this.Genarator_Name.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Genarator_Name.Location = new System.Drawing.Point(246, 57);
-            this.Genarator_Name.Name = "Genarator_Name";
-            this.Genarator_Name.ReadOnly = true;
-            this.Genarator_Name.Size = new System.Drawing.Size(82, 26);
-            this.Genarator_Name.TabIndex = 24;
+            this.textBox4.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(370, 181);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(181, 26);
+            this.textBox4.TabIndex = 55;
             // 
-            // label20
+            // textBox5
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(160, 60);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(51, 19);
-            this.label20.TabIndex = 23;
-            this.label20.Text = "Name";
+            this.textBox5.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(370, 212);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(181, 26);
+            this.textBox5.TabIndex = 56;
             // 
-            // txt_password
+            // textBox6
             // 
-            this.txt_password.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_password.Location = new System.Drawing.Point(246, 127);
-            this.txt_password.Name = "txt_password";
-            this.txt_password.Size = new System.Drawing.Size(82, 26);
-            this.txt_password.TabIndex = 21;
-            // 
-            // Genarator_Model
-            // 
-            this.Genarator_Model.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Genarator_Model.Location = new System.Drawing.Point(246, 92);
-            this.Genarator_Model.Name = "Genarator_Model";
-            this.Genarator_Model.Size = new System.Drawing.Size(82, 26);
-            this.Genarator_Model.TabIndex = 20;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(131, 162);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(80, 19);
-            this.label21.TabIndex = 18;
-            this.label21.Text = "Ferquency";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(133, 130);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(78, 19);
-            this.label22.TabIndex = 17;
-            this.label22.Text = "Tank Size";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(157, 92);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(54, 19);
-            this.label23.TabIndex = 16;
-            this.label23.Text = "Model";
+            this.textBox6.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Location = new System.Drawing.Point(370, 244);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(181, 26);
+            this.textBox6.TabIndex = 57;
             // 
             // ViewGenerators
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 540);
-            this.Controls.Add(this.gb_generator);
+            this.ClientSize = new System.Drawing.Size(1090, 540);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvGenerator);
             this.Name = "ViewGenerators";
@@ -276,8 +442,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvGenerator)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.gb_generator.ResumeLayout(false);
-            this.gb_generator.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -290,18 +456,34 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn GenNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn model;
-        private System.Windows.Forms.GroupBox gb_generator;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.TextBox Genarator_Name;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox txt_password;
-        private System.Windows.Forms.TextBox Genarator_Model;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox fuyears;
+        private System.Windows.Forms.TextBox fumonths;
+        private System.Windows.Forms.TextBox fuhours;
+        private System.Windows.Forms.TextBox spmonths;
+        private System.Windows.Forms.TextBox sphours;
+        private System.Windows.Forms.TextBox vmonths;
+        private System.Windows.Forms.TextBox vhours;
+        private System.Windows.Forms.TextBox smonths;
+        private System.Windows.Forms.TextBox shours;
+        private System.Windows.Forms.TextBox amonths;
+        private System.Windows.Forms.TextBox ahours;
+        private System.Windows.Forms.TextBox emonths;
+        private System.Windows.Forms.TextBox ehours;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

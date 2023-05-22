@@ -35,6 +35,7 @@
             this.txtuser = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_Stop = new System.Windows.Forms.Button();
+            this.user_name_label = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,6 +46,7 @@
             this.cmbGenerator.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGenerator.Enabled = false;
             this.cmbGenerator.FormattingEnabled = true;
+
             this.cmbGenerator.Items.AddRange(new object[] {
             "Select Generator"});
             this.cmbGenerator.Location = new System.Drawing.Point(316, 223);
@@ -123,6 +125,15 @@
             this.btn_Stop.Visible = false;
             this.btn_Stop.Click += new System.EventHandler(this.btnStop_Click);
             // 
+            // user_name_label
+            // 
+            this.user_name_label.AutoSize = true;
+            this.user_name_label.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.user_name_label.Location = new System.Drawing.Point(312, 199);
+            this.user_name_label.Name = "user_name_label";
+            this.user_name_label.Size = new System.Drawing.Size(0, 19);
+            this.user_name_label.TabIndex = 8;
+            // 
             // generatorOperations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -130,6 +141,7 @@
             this.BackgroundImage = global::GeneratorManagementSyestem.Properties.Resources.background_gbc009374d_1280;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(897, 540);
+            this.Controls.Add(this.user_name_label);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtuser);
             this.Controls.Add(this.button_start);
@@ -155,5 +167,6 @@
         private System.Windows.Forms.TextBox txtuser;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_Stop;
+        private System.Windows.Forms.Label user_name_label;
     }
 }
