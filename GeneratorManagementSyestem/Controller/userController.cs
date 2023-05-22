@@ -242,5 +242,34 @@ namespace GeneratorManagementSyestem.Controller
             return status;
         }
         /******************************************************************************************************************/
+        
+        /*************************************************************************************************************************/
+
+        public string findUserID(userModel uMod)
+        {
+            if (sqlconn.State.ToString() != "Open")
+            {
+                sqlconn.Open();
+            }
+            string Userid = "00";
+            try
+            {
+                string url = "Select * from employee where password='" + uMod.Password + "';";
+                SqlCommand cmd = new SqlCommand(url, sqlconn);
+                SqlDataReader r = cmd.ExecuteReader();
+                if (r.Read()) ;
+                Userid = Convert.ToString(r[0]);
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                sqlconn.Close();
+            }
+            return Userid;
+        }
     }
 }
