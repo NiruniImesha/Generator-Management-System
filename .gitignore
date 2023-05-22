@@ -12,3 +12,7 @@ GeneratorManagementSyestem/obj/Debug/GeneratorManagementSyestem.csproj.FileListA
 *.exe
 *.pdb
 .vs/GeneratorManagementSyestem/v14/.suo
+*.Cache
+*.exe
+*.bak
+*.sql
