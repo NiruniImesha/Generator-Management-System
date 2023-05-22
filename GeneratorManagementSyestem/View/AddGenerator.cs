@@ -84,8 +84,8 @@ namespace GeneratorManagementSyestem
             genId.ReadOnly = true;
             name.ReadOnly = true;
 
-            checkBox2.Visible = false;
-            checkBox2.Enabled = false;
+            checkBox_BrandNew.Visible = false;
+            checkBox_BrandNew.Enabled = false;
 
             button1.Visible = false;
             button1.Enabled = false;        
@@ -95,23 +95,6 @@ namespace GeneratorManagementSyestem
         private void AddGenerator_Load(object sender, EventArgs e)
         {
             
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox2.Checked)
-            {
-                groupBox2.Enabled =true;
-                groupBox2.Focus();                
-            }
-            else
-            {
-                groupBox3.Enabled = true;
-                groupBox3.Focus();
-                genMod.FirstServiceHours = 0;
-                genMod.FirstServiceMonth1 = 0;
-
-            }
         }
         
         private void model_KeyDown(object sender, KeyEventArgs e)
@@ -152,8 +135,8 @@ namespace GeneratorManagementSyestem
             {
                 if (tankSize.Text != "")
                 {
-                    checkBox2.Enabled = true;
-                    checkBox2.Focus();
+                    checkBox_BrandNew.Enabled = true;
+                    checkBox_BrandNew.Focus();
                 }
                 else
                 {
@@ -274,6 +257,24 @@ namespace GeneratorManagementSyestem
                 this.Hide();
                 this.Close();
             
+        }
+
+        private void checkBox_BrandNew_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox_BrandNew.Checked)
+            {
+                groupBox2.Visible = true;
+                groupBox2.Focus();
+            }
+            else
+            {
+                groupBox2.Visible = false;
+                //groupBox3.Enabled = true;
+                //groupBox3.Focus();
+                genMod.FirstServiceHours = 0;
+                genMod.FirstServiceMonth1 = 0;
+
+            }
         }
     }
 }
