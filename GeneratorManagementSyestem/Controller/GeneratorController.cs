@@ -327,9 +327,9 @@ namespace GeneratorManagementSyestem.Controller
             {              
                     sMod.GeneratorID = genMod.Name;
 
-                    string url = "select TOP 1 s.currentTotDuration, g.totalDuration from service_history s,generator g where g.name = s.generatorID and s.generatorID = '" + sMod.GeneratorID + "' and s.serviceType = '" + sMod.ServiceType + "' order by s.serviceTurn desc;";
-
-                    SqlCommand cmd = new SqlCommand(url, sqlconn);
+                 //   string url = "select TOP 1 s.currentTotDuration, g.totalDuration from service_history s,generator g where g.name = s.generatorID and s.generatorID = '" + sMod.GeneratorID + "' and s.serviceType = '" + sMod.ServiceType + "' order by s.serviceTurn desc;";
+                string url = "select TOP 1 service_history.currentTotDuration, generator.totalDuration from service_history INNER JOIN generator ON service_history.generatorID = generator.name where service_history.generatorID = '" + sMod.GeneratorID + "' and service_history.serviceType = '" + sMod.ServiceType + "' order by service_history.serviceTurn desc;";
+                SqlCommand cmd = new SqlCommand(url, sqlconn);
                     SqlDataReader result = cmd.ExecuteReader();
 
                     if (result.Read())
