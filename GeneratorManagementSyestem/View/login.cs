@@ -29,7 +29,7 @@ namespace GeneratorManagementSyestem
             if (uCon.login(uMod))
             {
                 this.Hide();
-                Dashboard d = new Dashboard(textBox1.Text);
+                Dashboard d = new Dashboard(textBox1.Text, textBox2.Text);
                 d.Show();
             }
             else

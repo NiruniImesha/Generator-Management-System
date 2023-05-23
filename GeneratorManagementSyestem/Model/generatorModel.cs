@@ -24,6 +24,34 @@ namespace GeneratorManagementSyestem.Model
         private string firstServiceMonth01;
         private string firstServiceHours01;
 
+
+        private string start_date_range;
+        private string end_date_range;
+
+        public string End_date_range
+        {
+            get
+            {
+                return end_date_range;
+            }
+
+            set
+            {
+                end_date_range = value;
+            }
+        }
+        public string Start_date_range
+        {
+            get
+            {
+                return start_date_range;
+            }
+
+            set
+            {
+                start_date_range = value;
+            }
+        }
         public string FirstServiceHours01
         {
             get
