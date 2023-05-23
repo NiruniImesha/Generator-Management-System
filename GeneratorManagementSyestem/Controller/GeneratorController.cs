@@ -337,7 +337,7 @@ namespace GeneratorManagementSyestem.Controller
                         string totalDuration = result["totalDuration"].ToString();
                         string currentDuration = result["currentTotDuration"].ToString();
                         toHours = DateTime.Parse(totalDuration).Subtract(DateTime.Parse(currentDuration));
-                        hours = Convert.ToString(toHours);
+                        hours = Convert.ToString(toHours.Hours);
                     }
                     result.Close();            
             }
