@@ -40,8 +40,10 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.dgvUser = new System.Windows.Forms.DataGridView();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.updatebtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
             this.SuspendLayout();
@@ -49,6 +51,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.GhostWhite;
+            this.groupBox1.Controls.Add(this.updatebtn);
             this.groupBox1.Controls.Add(this.btnCancel);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.cmb_user_type);
@@ -172,13 +175,20 @@
             this.dgvUser.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column3,
             this.Column1,
             this.Column2});
-            this.dgvUser.Location = new System.Drawing.Point(579, 130);
+            this.dgvUser.Location = new System.Drawing.Point(528, 130);
             this.dgvUser.Name = "dgvUser";
             this.dgvUser.RowHeadersVisible = false;
-            this.dgvUser.Size = new System.Drawing.Size(204, 292);
+            this.dgvUser.Size = new System.Drawing.Size(304, 292);
             this.dgvUser.TabIndex = 13;
+            this.dgvUser.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvUser_CellMouseClick);
+            // 
+            // Column3
+            // 
+            this.Column3.HeaderText = "User ID";
+            this.Column3.Name = "Column3";
             // 
             // Column1
             // 
@@ -189,6 +199,17 @@
             // 
             this.Column2.HeaderText = "User Type";
             this.Column2.Name = "Column2";
+            // 
+            // updatebtn
+            // 
+            this.updatebtn.BackColor = System.Drawing.Color.SpringGreen;
+            this.updatebtn.Location = new System.Drawing.Point(74, 222);
+            this.updatebtn.Name = "updatebtn";
+            this.updatebtn.Size = new System.Drawing.Size(108, 36);
+            this.updatebtn.TabIndex = 28;
+            this.updatebtn.Text = "Update";
+            this.updatebtn.UseVisualStyleBackColor = false;
+            this.updatebtn.Click += new System.EventHandler(this.updatebtn_Click);
             // 
             // addUser
             // 
@@ -222,7 +243,9 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.DataGridView dgvUser;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.Button updatebtn;
     }
 }
