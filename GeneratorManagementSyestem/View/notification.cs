@@ -16,5 +16,10 @@ namespace GeneratorManagementSyestem.View
         {
             InitializeComponent();
         }
+
+        private void btn_ok_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
