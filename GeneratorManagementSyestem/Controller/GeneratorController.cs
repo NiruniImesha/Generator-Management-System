@@ -351,7 +351,7 @@ namespace GeneratorManagementSyestem.Controller
                 #region CURRENT TIME
                 //string url_currentTime = "select TOP 1 s.currentTotDuration, d." + columnName + "  from service_history s, generator g, service_duration_data d where g.name = s.generatorID and s.generatorID = '" + sMod.GeneratorID + "' and s.serviceType = '" + sMod.ServiceType + "' AND g.genNo = d.generatorID order by s.serviceTurn desc;";
 
-                string url_currentTime = "select TOP 1 currentTotDuration from service_history where generatorID = '" + sMod.GeneratorID + "' and serviceType = '" + sMod.ServiceType + "'order by serviceTurn desc;";
+                string url_currentTime = "select TOP 1 currentTotDuration from service_history where generatorID = '" + sMod.GeneratorID + "' and serviceType = '" + sMod.ServiceType + "' order by serviceTurn desc;";
 
                 SqlCommand cmd_currentTime = new SqlCommand(url_currentTime, sqlconn);
                 SqlDataReader result_currentTime = cmd_currentTime.ExecuteReader();
@@ -361,44 +361,42 @@ namespace GeneratorManagementSyestem.Controller
                     if (result_currentTime.HasRows)
                     {
                         currentDuration = result_currentTime["currentTotDuration"].ToString();
-                        //serviceDuration = result_currentTime[columnName].ToString();
                     }
-
-                    //hours = Convert.ToString(toHours.Hours);
                 }
                 else
                 {
                     currentDuration = "00:00:00";
-                    //serviceDuration = "00:00:00";
                 }
                 result_currentTime.Close();
                 #endregion
 
                 #region SERVICE HOURS
-                string url_serviceHours = "select " + columnName + " from service_duration_data where generatorID = '" + sMod.GeneratorID+";";
+
+                //sMod.GeneratorID = "002";
+                //string url_serviceHours = "select " + columnName + " from service_duration_data where generatorID = '" + sMod.GeneratorID+"';";
+                string url_serviceHours = "select " + columnName + " from service_duration_data d, generator g where d.generatorID = g.genNo and g.name = '"+ sMod.GeneratorID + "';";
 
                 SqlCommand cmd_serviceHourse = new SqlCommand(url_serviceHours, sqlconn);
                 SqlDataReader result_serviceHours = cmd_serviceHourse.ExecuteReader();
 
-                if (result_currentTime.Read())
+                if (result_serviceHours.Read())
                 {
-                    if (result_currentTime.HasRows)
+                    if (result_serviceHours.HasRows)
                     {
-                        //currentDuration = result_currentTime["currentTotDuration"].ToString();
-                        serviceDuration = result_currentTime[columnName].ToString();
-                    }
-
-                    //hours = Convert.ToString(toHours.Hours);
+                        serviceDuration = result_serviceHours[columnName].ToString();
+                    }           
                 }
                 else
                 {
-                    //currentDuration = "00:00:00";
                     serviceDuration = "00:00:00";
                 }
+                result_serviceHours.Close();
                 #endregion
 
                 TimeSpan total_run_hours = DateTime.Parse(totalDuration).Subtract(DateTime.Parse(currentDuration));
-                toHours = DateTime.Parse(serviceDuration).Subtract(DateTime.Parse(total_run_hours.ToString()));
+                string Hours = Convert.ToString(total_run_hours);
+                toHours = DateTime.Parse(serviceDuration).Subtract(DateTime.Parse(Hours));
+                //hours = Convert.ToString(toHours.Hours);
 
             }
             catch (Exception e)
