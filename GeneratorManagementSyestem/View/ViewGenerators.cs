@@ -92,12 +92,15 @@ namespace GeneratorManagementSyestem.View
 
             genMod.Name = GeneratorName;
             string[] services = { "Engine Oil", "Air Cleaner", "Sediment cup", "Valve clearance", "Spark Arrester", "Fuel tank & filter" };
+
+            string[] service_columns = { "EngineserviceDurationHours", "AirserviceDurationHours", "SedimentserviceDurationHours", "ValveserviceDurationHours", "SparkserviceDurationHours", "FuelserviceDurationHours" };
+
             string[] due = new string[6];
 
                 for (int i = 0; i < 6; ++i)
                 {
                     sMod.ServiceType = services[i];
-                    due[i] = genCon.notification(sMod, genMod);
+                    due[i] = genCon.notification(sMod, genMod, service_columns[i]);
                 }
 
             textBox1.Text = due[0];

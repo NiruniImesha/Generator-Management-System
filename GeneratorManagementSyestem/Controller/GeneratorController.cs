@@ -68,7 +68,7 @@ namespace GeneratorManagementSyestem.Controller
             }
             try
             {
-                string url = "insert into generator (genNo, name, model,frequency,tankSize,totalDuration,firstServiceMonth,firstServiceHours) values ('" + genMod.GenNo + "','" +genMod.Name+"','"+ genMod.Model + "','" + genMod.Frequency + "','" + genMod.TankSize + "','0','" + genMod.FirstServiceMonth1 + "','" + genMod.FirstServiceHours + "')";
+                string url = "insert into generator (genNo, name, model,frequency,tankSize,totalDuration,firstServiceMonth,firstServiceHours) values ('" + genMod.GenNo + "','" + genMod.Name + "','" + genMod.Model + "','" + genMod.Frequency + "','" + genMod.TankSize + "','0','" + genMod.FirstServiceMonth1 + "','" + genMod.FirstServiceHours + "')";
 
                 SqlCommand cmd = new SqlCommand(url, sqlconn);
 
@@ -176,7 +176,7 @@ namespace GeneratorManagementSyestem.Controller
             DataSet ds = new DataSet();
             try
             {
-                string url = "SELECT * FROM generator where id = '"+genMod.GenNo+"'";
+                string url = "SELECT * FROM generator where id = '" + genMod.GenNo + "'";
                 SqlCommand cmd = new SqlCommand(url, sqlconn);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 da.Fill(ds);
@@ -233,7 +233,7 @@ namespace GeneratorManagementSyestem.Controller
             }
             try
             {
-                string url = "select genNo, model, frequency, tankSize, totalDuration, name ,firstServiceMonth ,firstServiceHours from generator where genNo = '" + genMod.GenNo + "'";               
+                string url = "select genNo, model, frequency, tankSize, totalDuration, name ,firstServiceMonth ,firstServiceHours from generator where genNo = '" + genMod.GenNo + "'";
 
                 SqlCommand cmd = new SqlCommand(url, sqlconn);
                 SqlDataReader result = cmd.ExecuteReader();
@@ -256,7 +256,7 @@ namespace GeneratorManagementSyestem.Controller
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.ToString());             
+                MessageBox.Show(e.ToString());
             }
             sqlconn.Close();
         }
@@ -274,14 +274,14 @@ namespace GeneratorManagementSyestem.Controller
             int result = cmd.ExecuteNonQuery();
             if (result == 1)
             {
-               // MessageBox.Show("Successfully Updated");
+                // MessageBox.Show("Successfully Updated");
             }
             else
             {
                 MessageBox.Show("Error Occured (updateGenarator)");
             }
             sqlconn.Close();
-        }        
+        }
 
         // update the total duration
         public void changeTotDuration(generatorModel genMod)
@@ -295,13 +295,14 @@ namespace GeneratorManagementSyestem.Controller
                 string url = "update generator set totalDuration = '" + genMod.TotalDuration + "' where name= '" + genMod.Name + "'";
                 SqlCommand cmd = new SqlCommand(url, sqlconn); if (cmd.ExecuteNonQuery() == 0)
 
-                    if (cmd.ExecuteNonQuery() == 0) {
-                    MessageBox.Show("Total duration didn't update!");
-                }
-                else
-                {
-                    MessageBox.Show("Total duration successfully updated!");
-                }
+                    if (cmd.ExecuteNonQuery() == 0)
+                    {
+                        MessageBox.Show("Total duration didn't update!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Total duration successfully updated!");
+                    }
             }
             catch (Exception e)
             {
@@ -315,38 +316,101 @@ namespace GeneratorManagementSyestem.Controller
         }
 
         // calculate the duration for the notifications
-        public string notification(serviceHistoryModel sMod, generatorModel genMod)
+        public string notification(serviceHistoryModel sMod, generatorModel genMod, string columnName)
         {
-            string hours="";
+            string hours = "";
             TimeSpan toHours = new TimeSpan();
             if (sqlconn.State.ToString() != "Open")
             {
                 sqlconn.Open();
             }
             try
-            {              
-                    sMod.GeneratorID = genMod.Name;
+            {
+                sMod.GeneratorID = genMod.Name;
+                string totalDuration = "";
+                string currentDuration = "";
+                string serviceDuration = "";
 
-                 //   string url = "select TOP 1 s.currentTotDuration, g.totalDuration from service_history s,generator g where g.name = s.generatorID and s.generatorID = '" + sMod.GeneratorID + "' and s.serviceType = '" + sMod.ServiceType + "' order by s.serviceTurn desc;";
-                string url = "select TOP 1 service_history.currentTotDuration, generator.totalDuration from service_history INNER JOIN generator ON service_history.generatorID = generator.name where service_history.generatorID = '" + sMod.GeneratorID + "' and service_history.serviceType = '" + sMod.ServiceType + "' order by service_history.serviceTurn desc;";
-                SqlCommand cmd = new SqlCommand(url, sqlconn);
-                    SqlDataReader result = cmd.ExecuteReader();
 
-                    if (result.Read())
+                //string url_lifetime = "select TOP 1 s.currentTotDuration, g.totalDuration from service_history s,generator g where g.name = s.generatorID and s.generatorID = '" + sMod.GeneratorID + "' and s.serviceType = '" + sMod.ServiceType + "' order by s.serviceTurn desc;";
+
+                #region LIFE TIME
+                string url_lifetime = "select TOP 1 g.totalDuration from service_history s,generator g where g.name = s.generatorID and s.generatorID = '" + sMod.GeneratorID + "' order by s.serviceTurn desc;";
+
+
+                SqlCommand cmd_lifetime = new SqlCommand(url_lifetime, sqlconn);
+                SqlDataReader result_lifetime = cmd_lifetime.ExecuteReader();
+
+                if (result_lifetime.Read())
+                {
+                    totalDuration = result_lifetime["totalDuration"].ToString();
+                }
+                result_lifetime.Close();
+                #endregion
+
+                #region CURRENT TIME
+                //string url_currentTime = "select TOP 1 s.currentTotDuration, d." + columnName + "  from service_history s, generator g, service_duration_data d where g.name = s.generatorID and s.generatorID = '" + sMod.GeneratorID + "' and s.serviceType = '" + sMod.ServiceType + "' AND g.genNo = d.generatorID order by s.serviceTurn desc;";
+
+                string url_currentTime = "select TOP 1 currentTotDuration from service_history where generatorID = '" + sMod.GeneratorID + "' and serviceType = '" + sMod.ServiceType + "'order by serviceTurn desc;";
+
+                SqlCommand cmd_currentTime = new SqlCommand(url_currentTime, sqlconn);
+                SqlDataReader result_currentTime = cmd_currentTime.ExecuteReader();
+
+                if (result_currentTime.Read())
+                {
+                    if (result_currentTime.HasRows)
                     {
-                        string totalDuration = result["totalDuration"].ToString();
-                        string currentDuration = result["currentTotDuration"].ToString();
-                        toHours = DateTime.Parse(totalDuration).Subtract(DateTime.Parse(currentDuration));
-                        hours = Convert.ToString(toHours.Hours);
+                        currentDuration = result_currentTime["currentTotDuration"].ToString();
+                        //serviceDuration = result_currentTime[columnName].ToString();
                     }
-                    result.Close();            
+
+                    //hours = Convert.ToString(toHours.Hours);
+                }
+                else
+                {
+                    currentDuration = "00:00:00";
+                    //serviceDuration = "00:00:00";
+                }
+                result_currentTime.Close();
+                #endregion
+
+                #region SERVICE HOURS
+                string url_serviceHours = "select " + columnName + " from service_duration_data where generatorID = '" + sMod.GeneratorID+";";
+
+                SqlCommand cmd_serviceHourse = new SqlCommand(url_serviceHours, sqlconn);
+                SqlDataReader result_serviceHours = cmd_serviceHourse.ExecuteReader();
+
+                if (result_currentTime.Read())
+                {
+                    if (result_currentTime.HasRows)
+                    {
+                        //currentDuration = result_currentTime["currentTotDuration"].ToString();
+                        serviceDuration = result_currentTime[columnName].ToString();
+                    }
+
+                    //hours = Convert.ToString(toHours.Hours);
+                }
+                else
+                {
+                    //currentDuration = "00:00:00";
+                    serviceDuration = "00:00:00";
+                }
+                #endregion
+
+                TimeSpan total_run_hours = DateTime.Parse(totalDuration).Subtract(DateTime.Parse(currentDuration));
+                toHours = DateTime.Parse(serviceDuration).Subtract(DateTime.Parse(total_run_hours.ToString()));
+
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
             }
-            return hours;
+            finally
+            {
+                sqlconn.Close();
+            }
+            return toHours.ToString();
         }
-        
+
     }
 }

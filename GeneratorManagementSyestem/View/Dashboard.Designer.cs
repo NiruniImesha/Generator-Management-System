@@ -65,7 +65,7 @@
             this.btnAddUser.BackColor = System.Drawing.Color.Ivory;
             this.btnAddUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnAddUser.Font = new System.Drawing.Font("Calisto MT", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddUser.Location = new System.Drawing.Point(1577, 32);
+            this.btnAddUser.Location = new System.Drawing.Point(1572, 32);
             this.btnAddUser.Name = "btnAddUser";
             this.btnAddUser.Size = new System.Drawing.Size(170, 43);
             this.btnAddUser.TabIndex = 6;
@@ -166,7 +166,9 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 642);
             this.panel3.Name = "panel3";
+
             this.panel3.Size = new System.Drawing.Size(1760, 67);
+
             this.panel3.TabIndex = 6;
             // 
             // Name_label2
@@ -195,7 +197,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::GeneratorManagementSyestem.Properties.Resources.abstract_gdc5af2023_1920;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+
             this.ClientSize = new System.Drawing.Size(1760, 709);
+
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.IsMdiContainer = true;
