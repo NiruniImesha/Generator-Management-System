@@ -16,6 +16,8 @@ namespace GeneratorManagementSyestem
     {
         dailyServiceDataModel dMod = new dailyServiceDataModel();
         generatorModel genMod = new generatorModel();
+
+
         dailyOperationController dCon = new dailyOperationController();
         GeneratorController genCon = new GeneratorController();
         dailyOperationController genOp = new dailyOperationController();
@@ -41,6 +43,25 @@ namespace GeneratorManagementSyestem
             genMod.Name = cmbGenerator.Text;
             genMod.GenNo = genCon.getGeneratorByName(genMod);
             dCon.getDailyOperationsHistory(genMod, dgvDailyOperations);
-        }        
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            genMod.Name = cmbGenerator.Text;
+            genMod.GenNo = genCon.getGeneratorByName(genMod);
+            genMod.Start_date_range = dateTimePicker1.Text;
+            genMod.End_date_range = dateTimePicker2.Text;
+            label3.Text = genMod.Start_date_range;
+            dCon.getDailyOperationsHistory01(genMod, dgvDailyOperations);
+        }
+
+        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
+        {
+            genMod.Name = cmbGenerator.Text;
+            genMod.GenNo = genCon.getGeneratorByName(genMod);
+            genMod.Start_date_range = dateTimePicker1.Text;
+            genMod.End_date_range = dateTimePicker2.Text;
+            dCon.getDailyOperationsHistory01(genMod, dgvDailyOperations);
+        }
     }
 }

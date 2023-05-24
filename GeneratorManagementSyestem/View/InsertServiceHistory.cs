@@ -20,6 +20,11 @@ namespace GeneratorManagementSyestem.View
         historyController hCon = new historyController();
         GeneratorController genCon = new GeneratorController();
 
+        userController uCon = new userController();
+        userModel uMod = new userModel();
+
+        private string userID_main;
+
         public InsertServiceHistory()
         {
             InitializeComponent();
@@ -27,6 +32,21 @@ namespace GeneratorManagementSyestem.View
             cbGenerator.SelectedIndex = 0;
             cbService.SelectedIndex = 0;
             
+        }
+
+        public InsertServiceHistory(string userID_main)
+        {
+            InitializeComponent();
+
+            this.userID_main = userID_main;
+            uMod.UserID_main = userID_main;
+
+            addGenerator();
+            cbGenerator.SelectedIndex = 0;
+            cbService.SelectedIndex = 0;
+
+            Usre_ID.Text = uMod.UserID_main;
+            Usre_ID.ReadOnly = true;
         }
 
         private void addGenerator()
@@ -44,6 +64,7 @@ namespace GeneratorManagementSyestem.View
             hMod.ServiceDate =dtpHistory.Text;
             hMod.CurrentTotDuration = hCon.getCurrentDuration(hMod);
             hMod.ServiceType = cbService.Text;
+            hMod.User_ID = Usre_ID.Text;
 
             if (hCon.addGeneratorHistory(hMod))
             {

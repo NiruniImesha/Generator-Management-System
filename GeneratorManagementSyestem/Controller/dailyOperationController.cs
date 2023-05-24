@@ -257,5 +257,43 @@ namespace GeneratorManagementSyestem.Controller
             result.Close();
             sqlconn.Close();
         }
+
+        /*************************************************************************************************************************/
+        public void getDailyOperationsHistory01(generatorModel genMod, DataGridView dgvName)
+        {
+           // string query01 = "select * from daily_generator_usage where serviceNo like '" + genMod.GenNo + "%'";
+
+            string query = "select * from daily_generator_usage where serviceNo like '" + genMod.GenNo + "%' And startDate >= '" + genMod.Start_date_range + "' and stopDate <= '" + genMod.End_date_range + "'";
+
+            AddHistoryDetails01(dgvName, query);
+        }
+
+        // add data to the data grid view
+        public void AddHistoryDetails01(DataGridView dgvName, string query)
+        {
+            if (sqlconn.State.ToString() != "Open")
+            {
+                sqlconn.Open();
+            }
+
+            SqlCommand cmd = new SqlCommand(query, sqlconn);
+            SqlDataReader result = cmd.ExecuteReader();
+            dgvName.Rows.Clear();
+
+            while (result.Read())
+            {
+                int n = dgvName.Rows.Add();
+                dgvName.Rows[n].Cells[0].Value = result["starttime"].ToString();
+                dgvName.Rows[n].Cells[1].Value = result["startdate"].ToString();
+                dgvName.Rows[n].Cells[2].Value = result["startuser"].ToString();
+                dgvName.Rows[n].Cells[3].Value = result["stoptime"].ToString();
+                dgvName.Rows[n].Cells[4].Value = result["stopdate"].ToString();
+                dgvName.Rows[n].Cells[5].Value = result["stopuser"].ToString();
+                dgvName.Rows[n].Cells[6].Value = result["duration"].ToString();
+            }
+            result.Close();
+            sqlconn.Close();
+        }
+        /*************************************************************************************************************************/
     }
 }
