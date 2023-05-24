@@ -35,7 +35,7 @@
             // notification_txt
             // 
             this.notification_txt.AutoSize = true;
-            this.notification_txt.Location = new System.Drawing.Point(117, 60);
+            this.notification_txt.Location = new System.Drawing.Point(117, 78);
             this.notification_txt.Name = "notification_txt";
             this.notification_txt.Size = new System.Drawing.Size(78, 17);
             this.notification_txt.TabIndex = 0;
@@ -43,9 +43,9 @@
             // 
             // btn_ok
             // 
-            this.btn_ok.Location = new System.Drawing.Point(166, 166);
+            this.btn_ok.Location = new System.Drawing.Point(212, 154);
             this.btn_ok.Name = "btn_ok";
-            this.btn_ok.Size = new System.Drawing.Size(75, 23);
+            this.btn_ok.Size = new System.Drawing.Size(103, 41);
             this.btn_ok.TabIndex = 1;
             this.btn_ok.Text = "OK";
             this.btn_ok.UseVisualStyleBackColor = true;
