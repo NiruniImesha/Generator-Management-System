@@ -273,6 +273,34 @@ namespace GeneratorManagementSyestem.Controller
             return Userid;
         }
 
+        public string findUsertype(userModel uMod)
+        {
+            if (sqlconn.State.ToString() != "Open")
+            {
+                sqlconn.Open();
+            }
+            string Usertype = "00";
+            try
+            {
+                string url = "SELECT userType FROM employee WHERE userID = '" + uMod.UserID_main + "';";
+                
+                SqlCommand cmd = new SqlCommand(url, sqlconn);
+                SqlDataReader r = cmd.ExecuteReader();
+                if (r.Read()) ;
+                Usertype = Convert.ToString(r[0]);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                sqlconn.Close();
+            }
+            return Usertype;
+        }
+
         /****************************************************************************************************************/
         public void finduserByID(userModel uMod)
         {
@@ -299,6 +327,57 @@ namespace GeneratorManagementSyestem.Controller
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
+            }
+            sqlconn.Close();
+        }
+
+        public void finduserByID01(userModel uMod)
+        {
+            if (sqlconn.State.ToString() != "Open")
+            {
+                sqlconn.Open();
+            }
+            try
+            {
+                string url = "Select userID,userName,password,userType from employee where userID='" + uMod.UserID + "';";
+
+                SqlCommand cmd = new SqlCommand(url, sqlconn);
+                SqlDataReader result = cmd.ExecuteReader();
+
+                while (result.Read())
+                {
+                    uMod.UserID = result["userID"].ToString();
+                    uMod.UserName = result["userName"].ToString();
+                    uMod.Password = result["password"].ToString();
+                    uMod.UserType = result["userType"].ToString();
+
+                }
+                result.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            sqlconn.Close();
+        }
+
+        public void updateuser(userModel uMod)
+        {
+            string query = " Update employee SET userName = '" + uMod.UserName + "', password = '" + uMod.Password + "', userType = '" + uMod.UserType + "' where userID = '" + uMod.UserID + "'";
+
+            if (sqlconn.State.ToString() != "Open")
+            {
+                sqlconn.Open();
+            }
+            SqlCommand cmd = new SqlCommand(query, sqlconn);
+            int result = cmd.ExecuteNonQuery();
+            if (result == 1)
+            {
+                 MessageBox.Show("Successfully Updated");
+            }
+            else
+            {
+                MessageBox.Show("Error Occured (updateGenarator)");
             }
             sqlconn.Close();
         }
