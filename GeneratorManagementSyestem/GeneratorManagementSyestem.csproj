@@ -96,6 +96,12 @@
     <Compile Include="View\InsertServiceHistory.Designer.cs">
       <DependentUpon>InsertServiceHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\notification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\notification.Designer.cs">
+      <DependentUpon>notification.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\serviceHistory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\InsertServiceHistory.resx">
       <DependentUpon>InsertServiceHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\notification.resx">
+      <DependentUpon>notification.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\serviceHistory.resx">
       <DependentUpon>serviceHistory.cs</DependentUpon>
