@@ -87,7 +87,7 @@
             this.panel1.BackColor = System.Drawing.Color.Wheat;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(3, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1015, 100);
             this.panel1.TabIndex = 0;
@@ -122,9 +122,9 @@
             this.groupBox1.Controls.Add(this.label23);
             this.groupBox1.Font = new System.Drawing.Font("Calisto MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(4, 111);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(503, 332);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
@@ -134,8 +134,9 @@
             // 
             this.Total_run_duration.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Total_run_duration.Location = new System.Drawing.Point(196, 268);
-            this.Total_run_duration.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Total_run_duration.Margin = new System.Windows.Forms.Padding(4);
             this.Total_run_duration.Name = "Total_run_duration";
+            this.Total_run_duration.ReadOnly = true;
             this.Total_run_duration.Size = new System.Drawing.Size(263, 31);
             this.Total_run_duration.TabIndex = 28;
             // 
@@ -154,7 +155,7 @@
             // 
             this.name.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.name.Location = new System.Drawing.Point(196, 229);
-            this.name.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.name.Margin = new System.Windows.Forms.Padding(4);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(263, 31);
             this.name.TabIndex = 26;
@@ -174,8 +175,9 @@
             // 
             this.genId.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.genId.Location = new System.Drawing.Point(196, 60);
-            this.genId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.genId.Margin = new System.Windows.Forms.Padding(4);
             this.genId.Name = "genId";
+            this.genId.ReadOnly = true;
             this.genId.Size = new System.Drawing.Size(263, 31);
             this.genId.TabIndex = 24;
             // 
@@ -194,7 +196,7 @@
             // 
             this.tankSize.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tankSize.Location = new System.Drawing.Point(196, 190);
-            this.tankSize.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tankSize.Margin = new System.Windows.Forms.Padding(4);
             this.tankSize.Name = "tankSize";
             this.tankSize.Size = new System.Drawing.Size(263, 31);
             this.tankSize.TabIndex = 22;
@@ -203,7 +205,7 @@
             // 
             this.frequency.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.frequency.Location = new System.Drawing.Point(196, 146);
-            this.frequency.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.frequency.Margin = new System.Windows.Forms.Padding(4);
             this.frequency.Name = "frequency";
             this.frequency.Size = new System.Drawing.Size(263, 31);
             this.frequency.TabIndex = 21;
@@ -212,7 +214,7 @@
             // 
             this.model.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.model.Location = new System.Drawing.Point(196, 103);
-            this.model.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.model.Margin = new System.Windows.Forms.Padding(4);
             this.model.Name = "model";
             this.model.Size = new System.Drawing.Size(263, 31);
             this.model.TabIndex = 20;
@@ -222,7 +224,7 @@
             this.checkBox2.AutoSize = true;
             this.checkBox2.Font = new System.Drawing.Font("Calisto MT", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox2.Location = new System.Drawing.Point(196, 290);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox2.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(118, 26);
             this.checkBox2.TabIndex = 19;
@@ -271,9 +273,9 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Font = new System.Drawing.Font("Calisto MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(4, 453);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(503, 182);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
@@ -283,7 +285,7 @@
             // 
             this.fmonths.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fmonths.Location = new System.Drawing.Point(176, 103);
-            this.fmonths.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fmonths.Margin = new System.Windows.Forms.Padding(4);
             this.fmonths.Name = "fmonths";
             this.fmonths.Size = new System.Drawing.Size(263, 31);
             this.fmonths.TabIndex = 17;
@@ -293,7 +295,7 @@
             // 
             this.fhours.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fhours.Location = new System.Drawing.Point(176, 59);
-            this.fhours.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fhours.Margin = new System.Windows.Forms.Padding(4);
             this.fhours.Name = "fhours";
             this.fhours.Size = new System.Drawing.Size(263, 31);
             this.fhours.TabIndex = 16;
@@ -348,9 +350,9 @@
             this.groupBox3.Controls.Add(this.label26);
             this.groupBox3.Font = new System.Drawing.Font("Calisto MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(519, 111);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox3.Size = new System.Drawing.Size(503, 450);
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
@@ -360,7 +362,7 @@
             // 
             this.fuyears.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fuyears.Location = new System.Drawing.Point(219, 337);
-            this.fuyears.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fuyears.Margin = new System.Windows.Forms.Padding(4);
             this.fuyears.Name = "fuyears";
             this.fuyears.Size = new System.Drawing.Size(240, 31);
             this.fuyears.TabIndex = 51;
@@ -369,7 +371,7 @@
             // 
             this.fumonths.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fumonths.Location = new System.Drawing.Point(352, 300);
-            this.fumonths.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fumonths.Margin = new System.Windows.Forms.Padding(4);
             this.fumonths.Name = "fumonths";
             this.fumonths.Size = new System.Drawing.Size(107, 31);
             this.fumonths.TabIndex = 50;
@@ -378,7 +380,7 @@
             // 
             this.fuhours.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fuhours.Location = new System.Drawing.Point(219, 298);
-            this.fuhours.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fuhours.Margin = new System.Windows.Forms.Padding(4);
             this.fuhours.Name = "fuhours";
             this.fuhours.Size = new System.Drawing.Size(107, 31);
             this.fuhours.TabIndex = 49;
@@ -387,7 +389,7 @@
             // 
             this.spmonths.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spmonths.Location = new System.Drawing.Point(352, 261);
-            this.spmonths.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.spmonths.Margin = new System.Windows.Forms.Padding(4);
             this.spmonths.Name = "spmonths";
             this.spmonths.Size = new System.Drawing.Size(107, 31);
             this.spmonths.TabIndex = 48;
@@ -396,7 +398,7 @@
             // 
             this.sphours.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sphours.Location = new System.Drawing.Point(219, 258);
-            this.sphours.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sphours.Margin = new System.Windows.Forms.Padding(4);
             this.sphours.Name = "sphours";
             this.sphours.Size = new System.Drawing.Size(107, 31);
             this.sphours.TabIndex = 47;
@@ -405,7 +407,7 @@
             // 
             this.vmonths.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vmonths.Location = new System.Drawing.Point(352, 223);
-            this.vmonths.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.vmonths.Margin = new System.Windows.Forms.Padding(4);
             this.vmonths.Name = "vmonths";
             this.vmonths.Size = new System.Drawing.Size(107, 31);
             this.vmonths.TabIndex = 46;
@@ -414,7 +416,7 @@
             // 
             this.vhours.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vhours.Location = new System.Drawing.Point(219, 220);
-            this.vhours.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.vhours.Margin = new System.Windows.Forms.Padding(4);
             this.vhours.Name = "vhours";
             this.vhours.Size = new System.Drawing.Size(107, 31);
             this.vhours.TabIndex = 45;
@@ -423,7 +425,7 @@
             // 
             this.smonths.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.smonths.Location = new System.Drawing.Point(352, 183);
-            this.smonths.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.smonths.Margin = new System.Windows.Forms.Padding(4);
             this.smonths.Name = "smonths";
             this.smonths.Size = new System.Drawing.Size(107, 31);
             this.smonths.TabIndex = 44;
@@ -432,7 +434,7 @@
             // 
             this.shours.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.shours.Location = new System.Drawing.Point(219, 181);
-            this.shours.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.shours.Margin = new System.Windows.Forms.Padding(4);
             this.shours.Name = "shours";
             this.shours.Size = new System.Drawing.Size(107, 31);
             this.shours.TabIndex = 43;
@@ -441,7 +443,7 @@
             // 
             this.amonths.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.amonths.Location = new System.Drawing.Point(352, 143);
-            this.amonths.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.amonths.Margin = new System.Windows.Forms.Padding(4);
             this.amonths.Name = "amonths";
             this.amonths.Size = new System.Drawing.Size(107, 31);
             this.amonths.TabIndex = 42;
@@ -450,7 +452,7 @@
             // 
             this.ahours.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ahours.Location = new System.Drawing.Point(219, 143);
-            this.ahours.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ahours.Margin = new System.Windows.Forms.Padding(4);
             this.ahours.Name = "ahours";
             this.ahours.Size = new System.Drawing.Size(107, 31);
             this.ahours.TabIndex = 41;
@@ -459,7 +461,7 @@
             // 
             this.emonths.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emonths.Location = new System.Drawing.Point(352, 98);
-            this.emonths.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.emonths.Margin = new System.Windows.Forms.Padding(4);
             this.emonths.Name = "emonths";
             this.emonths.Size = new System.Drawing.Size(107, 31);
             this.emonths.TabIndex = 40;
@@ -468,7 +470,7 @@
             // 
             this.ehours.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ehours.Location = new System.Drawing.Point(219, 101);
-            this.ehours.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ehours.Margin = new System.Windows.Forms.Padding(4);
             this.ehours.Name = "ehours";
             this.ehours.Size = new System.Drawing.Size(107, 31);
             this.ehours.TabIndex = 39;
@@ -578,7 +580,7 @@
             this.button1.BackColor = System.Drawing.Color.Orange;
             this.button1.Font = new System.Drawing.Font("Calisto MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(519, 583);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(248, 52);
             this.button1.TabIndex = 14;
@@ -591,7 +593,7 @@
             this.button2.BackColor = System.Drawing.Color.Orange;
             this.button2.Font = new System.Drawing.Font("Calisto MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(791, 583);
-            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(231, 52);
             this.button2.TabIndex = 15;
@@ -605,7 +607,7 @@
             this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.crystalReportViewer1.Location = new System.Drawing.Point(1072, 24);
-            this.crystalReportViewer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.crystalReportViewer1.Margin = new System.Windows.Forms.Padding(4);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
             this.crystalReportViewer1.Size = new System.Drawing.Size(262, 573);
             this.crystalReportViewer1.TabIndex = 16;
@@ -618,7 +620,7 @@
             this.update_btn.BackColor = System.Drawing.Color.Orange;
             this.update_btn.Font = new System.Drawing.Font("Calisto MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.update_btn.Location = new System.Drawing.Point(519, 583);
-            this.update_btn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.update_btn.Margin = new System.Windows.Forms.Padding(4);
             this.update_btn.Name = "update_btn";
             this.update_btn.Size = new System.Drawing.Size(248, 52);
             this.update_btn.TabIndex = 17;
@@ -640,7 +642,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddGenerator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add generator";
