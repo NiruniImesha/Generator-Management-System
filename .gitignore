@@ -2,4 +2,6 @@
 .vs/GeneratorManagementSyestem/v14/.suo
 *.zip
 *.dll
-#Debug
+
+# Ignore all files in debug
+Debug/
