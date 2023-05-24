@@ -28,38 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_ok = new System.Windows.Forms.Button();
             this.notification_txt = new System.Windows.Forms.Label();
+            this.btn_ok = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // btn_ok
-            // 
-            this.btn_ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ok.Location = new System.Drawing.Point(188, 170);
-            this.btn_ok.Name = "btn_ok";
-            this.btn_ok.Size = new System.Drawing.Size(134, 47);
-            this.btn_ok.TabIndex = 0;
-            this.btn_ok.Text = "OK";
-            this.btn_ok.UseVisualStyleBackColor = true;
-            this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click);
             // 
             // notification_txt
             // 
             this.notification_txt.AutoSize = true;
-            this.notification_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.notification_txt.Location = new System.Drawing.Point(66, 45);
+            this.notification_txt.Location = new System.Drawing.Point(117, 60);
             this.notification_txt.Name = "notification_txt";
-            this.notification_txt.Size = new System.Drawing.Size(93, 20);
-            this.notification_txt.TabIndex = 1;
+            this.notification_txt.Size = new System.Drawing.Size(78, 17);
+            this.notification_txt.TabIndex = 0;
             this.notification_txt.Text = "Notification";
+            // 
+            // btn_ok
+            // 
+            this.btn_ok.Location = new System.Drawing.Point(166, 166);
+            this.btn_ok.Name = "btn_ok";
+            this.btn_ok.Size = new System.Drawing.Size(75, 23);
+            this.btn_ok.TabIndex = 1;
+            this.btn_ok.Text = "OK";
+            this.btn_ok.UseVisualStyleBackColor = true;
+            this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click);
             // 
             // notification
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(497, 253);
-            this.Controls.Add(this.notification_txt);
+            this.ClientSize = new System.Drawing.Size(532, 253);
             this.Controls.Add(this.btn_ok);
+            this.Controls.Add(this.notification_txt);
             this.Name = "notification";
             this.Text = "notification";
             this.ResumeLayout(false);
@@ -69,7 +67,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btn_ok;
         private System.Windows.Forms.Label notification_txt;
+        private System.Windows.Forms.Button btn_ok;
     }
 }
