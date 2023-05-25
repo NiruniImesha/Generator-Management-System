@@ -59,7 +59,9 @@
             this.Controls.Add(this.btn_ok);
             this.Controls.Add(this.notification_txt);
             this.Name = "notification";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.WindowsDefaultBounds;
             this.Text = "notification";
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.ResumeLayout(false);
             this.PerformLayout();
 
