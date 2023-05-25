@@ -6,3 +6,4 @@
 # Ignore all files in debug
 Debug/
 *.bak
+*.dll
