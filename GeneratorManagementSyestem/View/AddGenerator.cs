@@ -280,5 +280,24 @@ namespace GeneratorManagementSyestem
         {
             this.Close();
         }
+
+        private void checkBox2_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked)
+            {
+                groupBox2.Enabled = true;
+                groupBox2.Visible = true;
+                groupBox2.Focus();
+            }
+            else
+            {
+                groupBox2.Enabled = false;
+                groupBox2.Visible = false;
+                groupBox3.Focus();
+                genMod.FirstServiceHours = 0;
+                genMod.FirstServiceMonth1 = 0;
+
+            }
+        }
     }
 }
