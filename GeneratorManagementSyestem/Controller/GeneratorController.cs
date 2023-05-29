@@ -365,6 +365,10 @@ namespace GeneratorManagementSyestem.Controller
                 {
                     totalDuration = result_lifetime["totalDuration"].ToString();
                 }
+                else
+                {
+                    totalDuration = "00:00:00";
+                }
                 result_lifetime.Close();
                 #endregion
 
