@@ -351,9 +351,12 @@ namespace GeneratorManagementSyestem.Controller
                 string totalDuration = "";
                 string currentDuration = "";
                 string serviceDuration = "";
-                
+
+                //string url_lifetime = "select TOP 1 s.currentTotDuration, g.totalDuration from service_history s,generator g where g.name = s.generatorID and s.generatorID = '" + sMod.GeneratorID + "' and s.serviceType = '" + sMod.ServiceType + "' order by s.serviceTurn desc;";
+
                 #region LIFE TIME
                 string url_lifetime = "select TOP 1 g.totalDuration from service_history s,generator g where g.name = s.generatorID and s.generatorID = '" + sMod.GeneratorID + "' order by s.serviceTurn desc;";
+
 
                 SqlCommand cmd_lifetime = new SqlCommand(url_lifetime, sqlconn);
                 SqlDataReader result_lifetime = cmd_lifetime.ExecuteReader();
@@ -436,6 +439,42 @@ namespace GeneratorManagementSyestem.Controller
             }
 
 
+        }
+
+        public int Genaratorcount()
+        {
+            if (sqlconn.State.ToString() != "Open")
+            {
+                sqlconn.Open();
+            }
+            string url = "SELECT count(genNo) From generator";
+            SqlCommand cmd = new SqlCommand(url, sqlconn);
+            SqlDataReader r = cmd.ExecuteReader();
+            if (r.Read()) ;
+            int count = Convert.ToInt32(r[0]);
+            // int clientid =0;
+            sqlconn.Close();
+            return count;
+        }
+
+        public string findAllGenerators01(generatorModel genMod)
+        {
+            if (sqlconn.State.ToString() != "Open")
+            {
+                sqlconn.Open();
+            }
+            string generator = "";
+            string query = "select name from generator where genNo = '" + genMod.GenNo + "'";
+            SqlCommand cmd = new SqlCommand(query, sqlconn);
+            SqlDataReader result = cmd.ExecuteReader();
+
+            while (result.Read())
+            {
+                generator = result["name"].ToString();
+            }
+            sqlconn.Close();
+
+            return generator;
         }
 
     }

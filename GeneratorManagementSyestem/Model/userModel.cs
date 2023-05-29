@@ -13,7 +13,21 @@ namespace GeneratorManagementSyestem.Model
         private string userID;
         private string userType;
         private string userID_main;
+        private string userType_main;
 
+
+        public string UserType_main
+        {
+            get
+            {
+                return userType_main;
+            }
+
+            set
+            {
+                this.userType_main = value;
+            }
+        }
         public string UserID_main
         {
             get

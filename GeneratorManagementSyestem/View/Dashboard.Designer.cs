@@ -166,7 +166,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 642);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1810, 67);
+            this.panel3.Size = new System.Drawing.Size(1760, 67);
             this.panel3.TabIndex = 6;
             // 
             // Name_label2
@@ -195,7 +195,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::GeneratorManagementSyestem.Properties.Resources.abstract_gdc5af2023_1920;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1810, 709);
+            this.ClientSize = new System.Drawing.Size(1760, 709);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.IsMdiContainer = true;
@@ -203,6 +203,7 @@
             this.Name = "Dashboard";
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Dashboard_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
