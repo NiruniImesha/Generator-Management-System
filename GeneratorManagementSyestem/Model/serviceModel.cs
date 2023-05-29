@@ -11,19 +11,19 @@ namespace GeneratorManagementSyestem.Model
         private string serviceID;
         private string generatorID;
         private string user_ID;
-        private int EngineserviceDurationMonths;
-        private int EngineserviceDurationHours;
-        private int AirserviceDurationMonths;
-        private int AirserviceDurationHours;
-        private int SedimentserviceDurationMonths;
-        private int SedimentserviceDurationHours;
-        private int ValveserviceDurationMonths;
-        private int ValveserviceDurationHours;
-        private int SparkserviceDurationMonths;
-        private int SparkserviceDurationHours;
-        private int FuelserviceDurationMonths;
-        private int FuelserviceDurationHours;
-        private int FuelSeviceDurationYears;
+        private string EngineserviceDurationMonths;
+        private string EngineserviceDurationHours;
+        private string AirserviceDurationMonths;
+        private string AirserviceDurationHours;
+        private string SedimentserviceDurationMonths;
+        private string SedimentserviceDurationHours;
+        private string ValveserviceDurationMonths;
+        private string ValveserviceDurationHours;
+        private string SparkserviceDurationMonths;
+        private string SparkserviceDurationHours;
+        private string FuelserviceDurationMonths;
+        private string FuelserviceDurationHours;
+        private string FuelSeviceDurationYears;
 
 
         public string User_ID
@@ -65,7 +65,7 @@ namespace GeneratorManagementSyestem.Model
         }
 
 
-        public int EngineserviceDurationMonths1
+        public string EngineserviceDurationMonths1
         {
             get
             {
@@ -78,7 +78,7 @@ namespace GeneratorManagementSyestem.Model
             }
         }
 
-        public int EngineserviceDurationHours1
+        public string EngineserviceDurationHours1
         {
             get
             {
@@ -91,7 +91,7 @@ namespace GeneratorManagementSyestem.Model
             }
         }
 
-        public int AirserviceDurationMonths1
+        public string AirserviceDurationMonths1
         {
             get
             {
@@ -104,7 +104,7 @@ namespace GeneratorManagementSyestem.Model
             }
         }
 
-        public int AirserviceDurationHours1
+        public string AirserviceDurationHours1
         {
             get
             {
@@ -117,7 +117,7 @@ namespace GeneratorManagementSyestem.Model
             }
         }
 
-        public int SedimentserviceDurationMonths1
+        public string SedimentserviceDurationMonths1
         {
             get
             {
@@ -130,7 +130,7 @@ namespace GeneratorManagementSyestem.Model
             }
         }
 
-        public int SedimentserviceDurationHours1
+        public string SedimentserviceDurationHours1
         {
             get
             {
@@ -143,7 +143,7 @@ namespace GeneratorManagementSyestem.Model
             }
         }
 
-        public int ValveserviceDurationMonths1
+        public string ValveserviceDurationMonths1
         {
             get
             {
@@ -156,7 +156,7 @@ namespace GeneratorManagementSyestem.Model
             }
         }
 
-        public int ValveserviceDurationHours1
+        public string ValveserviceDurationHours1
         {
             get
             {
@@ -169,7 +169,7 @@ namespace GeneratorManagementSyestem.Model
             }
         }
 
-        public int SparkserviceDurationMonths1
+        public string SparkserviceDurationMonths1
         {
             get
             {
@@ -182,7 +182,7 @@ namespace GeneratorManagementSyestem.Model
             }
         }
 
-        public int SparkserviceDurationHours1
+        public string SparkserviceDurationHours1
         {
             get
             {
@@ -195,7 +195,7 @@ namespace GeneratorManagementSyestem.Model
             }
         }
 
-        public int FuelserviceDurationMonths1
+        public string FuelserviceDurationMonths1
         {
             get
             {
@@ -208,7 +208,7 @@ namespace GeneratorManagementSyestem.Model
             }
         }
 
-        public int FuelserviceDurationHours1
+        public string FuelserviceDurationHours1
         {
             get
             {
@@ -221,7 +221,7 @@ namespace GeneratorManagementSyestem.Model
             }
         }
 
-        public int FuelSeviceDurationYears1
+        public string FuelSeviceDurationYears1
         {
             get
             {
