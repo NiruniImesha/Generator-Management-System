@@ -266,6 +266,7 @@ namespace GeneratorManagementSyestem
             serveMod.FuelSeviceDurationYears1 = Convert.ToString(fuyears.Text);
             serveMod.SparkserviceDurationHours1 = Convert.ToString(sphours.Text);
             serveMod.SparkserviceDurationMonths1 = Convert.ToString(spmonths.Text);
+
             genCon.updateGenarator(genMod);
             serveCon.updateService(serveMod);
             MessageBox.Show("Successfully Updated", "Update generator", MessageBoxButtons.OK);
@@ -279,6 +280,25 @@ namespace GeneratorManagementSyestem
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void checkBox2_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked)
+            {
+                groupBox2.Enabled = true;
+                groupBox2.Visible = true;
+                groupBox2.Focus();
+            }
+            else
+            {
+                groupBox2.Enabled = false;
+                groupBox2.Visible = false;
+                groupBox3.Focus();
+                genMod.FirstServiceHours = 0;
+                genMod.FirstServiceMonth1 = 0;
+
+            }
         }
     }
 }
