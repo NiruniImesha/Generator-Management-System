@@ -112,8 +112,9 @@ namespace GeneratorManagementSyestem
                 for (int i = 0; i < 6; ++i)
                 {
                     genMod.Name = generator;
-                    sMod.ServiceType = services[i];
+                    sMod.ServiceType = services[i];                    
                     due[i] = genCon.notification(sMod, genMod, service_columns[i]);
+                    genCon.CalcMonths(genMod, sMod, services[i]);
                     TimeSpan duration = TimeSpan.Parse(due[i].ToString());
                     string remaining = "00:00:00";
                     TimeSpan rem = TimeSpan.Parse(remaining.ToString());
