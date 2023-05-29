@@ -365,6 +365,10 @@ namespace GeneratorManagementSyestem.Controller
                 {
                     totalDuration = result_lifetime["totalDuration"].ToString();
                 }
+                else
+                {
+                    totalDuration = "00:00:00";
+                }
                 result_lifetime.Close();
                 #endregion
 
@@ -430,15 +434,18 @@ namespace GeneratorManagementSyestem.Controller
             return toHours.ToString();
         }
 
-        // Display notifications
-        public void display(string duration)
+        // Calculate time for months
+        public void CalcMonths(string duration)
         {
             if (sqlconn.State.ToString() != "Open")
             {
                 sqlconn.Open();
             }
+            string url = "select ;";
 
 
+            SqlCommand cmd = new SqlCommand(url, sqlconn);
+            SqlDataReader result = cmd.ExecuteReader();
         }
 
         public int Genaratorcount()
