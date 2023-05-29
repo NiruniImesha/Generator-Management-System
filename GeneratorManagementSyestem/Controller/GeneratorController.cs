@@ -204,7 +204,7 @@ namespace GeneratorManagementSyestem.Controller
             while (result.Read())
             {
                 generator = result["name"].ToString();
-            }            
+            }
             sqlconn.Close();
 
             return generator;
@@ -335,6 +335,33 @@ namespace GeneratorManagementSyestem.Controller
             }
 
         }
+        public string get_TotDuration(generatorModel genMod)
+        {
+            string duration = "00:00:00";
+            if (sqlconn.State.ToString() != "Open")
+            {
+                sqlconn.Open();
+            }
+            try
+            {
+                string url = "SELECT totalDuration FROM generator where name= '" + genMod.Name + "';";
+                SqlCommand cmd = new SqlCommand(url, sqlconn);
+                SqlDataReader rd = cmd.ExecuteReader();
+                if (rd.Read())
+                {
+                    duration = rd[0].ToString();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                sqlconn.Close();
+            }
+            return duration;
+        }
 
         // calculate the duration for the notifications
         public string notification(serviceHistoryModel sMod, generatorModel genMod, string columnName)
@@ -398,7 +425,7 @@ namespace GeneratorManagementSyestem.Controller
 
                 //sMod.GeneratorID = "002";
                 //string url_serviceHours = "select " + columnName + " from service_duration_data where generatorID = '" + sMod.GeneratorID+"';";
-                string url_serviceHours = "select " + columnName + " from service_duration_data d, generator g where d.generatorID = g.genNo and g.name = '"+ sMod.GeneratorID + "';";
+                string url_serviceHours = "select " + columnName + " from service_duration_data d, generator g where d.generatorID = g.genNo and g.name = '" + sMod.GeneratorID + "';";
 
                 SqlCommand cmd_serviceHourse = new SqlCommand(url_serviceHours, sqlconn);
                 SqlDataReader result_serviceHours = cmd_serviceHourse.ExecuteReader();
@@ -408,7 +435,7 @@ namespace GeneratorManagementSyestem.Controller
                     if (result_serviceHours.HasRows)
                     {
                         serviceDuration = result_serviceHours[columnName].ToString();
-                    }           
+                    }
                 }
                 else
                 {
