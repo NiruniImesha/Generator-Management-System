@@ -94,7 +94,7 @@ namespace GeneratorManagementSyestem
         private void Dashboard_Load(object sender, EventArgs e)
         {
             int count = genCon.Genaratorcount();
-            for (int a = 1; a < count; ++a)
+            for (int a = 1; a <= count; ++a)
             {
                 genMod.GenNo = "00" + a;
                 string generator = genCon.findAllGenerators01(genMod);
@@ -106,6 +106,8 @@ namespace GeneratorManagementSyestem
                 string[] service_columns = { "EngineserviceDurationHours", "AirserviceDurationHours", "SedimentserviceDurationHours", "ValveserviceDurationHours", "SparkserviceDurationHours", "FuelserviceDurationHours" };
 
                 string[] due = new string[6];
+                string[] due_status = { "", "", "", "", "", "" };
+
 
                 for (int i = 0; i < 6; ++i)
                 {
@@ -118,12 +120,27 @@ namespace GeneratorManagementSyestem
 
                     if (duration < rem)
                     {
-                        MessageBox.Show("Service " + services[i], "Notification" + " in " + genMod.Name);
+                        due_status[i] = "deu today";
+                        //MessageBox.Show("Service " + services[i], "Notification" + " in " + genMod.Name);
                         // notification_txt.Text = "Service "+ services[i] + " in " + genMod.Name;
 
                     }
+                    else
+                    {
+                        due_status[i] = "deu tomorrow";
+                    }
                 }
+                
+                                 MessageBox.Show("\t          Service \n\n" 
+                                                 + services[0]+ "\t :"+ due_status[0] +  "\n"
+                                                 + services[1] + "\t :" + due_status[1] + "\n"
+                                                 + services[2] + "\t :" + due_status[2] + "\n"
+                                                 + services[3] + "\t :" + due_status[3] + "\n"
+                                                 + services[4] + "\t :" + due_status[4] + "\n"
+                                                 + services[5] + "\t :" + due_status[5]  
+                                    , "Notification" + " in " + genMod.Name);
+                
             }
-            }
+        }
     }
 }
