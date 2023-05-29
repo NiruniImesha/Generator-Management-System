@@ -441,5 +441,41 @@ namespace GeneratorManagementSyestem.Controller
 
         }
 
+        public int Genaratorcount()
+        {
+            if (sqlconn.State.ToString() != "Open")
+            {
+                sqlconn.Open();
+            }
+            string url = "SELECT count(genNo) From generator";
+            SqlCommand cmd = new SqlCommand(url, sqlconn);
+            SqlDataReader r = cmd.ExecuteReader();
+            if (r.Read()) ;
+            int count = Convert.ToInt32(r[0]);
+            // int clientid =0;
+            sqlconn.Close();
+            return count;
+        }
+
+        public string findAllGenerators01(generatorModel genMod)
+        {
+            if (sqlconn.State.ToString() != "Open")
+            {
+                sqlconn.Open();
+            }
+            string generator = "";
+            string query = "select name from generator where genNo = '" + genMod.GenNo + "'";
+            SqlCommand cmd = new SqlCommand(query, sqlconn);
+            SqlDataReader result = cmd.ExecuteReader();
+
+            while (result.Read())
+            {
+                generator = result["name"].ToString();
+            }
+            sqlconn.Close();
+
+            return generator;
+        }
+
     }
 }
