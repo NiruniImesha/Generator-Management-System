@@ -17,8 +17,9 @@ namespace GeneratorManagementSyestem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-           // Application.Run(new notification());
-            Application.Run(new Dashboard("user","user"));
+            Application.Run(new login());
+
+            //Application.Run(new Dashboard("user","user"));
         }
     }
 }
