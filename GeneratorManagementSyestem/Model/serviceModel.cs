@@ -25,6 +25,85 @@ namespace GeneratorManagementSyestem.Model
         private string FuelserviceDurationHours;
         private string FuelSeviceDurationYears;
 
+        private int engineserviceDurationHours02;
+        private int airserviceDurationHours02;
+        private int sedimentserviceDurationHours02;
+        private int valveserviceDurationHours02;
+        private int sparkserviceDurationHours02;
+        private int fuelserviceDurationHours02;
+
+        public int FuelserviceDurationHours02
+        {
+            get
+            {
+                return fuelserviceDurationHours02;
+            }
+
+            set
+            {
+                fuelserviceDurationHours02 = value;
+            }
+        }
+        public int SparkserviceDurationHours02
+        {
+            get
+            {
+                return sparkserviceDurationHours02;
+            }
+
+            set
+            {
+                sparkserviceDurationHours02 = value;
+            }
+        }
+        public int ValveserviceDurationHours02
+        {
+            get
+            {
+                return valveserviceDurationHours02;
+            }
+
+            set
+            {
+                valveserviceDurationHours02 = value;
+            }
+        }
+        public int SedimentserviceDurationHours02
+        {
+            get
+            {
+                return sedimentserviceDurationHours02;
+            }
+
+            set
+            {
+                sedimentserviceDurationHours02 = value;
+            }
+        }
+        public int AirserviceDurationHours02
+        {
+            get
+            {
+                return airserviceDurationHours02;
+            }
+
+            set
+            {
+                airserviceDurationHours02 = value;
+            }
+        }
+        public int EngineserviceDurationHours02
+        {
+            get
+            {
+                return engineserviceDurationHours02;
+            }
+
+            set
+            {
+                engineserviceDurationHours02 = value;
+            }
+        }
 
         public string User_ID
         {

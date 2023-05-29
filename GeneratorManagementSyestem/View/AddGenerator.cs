@@ -172,19 +172,47 @@ namespace GeneratorManagementSyestem
             genMod.FirstServiceHours = Convert.ToInt32(fhours.Text);
             genMod.FirstServiceMonth1 = Convert.ToInt32(fmonths.Text);
 
+            serveMod.EngineserviceDurationHours02 = Convert.ToInt32(ehours.Text);
+            serveMod.AirserviceDurationHours02 = Convert.ToInt32(ahours.Text);
+            serveMod.SedimentserviceDurationHours02 = Convert.ToInt32(shours.Text);
+            serveMod.ValveserviceDurationHours02 = Convert.ToInt32(vhours.Text);
+            serveMod.FuelserviceDurationHours02 = Convert.ToInt32(fuhours.Text);
+            serveMod.SparkserviceDurationHours02 = Convert.ToInt32(sphours.Text);
+
+            int val01 = serveMod.EngineserviceDurationHours02;
+            int val02 = serveMod.AirserviceDurationHours02;
+            int val03 = serveMod.SedimentserviceDurationHours02;
+            int val04 = serveMod.ValveserviceDurationHours02;
+            int val05 = serveMod.FuelserviceDurationHours02;
+            int val06 = serveMod.SparkserviceDurationHours02;
+
+            TimeSpan result01 = TimeSpan.FromHours(val01);
+            TimeSpan result02 = TimeSpan.FromHours(val02);
+            TimeSpan result03 = TimeSpan.FromHours(val03);
+            TimeSpan result04 = TimeSpan.FromHours(val04);
+            TimeSpan result05 = TimeSpan.FromHours(val05);
+            TimeSpan result06 = TimeSpan.FromHours(val06);
+
+            string fromTimeString01 = result01.ToString("hh':'mm':'ss");
+            string fromTimeString02 = result02.ToString("hh':'mm':'ss");
+            string fromTimeString03 = result03.ToString("hh':'mm':'ss");
+            string fromTimeString04 = result04.ToString("hh':'mm':'ss");
+            string fromTimeString05 = result05.ToString("hh':'mm':'ss");
+            string fromTimeString06 = result06.ToString("hh':'mm':'ss");
+
             serveMod.GeneratorID = genId.Text;
-            serveMod.EngineserviceDurationHours1 = Convert.ToString(ehours.Text);
+            serveMod.EngineserviceDurationHours1 = Convert.ToString(fromTimeString01);
             serveMod.EngineserviceDurationMonths1 = Convert.ToString(emonths.Text);
-            serveMod.AirserviceDurationHours1 = Convert.ToString(ahours.Text);
+            serveMod.AirserviceDurationHours1 = Convert.ToString(fromTimeString02);
             serveMod.AirserviceDurationMonths1 = Convert.ToString(amonths.Text);
-            serveMod.SedimentserviceDurationHours1 = Convert.ToString(shours.Text);
+            serveMod.SedimentserviceDurationHours1 = Convert.ToString(fromTimeString03);
             serveMod.SedimentserviceDurationMonths1 = Convert.ToString(smonths.Text);
-            serveMod.ValveserviceDurationHours1 = Convert.ToString(vhours.Text);
+            serveMod.ValveserviceDurationHours1 = Convert.ToString(fromTimeString04);
             serveMod.ValveserviceDurationMonths1 = Convert.ToString(vmonths.Text);
-            serveMod.FuelserviceDurationHours1 = Convert.ToString(fuhours.Text);
+            serveMod.FuelserviceDurationHours1 = Convert.ToString(fromTimeString05);
             serveMod.FuelserviceDurationMonths1 = Convert.ToString(fumonths.Text);
             serveMod.FuelSeviceDurationYears1 = Convert.ToString(fuyears.Text);
-            serveMod.SparkserviceDurationHours1 = Convert.ToString(sphours.Text);
+            serveMod.SparkserviceDurationHours1 = Convert.ToString(fromTimeString06);
             serveMod.SparkserviceDurationMonths1 = Convert.ToString(spmonths.Text);
 
             if (genCon.addGenerator(genMod) && serveCon.addService(serveMod))
