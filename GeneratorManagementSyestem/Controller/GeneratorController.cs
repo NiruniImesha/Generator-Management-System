@@ -68,7 +68,7 @@ namespace GeneratorManagementSyestem.Controller
             }
             try
             {
-                string url = "insert into generator (genNo, name, model,frequency,tankSize,totalDuration,firstServiceMonth,firstServiceHours) values ('" + genMod.GenNo + "','" + genMod.Name + "','" + genMod.Model + "','" + genMod.Frequency + "','" + genMod.TankSize + "','0','" + genMod.FirstServiceMonth1 + "','" + genMod.FirstServiceHours + "')";
+                string url = "insert into generator (genNo, name, model,frequency,tankSize,totalDuration,firstServiceMonth,firstServiceHours) values ('" + genMod.GenNo + "','" + genMod.Name + "','" + genMod.Model + "','" + genMod.Frequency + "','" + genMod.TankSize + "','00:00:00','" + genMod.FirstServiceMonth1 + "','" + genMod.FirstServiceHours + "')";
 
                 SqlCommand cmd = new SqlCommand(url, sqlconn);
 
@@ -364,6 +364,10 @@ namespace GeneratorManagementSyestem.Controller
                 if (result_lifetime.Read())
                 {
                     totalDuration = result_lifetime["totalDuration"].ToString();
+                }
+                else
+                {
+                    totalDuration = "00:00:00";
                 }
                 result_lifetime.Close();
                 #endregion
