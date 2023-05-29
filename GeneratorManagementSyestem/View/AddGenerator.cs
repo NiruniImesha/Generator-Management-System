@@ -97,7 +97,7 @@ namespace GeneratorManagementSyestem
             
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox2.Checked)
             {
@@ -173,19 +173,19 @@ namespace GeneratorManagementSyestem
             genMod.FirstServiceMonth1 = Convert.ToInt32(fmonths.Text);
 
             serveMod.GeneratorID = genId.Text;
-            serveMod.EngineserviceDurationHours1 = Convert.ToInt32(ehours.Text);
-            serveMod.EngineserviceDurationMonths1 = Convert.ToInt32(emonths.Text);
-            serveMod.AirserviceDurationHours1 = Convert.ToInt32(ahours.Text);
-            serveMod.AirserviceDurationMonths1 = Convert.ToInt32(amonths.Text);
-            serveMod.SedimentserviceDurationHours1 = Convert.ToInt32(shours.Text);
-            serveMod.SedimentserviceDurationMonths1 = Convert.ToInt32(smonths.Text);
-            serveMod.ValveserviceDurationHours1 = Convert.ToInt32(vhours.Text);
-            serveMod.ValveserviceDurationMonths1 = Convert.ToInt32(vmonths.Text);
-            serveMod.FuelserviceDurationHours1 = Convert.ToInt32(fuhours.Text);
-            serveMod.FuelserviceDurationMonths1 = Convert.ToInt32(fumonths.Text);
-            serveMod.FuelSeviceDurationYears1 = Convert.ToInt32(fuyears.Text);
-            serveMod.SparkserviceDurationHours1 = Convert.ToInt32(sphours.Text);
-            serveMod.SparkserviceDurationMonths1 = Convert.ToInt32(spmonths.Text);
+            serveMod.EngineserviceDurationHours1 = Convert.ToString(ehours.Text);
+            serveMod.EngineserviceDurationMonths1 = Convert.ToString(emonths.Text);
+            serveMod.AirserviceDurationHours1 = Convert.ToString(ahours.Text);
+            serveMod.AirserviceDurationMonths1 = Convert.ToString(amonths.Text);
+            serveMod.SedimentserviceDurationHours1 = Convert.ToString(shours.Text);
+            serveMod.SedimentserviceDurationMonths1 = Convert.ToString(smonths.Text);
+            serveMod.ValveserviceDurationHours1 = Convert.ToString(vhours.Text);
+            serveMod.ValveserviceDurationMonths1 = Convert.ToString(vmonths.Text);
+            serveMod.FuelserviceDurationHours1 = Convert.ToString(fuhours.Text);
+            serveMod.FuelserviceDurationMonths1 = Convert.ToString(fumonths.Text);
+            serveMod.FuelSeviceDurationYears1 = Convert.ToString(fuyears.Text);
+            serveMod.SparkserviceDurationHours1 = Convert.ToString(sphours.Text);
+            serveMod.SparkserviceDurationMonths1 = Convert.ToString(spmonths.Text);
 
             if (genCon.addGenerator(genMod) && serveCon.addService(serveMod))
             {
@@ -251,21 +251,21 @@ namespace GeneratorManagementSyestem
             genMod.FirstServiceMonth1 = Convert.ToInt32(fmonths.Text);
             genMod.TotalDuration01 = Total_run_duration.Text;
 
+            serveMod.GeneratorID = genId.Text;
+            serveMod.EngineserviceDurationHours1 = Convert.ToString(ehours.Text);
+            serveMod.EngineserviceDurationMonths1 = Convert.ToString(emonths.Text);
+            serveMod.AirserviceDurationHours1 = Convert.ToString(ahours.Text);
+            serveMod.AirserviceDurationMonths1 = Convert.ToString(amonths.Text);
+            serveMod.SedimentserviceDurationHours1 = Convert.ToString(shours.Text);
+            serveMod.SedimentserviceDurationMonths1 = Convert.ToString(smonths.Text);
+            serveMod.ValveserviceDurationHours1 = Convert.ToString(vhours.Text);
+            serveMod.ValveserviceDurationMonths1 = Convert.ToString(vmonths.Text);
+            serveMod.FuelserviceDurationHours1 = Convert.ToString(fuhours.Text);
+            serveMod.FuelserviceDurationMonths1 = Convert.ToString(fumonths.Text);
+            serveMod.FuelSeviceDurationYears1 = Convert.ToString(fuyears.Text);
+            serveMod.SparkserviceDurationHours1 = Convert.ToString(sphours.Text);
+            serveMod.SparkserviceDurationMonths1 = Convert.ToString(spmonths.Text);
 
-            serveMod01.GeneratorID = genId.Text;
-            serveMod01.EngineserviceDurationHours01 = Convert.ToString(ehours.Text);
-            serveMod01.EngineserviceDurationMonths01 = Convert.ToString(emonths.Text);
-            serveMod01.AirserviceDurationHours01 = Convert.ToString(ahours.Text);
-            serveMod01.AirserviceDurationMonths01 = Convert.ToString(amonths.Text);
-            serveMod01.SedimentserviceDurationHours01 = Convert.ToString(shours.Text);
-            serveMod01.SedimentserviceDurationMonths01 = Convert.ToString(smonths.Text);
-            serveMod01.ValveserviceDurationHours01 = Convert.ToString(vhours.Text);
-            serveMod01.ValveserviceDurationMonths01 = Convert.ToString(vmonths.Text);
-            serveMod01.FuelserviceDurationHours01 = Convert.ToString(fuhours.Text);
-            serveMod01.FuelserviceDurationMonths01 = Convert.ToString(fumonths.Text);
-            serveMod01.FuelSeviceDurationYears01 = Convert.ToString(fuyears.Text);
-            serveMod01.SparkserviceDurationHours01 = Convert.ToString(sphours.Text);
-            serveMod01.SparkserviceDurationMonths01 = Convert.ToString(spmonths.Text);
             genCon.updateGenarator(genMod);
             serveCon.updateService(serveMod01);
             MessageBox.Show("Successfully Updated", "Update generator", MessageBoxButtons.OK);
@@ -279,6 +279,25 @@ namespace GeneratorManagementSyestem
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void checkBox2_CheckedChanged_1(object sender, EventArgs e)
+        {
+            if (checkBox2.Checked)
+            {
+                groupBox2.Enabled = true;
+                groupBox2.Visible = true;
+                groupBox2.Focus();
+            }
+            else
+            {
+                groupBox2.Enabled = false;
+                groupBox2.Visible = false;
+                groupBox3.Focus();
+                genMod.FirstServiceHours = 0;
+                genMod.FirstServiceMonth1 = 0;
+
+            }
         }
     }
 }
