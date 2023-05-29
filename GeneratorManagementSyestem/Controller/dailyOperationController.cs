@@ -13,6 +13,7 @@ namespace GeneratorManagementSyestem.Controller
     class dailyOperationController
     {
         DbController DbCon = new DbController();
+        GeneratorController genCon = new GeneratorController();
         SqlConnection sqlconn;
 
         public dailyOperationController()
@@ -213,6 +214,26 @@ namespace GeneratorManagementSyestem.Controller
                     MessageBox.Show("Generator didn't stop!!");
                 }
 
+                #region
+                string total_dration = genCon.get_TotDuration(genMod);
+                TimeSpan total_duration_old = TimeSpan.Parse(total_dration);
+                TimeSpan current_duration = TimeSpan.Parse(dmod.Duration1);
+
+                TimeSpan total_duration_new = (total_duration_old).Add(current_duration);
+
+                string url_update = "update generator set totalDuration = '" + total_duration_new.ToString() + "' where name= '" + genMod.Name + "'";
+                SqlCommand cmd_update = new SqlCommand(url_update, sqlconn);
+
+                if (cmd_update.ExecuteNonQuery() == 0)
+                {
+                    MessageBox.Show("Total duration didn't update!");
+                }
+                else
+                {
+                    MessageBox.Show("Total duration successfully updated!");
+                }
+                #endregion
+
             }
             catch (Exception e)
             {
@@ -261,7 +282,7 @@ namespace GeneratorManagementSyestem.Controller
         /*************************************************************************************************************************/
         public void getDailyOperationsHistory01(generatorModel genMod, DataGridView dgvName)
         {
-           // string query01 = "select * from daily_generator_usage where serviceNo like '" + genMod.GenNo + "%'";
+            // string query01 = "select * from daily_generator_usage where serviceNo like '" + genMod.GenNo + "%'";
 
             string query = "select * from daily_generator_usage where serviceNo like '" + genMod.GenNo + "%' And startDate >= '" + genMod.Start_date_range + "' and stopDate <= '" + genMod.End_date_range + "'";
 
