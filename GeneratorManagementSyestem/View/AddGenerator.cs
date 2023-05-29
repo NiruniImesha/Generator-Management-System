@@ -250,6 +250,7 @@ namespace GeneratorManagementSyestem
             genMod.FirstServiceHours = Convert.ToInt32(fhours.Text);
             genMod.FirstServiceMonth1 = Convert.ToInt32(fmonths.Text);
             genMod.TotalDuration01 = Total_run_duration.Text;
+           
 
             serveMod.GeneratorID = genId.Text;
             serveMod.EngineserviceDurationHours1 = Convert.ToString(ehours.Text);
@@ -267,7 +268,7 @@ namespace GeneratorManagementSyestem
             serveMod.SparkserviceDurationMonths1 = Convert.ToString(spmonths.Text);
 
             genCon.updateGenarator(genMod);
-            serveCon.updateService(serveMod01);
+            serveCon.updateService(serveMod);
             MessageBox.Show("Successfully Updated", "Update generator", MessageBoxButtons.OK);
             this.Dispose();
                 //this.print();
