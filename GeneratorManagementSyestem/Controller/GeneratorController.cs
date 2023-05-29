@@ -190,6 +190,27 @@ namespace GeneratorManagementSyestem.Controller
         }
 
         //View all generators
+        public string findAllGenerators(generatorModel genMod)
+        {
+            if (sqlconn.State.ToString() != "Open")
+            {
+                sqlconn.Open();
+            }
+            string generator = "";
+            string query = "select name from generator";
+            SqlCommand cmd = new SqlCommand(query, sqlconn);
+            SqlDataReader result = cmd.ExecuteReader();
+
+            while (result.Read())
+            {
+                generator = result["name"].ToString();
+            }            
+            sqlconn.Close();
+
+            return generator;
+        }
+
+        //View all generators
         public void findAllGenerators(generatorModel genMod, DataGridView dgvName)
         {
             string query = "select genNo as genNo, model as model, frequency as frequency, tankSize as tank_size, totalDuration as total_duration, firstServiceMonth as first_service_month, firstServiceHours as first_service_hours, name as name from generator";
@@ -330,9 +351,7 @@ namespace GeneratorManagementSyestem.Controller
                 string totalDuration = "";
                 string currentDuration = "";
                 string serviceDuration = "";
-
-                //string url_lifetime = "select TOP 1 s.currentTotDuration, g.totalDuration from service_history s,generator g where g.name = s.generatorID and s.generatorID = '" + sMod.GeneratorID + "' and s.serviceType = '" + sMod.ServiceType + "' order by s.serviceTurn desc;";
-
+                
                 #region LIFE TIME
                 string url_lifetime = "select TOP 1 g.totalDuration from service_history s,generator g where g.name = s.generatorID and s.generatorID = '" + sMod.GeneratorID + "' order by s.serviceTurn desc;";
 
@@ -406,6 +425,17 @@ namespace GeneratorManagementSyestem.Controller
                 sqlconn.Close();
             }
             return toHours.ToString();
+        }
+
+        // Display notifications
+        public void display(string duration)
+        {
+            if (sqlconn.State.ToString() != "Open")
+            {
+                sqlconn.Open();
+            }
+
+
         }
 
     }
