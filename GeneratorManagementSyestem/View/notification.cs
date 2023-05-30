@@ -18,44 +18,15 @@ namespace GeneratorManagementSyestem.View
 
         generatorModel genMod = new generatorModel();
         serviceHistoryModel sMod = new serviceHistoryModel();
+        serviceModel servMOd = new serviceModel();
 
         public notification()
         {
             InitializeComponent();
-
-
-
-
-            int count = genCon.Genaratorcount();
-            for(int a = 1; a < count; ++a)
+            string[] message = genCon.CalcMonths(genMod, sMod);
+            for(int i=0;i<7; ++i)
             {
-                genMod.GenNo = "00"+a;
-                string generator = genCon.findAllGenerators01(genMod);
-            
-            //notification_txt.Text = generator;
-
-          string[] services = { "Engine Oil", "Air Cleaner", "Sediment cup", "Valve clearance", "Spark Arrester", "Fuel tank & filter" };
-
-            string[] service_columns = { "EngineserviceDurationHours", "AirserviceDurationHours", "SedimentserviceDurationHours", "ValveserviceDurationHours", "SparkserviceDurationHours", "FuelserviceDurationHours" };
-
-            string[] due = new string[6];
-
-            for (int i = 0; i < 6; ++i)
-            {
-                genMod.Name = generator;
-                sMod.ServiceType = services[i];
-                due[i] = genCon.notification(sMod, genMod, service_columns[i]);
-                TimeSpan duration = TimeSpan.Parse(due[i].ToString());
-                string remaining = "00:00:00";
-                TimeSpan rem = TimeSpan.Parse(remaining.ToString());
-
-                if (duration<rem)
-                {
-                    //MessageBox.Show("Service " + services[i], "Notification" + " in " + genMod.Name);
-                   notification_txt.Text = "Service "+ services[i] + " in " + genMod.Name;
-                    
-                }
-            }
+                //this.Show(message[i]);
             }
         }
 

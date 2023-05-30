@@ -37,9 +37,9 @@ namespace GeneratorManagementSyestem
             uMod.UserID_main = user_id;
 
             Name_label2.Text = uMod.UserName;
-
-            
-            
+            notification newChild = new notification();
+            newChild.MdiParent = this;
+            newChild.Show();
         }
         
         private void btnGenView_Click(object sender, EventArgs e)
@@ -114,7 +114,7 @@ namespace GeneratorManagementSyestem
                     genMod.Name = generator;
                     sMod.ServiceType = services[i];                    
                     due[i] = genCon.notification(sMod, genMod, service_columns[i]);
-                    genCon.CalcMonths(genMod, sMod, services[i]);
+                   // genCon.CalcMonths(genMod, sMod, services[i]);
                     TimeSpan duration = TimeSpan.Parse(due[i].ToString());
                     string remaining = "00:00:00";
                     TimeSpan rem = TimeSpan.Parse(remaining.ToString());
@@ -140,8 +140,12 @@ namespace GeneratorManagementSyestem
                                                  + services[4] + "\t :" + due_status[4] + "\n"
                                                  + services[5] + "\t :" + due_status[5]  
                                     , "Notification" + " in " + genMod.Name);
-                
+
+
+                genCon.CalcMonths(genMod, sMod);
+
             }
+
         }
     }
 }

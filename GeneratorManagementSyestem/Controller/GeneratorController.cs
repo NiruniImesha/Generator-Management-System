@@ -462,84 +462,94 @@ namespace GeneratorManagementSyestem.Controller
         }
 
         // Calculate time for months
-        public void CalcMonths(generatorModel genMod,serviceHistoryModel sMod, string columnName)
+        public string[] CalcMonths(generatorModel genMod,serviceHistoryModel sMod)
         {
             if (sqlconn.State.ToString() != "Open")
             {
                 sqlconn.Open();
-            }            
+            }
             try
             {
+                string[] message = new string[7];
                 #region calculation
                 int due_month = 0;
                 DateTime today = DateTime.Now;
-               
-                string url_service_date = "select TOP 1 serviceDate from service_history s,generator g where g.name = s.generatorID and g.name = '" + genMod.Name + "' and serviceType = '"+ columnName + "' order by s.serviceTurn desc;";
 
-                SqlCommand cmd_service_date = new SqlCommand(url_service_date, sqlconn);
-                SqlDataReader result_service_date = cmd_service_date.ExecuteReader();
+                string[] services = { "Engine Oil", "Air Cleaner", "Sediment cup", "Valve clearance", "Spark Arrester", "Fuel tank & filter" };
 
-                SqlDataReader result_reg_date = null;
-
-                if (result_service_date.Read())
+                for (int i = 0; i < 6; ++i)
                 {
-                    string service_date = result_service_date[columnName].ToString();
-                    DateTime service = DateTime.Parse(service_date);
+                    string url_service_date = "select TOP 1 serviceDate from service_history s,generator g where g.name = s.generatorID and g.name = '" + genMod.Name + "' and serviceType = '" + services[i] + "' order by s.serviceTurn desc;";
 
-                    if (result_service_date.HasRows)
+                    SqlCommand cmd_service_date = new SqlCommand(url_service_date, sqlconn);
+                    SqlDataReader result_service_date = cmd_service_date.ExecuteReader();
+
+                    SqlDataReader result_reg_date = null;
+
+                    if (result_service_date.Read())
                     {
-                        due_month = Convert.ToInt32(today.Subtract(service).TotalDays);                        
-                    }
-                }
-                else
-                {
-                    result_service_date.Close();
-                    string url_reg_date = "select date from generator  where name='" + genMod.Name + "';";
-                    SqlCommand cmd_reg_date = new SqlCommand(url_reg_date, sqlconn);
-                    result_reg_date = cmd_reg_date.ExecuteReader();
+                        string service_date = result_service_date[services[i]].ToString();
+                        DateTime service = DateTime.Parse(service_date);
 
-                    if (result_reg_date.Read())
-                    {
-                        string reg_date = result_reg_date["date"].ToString();
-                        DateTime register = DateTime.Parse(reg_date);
-                        due_month = Convert.ToInt32(today.Subtract(register).TotalDays);
-                    }
-                }
-                result_reg_date.Close();
-                result_service_date.Close();
-                #endregion
-
-                #region comparison
-
-                string[] service_columns = { "EngineserviceDurationMonths", "AirserviceDurationMonths", "SedimentserviceDurationMonths", "ValveserviceDurationMonths", "SparkserviceDurationMonths", "FuelserviceDurationMonths", "FuelSeviceDurationYears" };
-
-                for(int i=0; i < 7; ++i)
-                {
-                    string url_service = "select " + service_columns[i] + " from service_duration_data d, generator g where d.generatorID = g.genNo and g.name = '" + sMod.GeneratorID + "';";
-
-                    SqlCommand cmd_service = new SqlCommand(url_service, sqlconn);
-                    SqlDataReader result_service = cmd_service.ExecuteReader();
-                    if (result_service.Read())
-                    {
-                        string months = result_service[service_columns[i]].ToString();
-                        int days = Convert.ToInt32(months)*30;
-                        if(days<= due_month)
+                        if (result_service_date.HasRows)
                         {
-                            MessageBox.Show(sMod.GeneratorID +"Has to service"+ service_columns[i]);
+                            due_month = Convert.ToInt32(today.Subtract(service).TotalDays);
                         }
                     }
-                    result_service.Close();                  
-                }             
-                #endregion
+                    else
+                    {
+                        result_service_date.Close();
+                        string url_reg_date = "select date from generator  where name='" + genMod.Name + "';";
+                        SqlCommand cmd_reg_date = new SqlCommand(url_reg_date, sqlconn);
+                        result_reg_date = cmd_reg_date.ExecuteReader();
+
+                        if (result_reg_date.Read())
+                        {
+                            string reg_date = result_reg_date["date"].ToString();
+                            DateTime register = DateTime.Parse(reg_date);
+                            due_month = Convert.ToInt32(today.Subtract(register).TotalDays);
+                        }
+                    }
+                    result_reg_date.Close();
+                    result_service_date.Close();
+
+
+
+                    #endregion
+
+                    #region comparison
+
+                    string[] service_columns = { "EngineserviceDurationMonths", "AirserviceDurationMonths", "SedimentserviceDurationMonths", "ValveserviceDurationMonths", "SparkserviceDurationMonths", "FuelserviceDurationMonths", "FuelSeviceDurationYears" };
+
+                    for ( i = 0; i < 7; ++i)
+                    {
+                        string url_service = "select " + service_columns[i] + " from service_duration_data d, generator g where d.generatorID = g.genNo and g.name = '" + sMod.GeneratorID + "';";
+
+                        SqlCommand cmd_service = new SqlCommand(url_service, sqlconn);
+                        SqlDataReader result_service = cmd_service.ExecuteReader();
+                        if (result_service.Read())
+                        {
+                            string months = result_service[service_columns[i]].ToString();
+                            int days = Convert.ToInt32(months) * 30;
+                            if (days <= due_month)
+                            {
+                                MessageBox.Show(sMod.GeneratorID + " Has to service " + services[i]);
+                                message[i] = sMod.GeneratorID + " Has to service " + services[i];
+                            }
+                        }
+                        result_service.Close();
+                    }
+                    #endregion
+                }
+                return message;
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
             }
-            finally
-            {
-                sqlconn.Close();
-            }
+                          
+            sqlconn.Close();
+            return null;
         }
 
         public int Genaratorcount()
