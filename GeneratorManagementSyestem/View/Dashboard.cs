@@ -36,6 +36,19 @@ namespace GeneratorManagementSyestem
             user_id = uCon.findUserID(uMod);
             uMod.UserID_main = user_id;
 
+            string userType;
+            userType = uCon.findUsertype(uMod);
+            uMod.UserType_main = userType;
+
+
+            if (uMod.UserType_main == "Employee")
+            {
+                add_generator.Visible = false;
+                add_generator.Enabled = false;
+            }
+           
+
+
             Name_label2.Text = uMod.UserName;
             notification newChild = new notification();
             newChild.MdiParent = this;
@@ -44,7 +57,7 @@ namespace GeneratorManagementSyestem
         
         private void btnGenView_Click(object sender, EventArgs e)
         {
-            ViewGenerators newChild = new ViewGenerators();
+            ViewGenerators newChild = new ViewGenerators(uMod.UserID_main);
             newChild.MdiParent = this;
             newChild.Show();
         }
@@ -93,6 +106,10 @@ namespace GeneratorManagementSyestem
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
+
+            
+
+
             int count = genCon.Genaratorcount();
             for (int a = 1; a <= count; ++a)
             {

@@ -78,10 +78,10 @@ namespace GeneratorManagementSyestem.Controller
                 int n = dgvName.Rows.Add();
                 dgvName.Rows[n].Cells[0].Value = result["userName"].ToString();
                 dgvName.Rows[n].Cells[1].Value = result["service_turn"].ToString();
-                dgvName.Rows[n].Cells[2].Value = result["duration"].ToString();
-                dgvName.Rows[n].Cells[3].Value = result["generator"].ToString();
+                dgvName.Rows[n].Cells[5].Value = result["duration"].ToString();
+                dgvName.Rows[n].Cells[2].Value = result["generator"].ToString();
                 dgvName.Rows[n].Cells[4].Value = result["date"].ToString();
-                dgvName.Rows[n].Cells[5].Value = result["service"].ToString();
+                dgvName.Rows[n].Cells[3].Value = result["service"].ToString();
             }
             sqlconn.Close();
         }

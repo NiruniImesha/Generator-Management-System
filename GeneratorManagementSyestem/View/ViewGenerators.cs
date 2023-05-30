@@ -19,8 +19,12 @@ namespace GeneratorManagementSyestem.View
 
         ServiceController serveCon = new ServiceController();
         serviceModel01 serveMod01 = new serviceModel01();
-        serviceHistoryModel sMod = new serviceHistoryModel();
 
+        userModel uMod = new userModel();
+        userController uCon = new userController();
+
+        serviceHistoryModel sMod = new serviceHistoryModel();
+        private string userID_main;
 
         public ViewGenerators()
         {
@@ -28,11 +32,34 @@ namespace GeneratorManagementSyestem.View
             genCon.findAllGenerators(genMod, dgvGenerator);
             //dgvGenerator
         }
+
+        public ViewGenerators(string userID_main)
+        {
+            InitializeComponent();
+            this.userID_main = userID_main;
+            uMod.UserID_main = userID_main;
+
+            string userType;
+            userType = uCon.findUsertype(uMod);
+            uMod.UserType_main = userType;
+
+            genCon.findAllGenerators(genMod, dgvGenerator);
+
+            
+
+        }
+
         private void dgvGenerator_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             int rowIndex = e.RowIndex;
-            doubleclickGridView(rowIndex);
-            this.Dispose();
+
+            if (uMod.UserType_main == "Admin")
+            {
+                doubleclickGridView(rowIndex);
+                this.Dispose();
+            }
+
+            
         }
         public void doubleclickGridView(int rowIndex)
         {

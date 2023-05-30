@@ -102,7 +102,7 @@
             // 
             // dtpHistory
             // 
-            this.dtpHistory.AllowDrop = true;
+            this.dtpHistory.Checked = false;
             this.dtpHistory.CustomFormat = "yyyy-MM-dd";
             this.dtpHistory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpHistory.Format = System.Windows.Forms.DateTimePickerFormat.Custom;

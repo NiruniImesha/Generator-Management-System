@@ -520,7 +520,8 @@ namespace GeneratorManagementSyestem.Controller
                     #region comparison
 
                     string[] service_columns = { "EngineserviceDurationMonths", "AirserviceDurationMonths", "SedimentserviceDurationMonths", "ValveserviceDurationMonths", "SparkserviceDurationMonths", "FuelserviceDurationMonths", "FuelSeviceDurationYears" };
-
+                    
+                    //int[] service_columns01 = new int[7];
                     for ( i = 0; i < 7; ++i)
                     {
                         string url_service = "select " + service_columns[i] + " from service_duration_data d, generator g where d.generatorID = g.genNo and g.name = '" + sMod.GeneratorID + "';";
@@ -531,14 +532,24 @@ namespace GeneratorManagementSyestem.Controller
                         {
                             string months = result_service[service_columns[i]].ToString();
                             int days = Convert.ToInt32(months) * 30;
+                           // service_columns01[i] = days;
+
                             if (days <= due_month)
                             {
-                                MessageBox.Show(sMod.GeneratorID + " Has to service " + services[i]);
-                                message[i] = sMod.GeneratorID + " Has to service " + services[i];
+                                MessageBox.Show(sMod.GeneratorID + " Has to service \n " + services[i]  );
+                                //    message[i] = sMod.GeneratorID + " Has to service " + services[i];
                             }
                         }
                         result_service.Close();
+                        //MessageBox.Show(sMod.GeneratorID + " Has to service " + service_columns01[0] + "\n"
+                        //                                                   + service_columns01[1] + "\n"
+                        //                                                   + service_columns01[2] + "\n"
+                        //                                                   + service_columns01[3] + "\n"
+                        //                                                   + service_columns01[4] + "\n"
+                        //                                                   + service_columns01[5] + "\n"
+                        //                                                   + service_columns01[6]);
                     }
+                    
                     #endregion
                 }
                 return message;

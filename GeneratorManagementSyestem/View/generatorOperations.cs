@@ -37,7 +37,7 @@ namespace GeneratorManagementSyestem
 
         private void addGEnerator()
         {
-            cmbGenerator.Items.Add("-- Select --");
+            //cmbGenerator.Items.Add("-- Select --");
             DataSet ds = genCon.getAllGeneratorNames();
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
