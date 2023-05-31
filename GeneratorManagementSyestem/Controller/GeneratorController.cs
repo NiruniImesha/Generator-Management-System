@@ -364,6 +364,103 @@ namespace GeneratorManagementSyestem.Controller
         }
 
         // calculate the duration for the notifications
+        public string notification_months(serviceHistoryModel sMod, generatorModel genMod, string columnName)
+        {
+            string hours = "";
+            TimeSpan toHours = new TimeSpan();
+            if (sqlconn.State.ToString() != "Open")
+            {
+                sqlconn.Open();
+            }
+            try
+            {
+                sMod.GeneratorID = genMod.Name;
+                string totalDuration = "";
+                string currentDuration = "";
+                string serviceDuration = "";
+
+                //string url_lifetime = "select TOP 1 s.currentTotDuration, g.totalDuration from service_history s,generator g where g.name = s.generatorID and s.generatorID = '" + sMod.GeneratorID + "' and s.serviceType = '" + sMod.ServiceType + "' order by s.serviceTurn desc;";
+
+                #region LIFE TIME
+                string url_lifetime = "select TOP 1 g.totalDuration from service_history s,generator g where g.name = s.generatorID and s.generatorID = '" + sMod.GeneratorID + "' order by s.serviceTurn desc;";
+
+
+                SqlCommand cmd_lifetime = new SqlCommand(url_lifetime, sqlconn);
+                SqlDataReader result_lifetime = cmd_lifetime.ExecuteReader();
+
+                if (result_lifetime.Read())
+                {
+                    totalDuration = result_lifetime["totalDuration"].ToString();
+                }
+                else
+                {
+                    totalDuration = "00:00:00";
+                }
+                result_lifetime.Close();
+                #endregion
+
+                #region CURRENT TIME
+                //string url_currentTime = "select TOP 1 s.currentTotDuration, d." + columnName + "  from service_history s, generator g, service_duration_data d where g.name = s.generatorID and s.generatorID = '" + sMod.GeneratorID + "' and s.serviceType = '" + sMod.ServiceType + "' AND g.genNo = d.generatorID order by s.serviceTurn desc;";
+
+                string url_currentTime = "select TOP 1 currentTotDuration from service_history where generatorID = '" + sMod.GeneratorID + "' and serviceType = '" + sMod.ServiceType + "' order by serviceTurn desc;";
+
+                SqlCommand cmd_currentTime = new SqlCommand(url_currentTime, sqlconn);
+                SqlDataReader result_currentTime = cmd_currentTime.ExecuteReader();
+
+                if (result_currentTime.Read())
+                {
+                    if (result_currentTime.HasRows)
+                    {
+                        currentDuration = result_currentTime["currentTotDuration"].ToString();
+                    }
+                }
+                else
+                {
+                    currentDuration = "00:00:00";
+                }
+                result_currentTime.Close();
+                #endregion
+
+                #region SERVICE HOURS
+
+                //sMod.GeneratorID = "002";
+                //string url_serviceHours = "select " + columnName + " from service_duration_data where generatorID = '" + sMod.GeneratorID+"';";
+                string url_serviceHours = "select " + columnName + " from service_duration_data d, generator g where d.generatorID = g.genNo and g.name = '" + sMod.GeneratorID + "';";
+
+                SqlCommand cmd_serviceHourse = new SqlCommand(url_serviceHours, sqlconn);
+                SqlDataReader result_serviceHours = cmd_serviceHourse.ExecuteReader();
+
+                if (result_serviceHours.Read())
+                {
+                    if (result_serviceHours.HasRows)
+                    {
+                        serviceDuration = result_serviceHours[columnName].ToString();
+                    }
+                }
+                else
+                {
+                    serviceDuration = "00:00:00";
+                }
+                result_serviceHours.Close();
+                #endregion
+
+                TimeSpan total_run_hours = DateTime.Parse(totalDuration).Subtract(DateTime.Parse(currentDuration));
+                string Hours = Convert.ToString(total_run_hours);
+                toHours = DateTime.Parse(serviceDuration).Subtract(DateTime.Parse(Hours));
+                //hours = Convert.ToString(toHours.Hours);
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.ToString());
+            }
+            finally
+            {
+                sqlconn.Close();
+            }
+            return toHours.ToString();
+        }
+        // calculate the duration for the notifications
         public string notification(serviceHistoryModel sMod, generatorModel genMod, string columnName)
         {
             string hours = "";
@@ -462,7 +559,7 @@ namespace GeneratorManagementSyestem.Controller
         }
 
         // Calculate time for months
-        public string[] CalcMonths(generatorModel genMod,serviceHistoryModel sMod)
+        public string[] CalcMonths(generatorModel genMod, serviceHistoryModel sMod)
         {
             if (sqlconn.State.ToString() != "Open")
             {
@@ -505,9 +602,12 @@ namespace GeneratorManagementSyestem.Controller
 
                         if (result_reg_date.Read())
                         {
-                            string reg_date = result_reg_date["date"].ToString();
-                            DateTime register = DateTime.Parse(reg_date);
-                            due_month = Convert.ToInt32(today.Subtract(register).TotalDays);
+                            if (result_reg_date["date"].ToString() != "")
+                            {
+                                string reg_date = result_reg_date["date"].ToString();
+                                DateTime register = DateTime.Parse(reg_date);
+                                due_month = Convert.ToInt32(today.Subtract(register).TotalDays);
+                            }
                         }
                     }
                     result_reg_date.Close();
@@ -521,7 +621,7 @@ namespace GeneratorManagementSyestem.Controller
 
                     string[] service_columns = { "EngineserviceDurationMonths", "AirserviceDurationMonths", "SedimentserviceDurationMonths", "ValveserviceDurationMonths", "SparkserviceDurationMonths", "FuelserviceDurationMonths", "FuelSeviceDurationYears" };
 
-                    for ( i = 0; i < 7; ++i)
+                    for (i = 0; i < 7; ++i)
                     {
                         string url_service = "select " + service_columns[i] + " from service_duration_data d, generator g where d.generatorID = g.genNo and g.name = '" + sMod.GeneratorID + "';";
 
@@ -533,8 +633,12 @@ namespace GeneratorManagementSyestem.Controller
                             int days = Convert.ToInt32(months) * 30;
                             if (days <= due_month)
                             {
-                                MessageBox.Show(sMod.GeneratorID + " Has to service " + services[i]);
-                                message[i] = sMod.GeneratorID + " Has to service " + services[i];
+                               // MessageBox.Show(sMod.GeneratorID + " Has to service " + services[i] + " over due days : " + (due_month - days));
+                               // message[i] = sMod.GeneratorID + " Has to service " + services[i];
+                            }
+                            else
+                            {
+                                //MessageBox.Show(sMod.GeneratorID + " Has to service " + services[i] + " in days : " + ( days - due_month)+" days.");
                             }
                         }
                         result_service.Close();
@@ -547,7 +651,7 @@ namespace GeneratorManagementSyestem.Controller
             {
                 MessageBox.Show(e.ToString());
             }
-                          
+
             sqlconn.Close();
             return null;
         }
