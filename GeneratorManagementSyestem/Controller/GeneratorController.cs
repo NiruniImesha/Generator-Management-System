@@ -941,7 +941,5 @@ namespace GeneratorManagementSyestem.Controller
             }
             return isUnique;
         }
-
-
     }
 }
