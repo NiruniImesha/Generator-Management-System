@@ -251,5 +251,12 @@ namespace GeneratorManagementSyestem
             newChild.MdiParent = this;
             newChild.Show();
         }
+
+        private void toolStripButton4_Click_1(object sender, EventArgs e)
+        {
+            addUser newChild = new addUser(uMod.UserID_main);
+            newChild.MdiParent = this;
+            newChild.Show();
+        }
     }
 }
