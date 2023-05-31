@@ -37,9 +37,11 @@ namespace GeneratorManagementSyestem
             uMod.UserID_main = user_id;
 
             Name_label2.Text = uMod.UserName;
-            notification newChild = new notification();
-            newChild.MdiParent = this;
-            newChild.Show();
+            //notification newChild = new notification();
+            //newChild.MdiParent = this;
+            //newChild.Show();
+
+            //load_hour_data();
         }
         
         private void btnGenView_Click(object sender, EventArgs e)
@@ -120,7 +122,7 @@ namespace GeneratorManagementSyestem
                     if (duration < rem)
                     {
                         due_status[i] = "due today";
-                        //MessageBox.Show("Service " + services[i], "Notification" + " in " + genMod.Name);
+                        MessageBox.Show("Service " + services[i], "Notification" + " in " + genMod.Name);
                         // notification_txt.Text = "Service "+ services[i] + " in " + genMod.Name;
 
                     }
@@ -174,28 +176,29 @@ namespace GeneratorManagementSyestem
 
                     if (duration < rem)
                     {
-                        due_status[i] = "deu today";
+                        due_status[i] = "due today";
                         //MessageBox.Show("Service " + services[i], "Notification" + " in " + genMod.Name);
                         // notification_txt.Text = "Service "+ services[i] + " in " + genMod.Name;
 
                     }
                     else
                     {
-                        due_status[i] = "deu tomorrow";
+                        due_status[i] = "due tomorrow";
                     }
                 }
 
-                //MessageBox.Show("\t          Service \n\n"
-                //                + services[0] + "\t :" + due_status[0] + "\n"
-                //                + services[1] + "\t :" + due_status[1] + "\n"
-                //                + services[2] + "\t :" + due_status[2] + "\n"
-                //                + services[3] + "\t :" + due_status[3] + "\n"
-                //                + services[4] + "\t :" + due_status[4] + "\n"
-                //                + services[5] + "\t :" + due_status[5]
-                //   , "Notification" + " in " + genMod.Name);
+                MessageBox.Show("\t          Service \n\n"
+                                + services[0] + "\t :" + due_status[0] + "\n"
+                                + services[1] + "\t :" + due_status[1] + "\n"
+                                + services[2] + "\t :" + due_status[2] + "\n"
+                                + services[3] + "\t :" + due_status[3] + "\n"
+                                + services[4] + "\t :" + due_status[4] + "\n"
+                                + services[5] + "\t :" + due_status[5]
+                   , "Notification" + " in " + genMod.Name);
 
 
-                genCon.CalcMonths(genMod, sMod);
+                // genCon.CalcMonths(genMod, sMod);
+                genCon.Cal_month(genMod);
 
             }
         }
@@ -221,9 +224,11 @@ namespace GeneratorManagementSyestem
             newChild.Show();
         }
 
-        private void toolStripButton7_Click(object sender, EventArgs e)
+        private void toolStripButton4_Click(object sender, EventArgs e)
         {
-
+            addUser newChild = new addUser(uMod.UserID_main);
+            newChild.MdiParent = this;
+            newChild.Show();
         }
 
         private void toolStripButton7_Click_1(object sender, EventArgs e)

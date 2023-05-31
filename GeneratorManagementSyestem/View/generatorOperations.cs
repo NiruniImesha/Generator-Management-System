@@ -36,8 +36,7 @@ namespace GeneratorManagementSyestem
         }
 
         private void addGEnerator()
-        {
-            cmbGenerator.Items.Add("-- Select --");
+        {            
             DataSet ds = genCon.getAllGeneratorNames();
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
@@ -68,6 +67,14 @@ namespace GeneratorManagementSyestem
 
         private void cmbGenerator_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(cmbGenerator.SelectedIndex == 0)
+            {
+                button_start.Visible = false;
+                button_start.Enabled = false;
+                btn_Stop.Visible = false;
+                btn_Stop.Enabled = false;
+            }
+
             if(cmbGenerator.SelectedIndex > 0)
             {
                 genMod.Name = cmbGenerator.Text;
@@ -120,7 +127,9 @@ namespace GeneratorManagementSyestem
             {
                 { UserCheck(); }
                cmbGenerator.Enabled = true;
-               
+                cmbGenerator.Focus();
+                txtuser.Enabled = false;
+
             }
             else
             {

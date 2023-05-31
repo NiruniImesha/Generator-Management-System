@@ -32,16 +32,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dgvHistory = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.userName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serviceTurn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.generatorID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serviceType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serviceDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.currentTotDuration = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistory)).BeginInit();
             this.SuspendLayout();
@@ -69,6 +69,7 @@
             // comboBox1
             // 
             this.comboBox1.AllowDrop = true;
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Select generator"});
@@ -95,8 +96,46 @@
             this.dgvHistory.Name = "dgvHistory";
             this.dgvHistory.ReadOnly = true;
             this.dgvHistory.RowHeadersVisible = false;
+            this.dgvHistory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHistory.Size = new System.Drawing.Size(605, 201);
             this.dgvHistory.TabIndex = 2;
+            // 
+            // userName
+            // 
+            this.userName.DataPropertyName = "userName";
+            this.userName.HeaderText = "Employee";
+            this.userName.Name = "userName";
+            this.userName.ReadOnly = true;
+            // 
+            // serviceTurn
+            // 
+            this.serviceTurn.HeaderText = "Service Turn";
+            this.serviceTurn.Name = "serviceTurn";
+            this.serviceTurn.ReadOnly = true;
+            // 
+            // generatorID
+            // 
+            this.generatorID.HeaderText = "Generator";
+            this.generatorID.Name = "generatorID";
+            this.generatorID.ReadOnly = true;
+            // 
+            // serviceType
+            // 
+            this.serviceType.HeaderText = "Sevice Type";
+            this.serviceType.Name = "serviceType";
+            this.serviceType.ReadOnly = true;
+            // 
+            // serviceDate
+            // 
+            this.serviceDate.HeaderText = "Date";
+            this.serviceDate.Name = "serviceDate";
+            this.serviceDate.ReadOnly = true;
+            // 
+            // currentTotDuration
+            // 
+            this.currentTotDuration.HeaderText = "Duration";
+            this.currentTotDuration.Name = "currentTotDuration";
+            this.currentTotDuration.ReadOnly = true;
             // 
             // dateTimePicker1
             // 
@@ -139,43 +178,6 @@
             this.label4.Size = new System.Drawing.Size(69, 17);
             this.label4.TabIndex = 15;
             this.label4.Text = "End Date";
-            // 
-            // userName
-            // 
-            this.userName.DataPropertyName = "userName";
-            this.userName.HeaderText = "Employee";
-            this.userName.Name = "userName";
-            this.userName.ReadOnly = true;
-            // 
-            // serviceTurn
-            // 
-            this.serviceTurn.HeaderText = "Service Turn";
-            this.serviceTurn.Name = "serviceTurn";
-            this.serviceTurn.ReadOnly = true;
-            // 
-            // generatorID
-            // 
-            this.generatorID.HeaderText = "Generator";
-            this.generatorID.Name = "generatorID";
-            this.generatorID.ReadOnly = true;
-            // 
-            // serviceType
-            // 
-            this.serviceType.HeaderText = "Sevice Type";
-            this.serviceType.Name = "serviceType";
-            this.serviceType.ReadOnly = true;
-            // 
-            // serviceDate
-            // 
-            this.serviceDate.HeaderText = "Date";
-            this.serviceDate.Name = "serviceDate";
-            this.serviceDate.ReadOnly = true;
-            // 
-            // currentTotDuration
-            // 
-            this.currentTotDuration.HeaderText = "Duration";
-            this.currentTotDuration.Name = "currentTotDuration";
-            this.currentTotDuration.ReadOnly = true;
             // 
             // serviceHistory
             // 

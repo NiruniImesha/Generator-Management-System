@@ -147,11 +147,13 @@
             // 
             // name
             // 
+            this.name.Enabled = false;
             this.name.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.name.Location = new System.Drawing.Point(147, 186);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(198, 26);
             this.name.TabIndex = 26;
+            this.name.KeyDown += new System.Windows.Forms.KeyEventHandler(this.name_KeyDown);
             // 
             // label5
             // 
@@ -184,19 +186,25 @@
             // 
             // tankSize
             // 
+            this.tankSize.Enabled = false;
             this.tankSize.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tankSize.Location = new System.Drawing.Point(147, 154);
             this.tankSize.Name = "tankSize";
             this.tankSize.Size = new System.Drawing.Size(198, 26);
             this.tankSize.TabIndex = 22;
+            this.tankSize.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tankSize_KeyDown_1);
+            this.tankSize.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tankSize_KeyPress);
             // 
             // frequency
             // 
+            this.frequency.Enabled = false;
             this.frequency.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.frequency.Location = new System.Drawing.Point(147, 119);
             this.frequency.Name = "frequency";
             this.frequency.Size = new System.Drawing.Size(198, 26);
             this.frequency.TabIndex = 21;
+            this.frequency.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frequency_KeyDown_1);
+            this.frequency.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frequency_KeyPress);
             // 
             // model
             // 
@@ -205,6 +213,7 @@
             this.model.Name = "model";
             this.model.Size = new System.Drawing.Size(198, 26);
             this.model.TabIndex = 20;
+            this.model.KeyDown += new System.Windows.Forms.KeyEventHandler(this.model_KeyDown_1);
             // 
             // checkBox2
             // 
@@ -267,21 +276,26 @@
             // 
             // fmonths
             // 
+            this.fmonths.Enabled = false;
             this.fmonths.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fmonths.Location = new System.Drawing.Point(132, 84);
             this.fmonths.Name = "fmonths";
             this.fmonths.Size = new System.Drawing.Size(198, 26);
             this.fmonths.TabIndex = 17;
             this.fmonths.Text = "0";
+            this.fmonths.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fmonths_KeyDown);
             // 
             // fhours
             // 
+            this.fhours.Enabled = false;
             this.fhours.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fhours.Location = new System.Drawing.Point(132, 48);
             this.fhours.Name = "fhours";
             this.fhours.Size = new System.Drawing.Size(198, 26);
             this.fhours.TabIndex = 16;
             this.fhours.Text = "0";
+            this.fhours.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fhours_KeyDown);
+            this.fhours.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fhours_KeyPress);
             // 
             // label2
             // 
@@ -338,107 +352,146 @@
             // 
             // fuyears
             // 
+            this.fuyears.Enabled = false;
             this.fuyears.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fuyears.Location = new System.Drawing.Point(164, 274);
             this.fuyears.Name = "fuyears";
             this.fuyears.Size = new System.Drawing.Size(181, 26);
             this.fuyears.TabIndex = 51;
+            this.fuyears.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fuyears_KeyDown);
+            this.fuyears.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frequency_KeyPress);
             // 
             // fumonths
             // 
+            this.fumonths.Enabled = false;
             this.fumonths.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fumonths.Location = new System.Drawing.Point(264, 244);
             this.fumonths.Name = "fumonths";
             this.fumonths.Size = new System.Drawing.Size(81, 26);
             this.fumonths.TabIndex = 50;
+            this.fumonths.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fumonths_KeyDown);
+            this.fumonths.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frequency_KeyPress);
             // 
             // fuhours
             // 
+            this.fuhours.Enabled = false;
             this.fuhours.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fuhours.Location = new System.Drawing.Point(164, 242);
             this.fuhours.Name = "fuhours";
             this.fuhours.Size = new System.Drawing.Size(81, 26);
             this.fuhours.TabIndex = 49;
+            this.fuhours.KeyDown += new System.Windows.Forms.KeyEventHandler(this.fuhours_KeyDown);
+            this.fuhours.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frequency_KeyPress);
             // 
             // spmonths
             // 
+            this.spmonths.Enabled = false;
             this.spmonths.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.spmonths.Location = new System.Drawing.Point(264, 212);
             this.spmonths.Name = "spmonths";
             this.spmonths.Size = new System.Drawing.Size(81, 26);
             this.spmonths.TabIndex = 48;
+            this.spmonths.KeyDown += new System.Windows.Forms.KeyEventHandler(this.spmonths_KeyDown);
+            this.spmonths.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frequency_KeyPress);
             // 
             // sphours
             // 
+            this.sphours.Enabled = false;
             this.sphours.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sphours.Location = new System.Drawing.Point(164, 210);
             this.sphours.Name = "sphours";
             this.sphours.Size = new System.Drawing.Size(81, 26);
             this.sphours.TabIndex = 47;
+            this.sphours.KeyDown += new System.Windows.Forms.KeyEventHandler(this.sphours_KeyDown);
+            this.sphours.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frequency_KeyPress);
             // 
             // vmonths
             // 
+            this.vmonths.Enabled = false;
             this.vmonths.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vmonths.Location = new System.Drawing.Point(264, 181);
             this.vmonths.Name = "vmonths";
             this.vmonths.Size = new System.Drawing.Size(81, 26);
             this.vmonths.TabIndex = 46;
+            this.vmonths.KeyDown += new System.Windows.Forms.KeyEventHandler(this.vmonths_KeyDown);
+            this.vmonths.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frequency_KeyPress);
             // 
             // vhours
             // 
+            this.vhours.Enabled = false;
             this.vhours.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.vhours.Location = new System.Drawing.Point(164, 179);
             this.vhours.Name = "vhours";
             this.vhours.Size = new System.Drawing.Size(81, 26);
             this.vhours.TabIndex = 45;
+            this.vhours.KeyDown += new System.Windows.Forms.KeyEventHandler(this.vhours_KeyDown);
+            this.vhours.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frequency_KeyPress);
             // 
             // smonths
             // 
+            this.smonths.Enabled = false;
             this.smonths.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.smonths.Location = new System.Drawing.Point(264, 149);
             this.smonths.Name = "smonths";
             this.smonths.Size = new System.Drawing.Size(81, 26);
             this.smonths.TabIndex = 44;
+            this.smonths.KeyDown += new System.Windows.Forms.KeyEventHandler(this.smonths_KeyDown);
+            this.smonths.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frequency_KeyPress);
             // 
             // shours
             // 
+            this.shours.Enabled = false;
             this.shours.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.shours.Location = new System.Drawing.Point(164, 147);
             this.shours.Name = "shours";
             this.shours.Size = new System.Drawing.Size(81, 26);
             this.shours.TabIndex = 43;
+            this.shours.KeyDown += new System.Windows.Forms.KeyEventHandler(this.shours_KeyDown);
+            this.shours.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frequency_KeyPress);
             // 
             // amonths
             // 
+            this.amonths.Enabled = false;
             this.amonths.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.amonths.Location = new System.Drawing.Point(264, 116);
             this.amonths.Name = "amonths";
             this.amonths.Size = new System.Drawing.Size(81, 26);
             this.amonths.TabIndex = 42;
+            this.amonths.KeyDown += new System.Windows.Forms.KeyEventHandler(this.amonths_KeyDown);
+            this.amonths.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frequency_KeyPress);
             // 
             // ahours
             // 
+            this.ahours.Enabled = false;
             this.ahours.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ahours.Location = new System.Drawing.Point(164, 116);
             this.ahours.Name = "ahours";
             this.ahours.Size = new System.Drawing.Size(81, 26);
             this.ahours.TabIndex = 41;
+            this.ahours.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ahours_KeyDown);
+            this.ahours.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frequency_KeyPress);
             // 
             // emonths
             // 
+            this.emonths.Enabled = false;
             this.emonths.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emonths.Location = new System.Drawing.Point(264, 80);
             this.emonths.Name = "emonths";
             this.emonths.Size = new System.Drawing.Size(81, 26);
             this.emonths.TabIndex = 40;
+            this.emonths.KeyDown += new System.Windows.Forms.KeyEventHandler(this.emonths_KeyDown);
+            this.emonths.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frequency_KeyPress);
             // 
             // ehours
             // 
+            this.ehours.Enabled = false;
             this.ehours.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ehours.Location = new System.Drawing.Point(164, 82);
             this.ehours.Name = "ehours";
             this.ehours.Size = new System.Drawing.Size(81, 26);
             this.ehours.TabIndex = 39;
+            this.ehours.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ehours_KeyDown);
+            this.ehours.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frequency_KeyPress);
             // 
             // label4
             // 
@@ -572,7 +625,7 @@
             // 
             this.update_btn.BackColor = System.Drawing.Color.Orange;
             this.update_btn.Font = new System.Drawing.Font("Calisto MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.update_btn.Location = new System.Drawing.Point(389, 474);
+            this.update_btn.Location = new System.Drawing.Point(389, 487);
             this.update_btn.Name = "update_btn";
             this.update_btn.Size = new System.Drawing.Size(186, 42);
             this.update_btn.TabIndex = 17;
