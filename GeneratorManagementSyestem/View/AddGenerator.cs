@@ -37,15 +37,15 @@ namespace GeneratorManagementSyestem
 
             update_btn.Visible = false;
             update_btn.Enabled = false;
-
-            model.Focus();            
+            model.Focus();
+            model.Select();
         }
 
         public AddGenerator(string generatorID, string generatorName, string generatorModel)
         {
             InitializeComponent();
 
-            this.generatorID = generatorID ;
+            this.generatorID = generatorID;
             this.generatorName = generatorName;
             this.generatorModel = generatorModel;
 
@@ -65,7 +65,7 @@ namespace GeneratorManagementSyestem
             Total_run_duration.Text = genMod.TotalDuration01;
             fhours.Text = genMod.FirstServiceHours01;
             fmonths.Text = genMod.FirstServiceMonth01;
-            
+
             serveCon.findServiceByID(serveMod01);
 
             string timeString01 = serveMod01.EngineserviceDurationHours01;
@@ -97,10 +97,10 @@ namespace GeneratorManagementSyestem
             fuhours.Text = Convert.ToString(fuhoursHours);
 
             emonths.Text = serveMod01.EngineserviceDurationMonths01;
-            amonths.Text = serveMod01.AirserviceDurationMonths01;     
-            smonths.Text = serveMod01.SedimentserviceDurationMonths01;          
-            vmonths.Text = serveMod01.ValveserviceDurationMonths01;           
-            spmonths.Text = serveMod01.SparkserviceDurationMonths01;          
+            amonths.Text = serveMod01.AirserviceDurationMonths01;
+            smonths.Text = serveMod01.SedimentserviceDurationMonths01;
+            vmonths.Text = serveMod01.ValveserviceDurationMonths01;
+            spmonths.Text = serveMod01.SparkserviceDurationMonths01;
             fumonths.Text = serveMod01.FuelserviceDurationMonths01;
             fuyears.Text = serveMod01.FuelSeviceDurationYears01;
 
@@ -111,78 +111,13 @@ namespace GeneratorManagementSyestem
             checkBox2.Enabled = false;
 
             button1.Visible = false;
-            button1.Enabled = false;        
-            
+            button1.Enabled = false;
+
             label1.Text = generatorName;
         }
         private void AddGenerator_Load(object sender, EventArgs e)
         {
-            
-        }
 
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox2.Checked)
-            {
-                groupBox2.Enabled =true;
-                groupBox2.Focus();                
-            }
-            else
-            {
-                groupBox3.Enabled = true;
-                groupBox3.Focus();
-                genMod.FirstServiceHours = 0;
-                genMod.FirstServiceMonth1 = 0;
-
-            }
-        }
-        
-        private void model_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == Keys.Enter)
-            {
-                if (model.Text != "")
-                {
-                    frequency.Enabled = true;
-                    frequency.Focus();
-                }
-                else
-                {
-                    MessageBox.Show("Enter Model Name!", "Required Field.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-            }
-        }
-
-        private void frequency_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == Keys.Enter)
-            {
-                if (frequency.Text != "")
-                {
-                    tankSize.Enabled = true;
-                    tankSize.Focus();
-                }
-                else
-                {
-                    MessageBox.Show("Enter frequency!", "Required Field.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-            }
-        }
-
-        private void tankSize_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyData == Keys.Enter)
-            {
-                if (tankSize.Text != "")
-                {
-                    checkBox2.Enabled = true;
-                    checkBox2.Focus();
-                }
-                else
-                {
-                    MessageBox.Show("Enter tank size!", "Required Field.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
-            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -349,10 +284,10 @@ namespace GeneratorManagementSyestem
             serveCon.updateService(serveMod);
             MessageBox.Show("Successfully Updated", "Update generator", MessageBoxButtons.OK);
             this.Dispose();
-                //this.print();
-                this.Hide();
-                this.Close();
-            
+            //this.print();
+            this.Hide();
+            this.Close();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -367,15 +302,353 @@ namespace GeneratorManagementSyestem
                 groupBox2.Enabled = true;
                 groupBox2.Visible = true;
                 groupBox2.Focus();
+                fhours.Enabled = true;
+                fhours.Focus();
             }
             else
             {
                 groupBox2.Enabled = false;
                 groupBox2.Visible = false;
                 groupBox3.Focus();
+                ehours.Enabled = true;
+                ehours.Focus();
                 genMod.FirstServiceHours = 0;
                 genMod.FirstServiceMonth1 = 0;
 
+            }
+        }
+
+        private void frequency_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tankSize_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void frequency_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                if (frequency.Text != "")
+                {
+                    tankSize.Enabled = true;
+                    tankSize.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Enter Frequency value!", "Required Field.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void model_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                if (model.Text != "")
+                {
+
+                    frequency.Enabled = true;
+                    frequency.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Enter Model Name!", "Required Field.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void tankSize_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                if (tankSize.Text != "")
+                {
+                    name.Enabled = true;
+                    name.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Enter Tank Size!", "Required Field.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void fhours_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != (char)8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void fhours_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                if (fhours.Text != "")
+                {
+                    fmonths.Enabled = true;
+                    fmonths.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Enter First service hours value!", "Required Field.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void name_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                if (name.Text != "")
+                {
+                    if (genCon.checkName(name.Text))
+                    {
+                        ehours.Enabled = true;
+                        ehours.Focus();
+                    }
+                    //fhours.Enabled = true;
+                    //fhours.Focus();                    
+                }
+                else
+                {
+                    MessageBox.Show("Enter generator name!", "Required Field.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void fmonths_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                if (fhours.Text != "")
+                {
+                    ehours.Enabled = true;
+                    ehours.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Enter First service months value!", "Required Field.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void ehours_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                if (ehours.Text != "")
+                {
+                    emonths.Enabled = true;
+                    emonths.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Enter First service months value!", "Required Field.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void emonths_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                if (emonths.Text != "")
+                {
+                    ahours.Enabled = true;
+                    ahours.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Enter value!", "Required Field.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void ahours_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                if (ahours.Text != "")
+                {
+                    amonths.Enabled = true;
+                    amonths.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Enter value!", "Required Field.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void amonths_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                if (amonths.Text != "")
+                {
+                    shours.Enabled = true;
+                    shours.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Enter value!", "Required Field.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void shours_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                if (shours.Text != "")
+                {
+                    smonths.Enabled = true;
+                    smonths.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Enter value!", "Required Field.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void smonths_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                if (smonths.Text != "")
+                {
+                    vhours.Enabled = true;
+                    vhours.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Enter value!", "Required Field.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void vhours_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                if (vhours.Text != "")
+                {
+                    vmonths.Enabled = true;
+                    vmonths.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Enter value!", "Required Field.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void vmonths_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                if (vmonths.Text != "")
+                {
+                    sphours.Enabled = true;
+                    sphours.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Enter value!", "Required Field.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void sphours_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                if (sphours.Text != "")
+                {
+                    spmonths.Enabled = true;
+                    spmonths.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Enter value!", "Required Field.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void spmonths_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                if (spmonths.Text != "")
+                {
+                    fuhours.Enabled = true;
+                    fuhours.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Enter value!", "Required Field.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void fuhours_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                if (fuhours.Text != "")
+                {
+                    fumonths.Enabled = true;
+                    fumonths.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Enter value!", "Required Field.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void fumonths_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                if (fumonths.Text != "")
+                {
+                    fuyears.Enabled = true;
+                    fuyears.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Enter value!", "Required Field.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void fuyears_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                if (fuyears.Text != "")
+                {
+                    button1.Enabled = true;
+                    button1.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Enter value!", "Required Field.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
             }
         }
     }
