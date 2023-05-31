@@ -22,6 +22,7 @@ namespace GeneratorManagementSyestem
 
         generatorModel genMod = new generatorModel();
         serviceHistoryModel sMod = new serviceHistoryModel();
+        Cal_Model cal = new Cal_Model();
 
         public Dashboard(string userName, string Password)
         {
@@ -46,8 +47,8 @@ namespace GeneratorManagementSyestem
                 add_generator.Visible = false;
                 add_generator.Enabled = false;
             }
-           
 
+           
 
             Name_label2.Text = uMod.UserName;
             notification newChild = new notification();
@@ -159,7 +160,8 @@ namespace GeneratorManagementSyestem
                                     , "Notification" + " in " + genMod.Name);
 
 
-                genCon.CalcMonths(genMod, sMod);
+                // genCon.CalcMonths(genMod, sMod);
+                genCon.Cal_month(genMod, cal);
 
             }
 
