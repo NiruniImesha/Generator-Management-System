@@ -20,6 +20,7 @@ namespace GeneratorManagementSyestem
         public login()
         {
             InitializeComponent();
+            textBox1.Focus();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -39,6 +40,36 @@ namespace GeneratorManagementSyestem
             }
         }
 
-       
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                if (textBox1.Text != "")
+                {
+                    textBox2.Enabled = true;
+                    textBox2.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Enter user name!", "Required Field.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
+
+        private void textBox2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                if (textBox2.Text != "")
+                {
+                    button1.Enabled = true;
+                    button1.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("Enter password!", "Required Field.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
     }
 }
