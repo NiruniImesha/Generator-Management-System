@@ -19,7 +19,7 @@ namespace GeneratorManagementSyestem
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new login());
 
-            //Application.Run(new Dashboard("user","user"));
+            //Application.Run(new Dashboard("user", "user"));
         }
     }
 }
